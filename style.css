@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Inder&family=Oswald:wght@200..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+    color: black;
+    font-family: "Inder", sans-serif;
+    font-weight: 400;
+}
+
+header {
+    padding: 2rem;
+    background-color:#5892B7 ;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding:2rem;
+    gap:4px;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    padding: 2rem;
+}
+
+h3 {
+    color: black;
+    font-size: 20px;
+    font-weight: 6000;
+    padding-left: 150px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+h5 {
+    color:white;
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 0.8rem;
+    text-decoration: underline;
+    padding-top: 1rem;
+
+}
+
+fieldset {
+    background-color: #1D5175;
+    width: 55rem;
+    margin: auto;
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: none;
+}
+
+input[type="text"] {
+    width:90% ;
+    height: 25px;
+    border-radius: 25px;
+    border: none;
+    background-color: #f4f0eab9;
+}
+
+select {
+    border-radius: 25px;
+    border: none;
+    background-color: #f4f0eab9;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.712);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    height: 25px;
+    width: 20%;
+    
+}
+
+input[type="radio"] {
+    color: white;
+    accent-color: rgb(0, 4, 241);
+    cursor: pointer;
+}
+
+label {
+    color: white;
+    font-weight: 400;
+    font-size: larger;
+}
+
+::placeholder {
+    padding-left: 0.8rem;
+    color: rgba(0, 0, 0, 0.712);
+}
+
+#seta {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 0;
+}
+
+button {
+    background-color: #5892B7;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #1D5175;
+    margin: auto;
+    font-size: 20px;
+}

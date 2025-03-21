@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliar membro da equipe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <button id="seta">&larr;</button>
+        <p>SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</p>
+    </header>
+    <main>
+        <section div id="a">
+            <h1>Avaliar membro da equipe</h1>
+                <form>
+                    <h3>Quem é você?</h3>
+                        <fieldset>
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo..."><br><br>
+                            <label for="funcao">Função:</label>
+                            <select name="funcao" id="funcao">
+                                <option value="PO">Product Owner</option>
+                                <option value="SM">Scrum Master</option>
+                                <option value="ST">Scrum Team</option>
+                            </select>
+                        </fieldset>
+                </form>
+        </section>
+        <section class="avaliacao">
+                <form>
+                    <h3>Quem você quer avaliar?</h3>
+                        <fieldset>
+                            <label for="nome" id="abc">Nome:</label>
+                                <input type="text" id="nome" name="nome" placeholder="Digite o nome aqui..."><br><br>
+                            <label for="funcao">Função:</label>
+                                <select name="funcao" id="funcao">
+                                    <option value="PO">Product Owner</option>
+                                    <option value="SM">Scrum Master</option>
+                                    <option value="ST">Scrum Team</option>
+                                </select><br><br>
+                            <h5>Produtividade:</h5>
+                                <input type="radio" value="0" id="nota0" name="nota0">
+                                <label for="nota0">0 - Reativo</label>
+                                <input type="radio" value="1" id="nota1" name="nota1">
+                                <label for="nota1">1 - Desfocado</label>
+                                <input type="radio" value="2" id="nota2" name="nota2">
+                                <label for="nota2">2 - Ativo</label>
+                                <input type="radio" value="3" id="nota3" name="nota3">
+                                <label for="nota3">3 - Proativo</label><br><br>
+                            <h5>Autonomia:</h5>
+                                <input type="radio" value="0" id="nota0" name="nota0">
+                                <label for="nota0">0 - Dirigido</label>
+                                <input type="radio" value="1" id="nota1" name="nota1">
+                                <label for="nota1">1 - Gerido</label>
+                                <input type="radio" value="2" id="nota2" name="nota2">
+                                <label for="nota2">2 - Treinado</label>
+                                <input type="radio" value="3" id="nota3" name="nota3">
+                                <label for="nota3">3 - Autogestão</label><br><br>
+                            <h5>Colaboração:</h5>
+                                <input type="radio" value="0" id="nota0" name="nota0">
+                                <label for="nota0">0 - Ausente</label>
+                                <input type="radio" value="1" id="nota1" name="nota1">
+                                <label for="nota1">1 - Cooperativo</label>
+                                <input type="radio" value="2" id="nota2" name="nota2">
+                                <label for="nota2">2 - Coordenado</label>
+                                <input type="radio" value="3" id="nota3" name="nota3">
+                                <label for="nota3">3 - Colaborativo</label><br><br>
+                            <h5>Entrega de resultados:</h5>
+                                <input type="radio" value="0" id="nota0" name="nota0">
+                                <label for="nota0">0 - Não há entregas</label>
+                                <input type="radio" value="1" id="nota1" name="nota1">
+                                <label for="nota1">1 - Entregas duvidosas</label>
+                                <input type="radio" value="2" id="nota2" name="nota2">
+                                <label for="nota2">2 - Entregas confiáveis</label>
+                                <input type="radio" value="3" id="nota3" name="nota3">
+                                <label for="nota3">3 - Entregas perfeitas</label><br>
+                        </fieldset>
+            </form>
+        </section><br>
+        <section class="avaliacao">
+            <form>
+                    <fieldset>
+                        <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome aqui..."><br><br>
+                        <label for="funcao">Função:</label>
+                            <select name="funcao" id="funcao">
+                                <option value="PO">Product Owner</option>
+                                <option value="SM">Scrum Master</option>
+                                <option value="ST">Scrum Team</option>
+                            </select><br><br>
+                        <h5>Produtividade:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Reativo</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Desfocado</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Ativo</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Proativo</label><br><br>
+                        <h5>Autonomia:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Dirigido</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Gerido</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Treinado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Autogestão</label><br><br>
+                        <h5>Colaboração:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Ausente</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Cooperativo</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Coordenado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Colaborativo</label><br><br>
+                        <h5>Entrega de resultados:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Não há entregas</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Entregas duvidosas</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Entregas confiáveis</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Entregas perfeitas</label><br>
+                    </fieldset>
+             </form>
+        </section><br>
+        <section class="avaliacao">
+            <form>
+                    <fieldset>
+                        <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome aqui..."><br><br>
+                        <label for="funcao">Função:</label>
+                            <select name="funcao" id="funcao">
+                                <option value="PO">Product Owner</option>
+                                <option value="SM">Scrum Master</option>
+                                <option value="ST">Scrum Team</option>
+                            </select><br><br>
+                        <h5>Produtividade:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Reativo</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Desfocado</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Ativo</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Proativo</label><br><br>
+                        <h5>Autonomia:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Dirigido</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Gerido</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Treinado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Autogestão</label><br><br>
+                        <h5>Colaboração:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Ausente</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Cooperativo</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Coordenado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Colaborativo</label><br><br>
+                        <h5>Entrega de resultados:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Não há entregas</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Entregas duvidosas</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Entregas confiáveis</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Entregas perfeitas</label><br>
+                    </fieldset>
+             </form>
+        </section><br>
+        <section class="avaliacao">
+            <form>
+                    <fieldset>
+                        <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome aqui..."><br><br>
+                        <label for="funcao">Função:</label>
+                            <select name="funcao" id="funcao">
+                                <option value="PO">Product Owner</option>
+                                <option value="SM">Scrum Master</option>
+                                <option value="ST">Scrum Team</option>
+                            </select><br><br>
+                        <h5>Produtividade:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Reativo</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Desfocado</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Ativo</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Proativo</label><br><br>
+                        <h5>Autonomia:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Dirigido</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Gerido</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Treinado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Autogestão</label><br><br>
+                        <h5>Colaboração:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Ausente</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Cooperativo</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Coordenado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Colaborativo</label><br><br>
+                        <h5>Entrega de resultados:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Não há entregas</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Entregas duvidosas</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Entregas confiáveis</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Entregas perfeitas</label><br>
+                    </fieldset>
+             </form>
+        </section><br>
+        <section class="avaliacao">
+            <form>
+                    <fieldset>
+                        <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome aqui..."><br><br>
+                        <label for="funcao">Função:</label>
+                            <select name="funcao" id="funcao">
+                                <option value="PO">Product Owner</option>
+                                <option value="SM">Scrum Master</option>
+                                <option value="ST">Scrum Team</option>
+                            </select><br><br>
+                        <h5>Produtividade:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Reativo</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Desfocado</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Ativo</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Proativo</label><br><br>
+                        <h5>Autonomia:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Dirigido</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Gerido</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Treinado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Autogestão</label><br><br>
+                        <h5>Colaboração:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Ausente</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Cooperativo</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Coordenado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Colaborativo</label><br><br>
+                        <h5>Entrega de resultados:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Não há entregas</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Entregas duvidosas</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Entregas confiáveis</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Entregas perfeitas</label><br>
+                    </fieldset>
+             </form>
+        </section><br>
+        <section class="avaliacao">
+            <form>
+                    <fieldset>
+                        <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome aqui..."><br><br>
+                        <label for="funcao">Função:</label>
+                            <select name="funcao" id="funcao">
+                                <option value="PO">Product Owner</option>
+                                <option value="SM">Scrum Master</option>
+                                <option value="ST">Scrum Team</option>
+                            </select><br><br>
+                        <h5>Produtividade:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Reativo</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Desfocado</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Ativo</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Proativo</label><br><br>
+                        <h5>Autonomia:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Dirigido</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Gerido</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Treinado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Autogestão</label><br><br>
+                        <h5>Colaboração:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Ausente</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Cooperativo</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Coordenado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Colaborativo</label><br><br>
+                        <h5>Entrega de resultados:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Não há entregas</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Entregas duvidosas</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Entregas confiáveis</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Entregas perfeitas</label><br>
+                    </fieldset>
+             </form>
+        </section><br>
+        <section class="avaliacao">
+            <form>
+                    <fieldset>
+                        <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome aqui..."><br><br>
+                        <label for="funcao">Função:</label>
+                            <select name="funcao" id="funcao">
+                                <option value="PO">Product Owner</option>
+                                <option value="SM">Scrum Master</option>
+                                <option value="ST">Scrum Team</option>
+                            </select><br><br>
+                        <h5>Produtividade:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Reativo</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Desfocado</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Ativo</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Proativo</label><br><br>
+                        <h5>Autonomia:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Dirigido</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Gerido</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Treinado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Autogestão</label><br><br>
+                        <h5>Colaboração:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Ausente</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Cooperativo</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Coordenado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Colaborativo</label><br><br>
+                        <h5>Entrega de resultados:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Não há entregas</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Entregas duvidosas</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Entregas confiáveis</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Entregas perfeitas</label><br>
+                    </fieldset>
+             </form>
+        </section><br>
+        <section class="avaliacao">
+            <form>
+                    <fieldset>
+                        <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome aqui..."><br><br>
+                        <label for="funcao">Função:</label>
+                            <select name="funcao" id="funcao">
+                                <option value="PO">Product Owner</option>
+                                <option value="SM">Scrum Master</option>
+                                <option value="ST">Scrum Team</option>
+                            </select><br><br>
+                        <h5>Produtividade:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Reativo</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Desfocado</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Ativo</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Proativo</label><br><br>
+                        <h5>Autonomia:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Dirigido</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Gerido</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Treinado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Autogestão</label><br><br>
+                        <h5>Colaboração:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Ausente</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Cooperativo</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Coordenado</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Colaborativo</label><br><br>
+                        <h5>Entrega de resultados:</h5>
+                            <input type="radio" value="0" id="nota0" name="nota0">
+                            <label for="nota0">0 - Não há entregas</label>
+                            <input type="radio" value="1" id="nota1" name="nota1">
+                            <label for="nota1">1 - Entregas duvidosas</label>
+                            <input type="radio" value="2" id="nota2" name="nota2">
+                            <label for="nota2">2 - Entregas confiáveis</label>
+                            <input type="radio" value="3" id="nota3" name="nota3">
+                            <label for="nota3">3 - Entregas perfeitas</label><br>
+                    </fieldset>
+             </form>
+        </section><br>
+        <button>Enviar</button>
+    </main>
+    <footer>
+
+    </footer>    
+</body>
+</html>
