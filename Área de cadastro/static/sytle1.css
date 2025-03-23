@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inder', sans-serif;
+    box-sizing: border-box;
+}
+  
+
+body {
+    background-image: url("/static/Cadastro1.jpg") ;
+    background-repeat: no-repeat;
+    background-position: right ;
+    background-color: #fff;
+    font-weight: 400;
+   
+}
+
+h1 {
+    margin-left: 8rem;
+    color:#1d5176;
+    font-size: 5rem;
+}
+
+fieldset  {
+    width: 20%;
+    margin: 3rem 0 0 14rem;
+    background-color: #1d5176;
+    border-radius: 2rem ;
+    padding: 4rem 4rem 3rem 2rem;
+    border: none;
+}
+
+
+
+#Name,#CPF,#Email,#password {
+   display: flex;
+   flex-direction: column;
+   font-size: 20px;
+   border-radius: 8px;
+   border:none;
+   width: 23rem;
+   height: 2rem;
+   background-color: #fff;
+   
+}
+
+
+label {
+    color: #fcf7f1;
+    font-size: 1.5rem;
+}
+
+
+.cadastrar button {
+    width: 18%;
+    margin-top: 2rem;
+    margin-left: 21rem;
+    border: none;
+    background-color: #1d5176;
+    padding: 1rem 3.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
+.cadastrar button a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 450;
+    color: #e9eef1;
+   align-items: center;
+}
+
+::placeholder{
+    color:rgb(207, 203, 203);
+}
