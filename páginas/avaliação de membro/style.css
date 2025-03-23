@@ -106,10 +106,11 @@ label {
 #seta {
     background-color: transparent;
     border: none;
-    color: black;
-    font-size: 1.5rem;
-    font-weight: 900;
-    padding: 0;
+    color: white;
+    font-size: 25px;
+    font-weight: 999;
+    margin: 0%;
+    padding-top: 0%;
 }
 
 button {
