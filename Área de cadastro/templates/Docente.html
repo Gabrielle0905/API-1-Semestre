@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área de cadastro do docente</title>
+  <link rel="stylesheet" href="/static/sytle1.css">
+</head>
+
+<body>
+  <header>
+    <h1> Faça já seu cadastro!</h1>
+  </header>
+
+  
+<!--Dados de cadastro-->
+<form action="/cadastroDocente" method="post"> 
+<fieldset>
+   <div class="input-box">
+    <label for ="firstname">Nome completo</label>
+    <input id="Name"type="text" name="Name" placeholder="Digite seu nome" required>
+  </div>
+ <br>
+  <div class="input-box"> 
+    <label for="CPF">CPF</label>
+    <input id="CPF"type="number" name="CPF" placeholder="Digite seu CPF" required>
+  </div>
+  <br>
+  <div class="input-box"> 
+    <label for="Email">Email</label>
+    <input id="Email"type="email" name="Email" placeholder="Digite seu Email" required>
+  </div>
+  <br>
+  <div class="input-box"> 
+    <label for="password">Senha</label>
+    <input id="password"type="password" name="password" placeholder="Digite sua senha" required>
+  </div>
+</div>
+</fieldset>
+      <!--botão-->
+ <div class="cadastrar"> 
+  <button><a href="http://127.0.0.1:5000/Autenticar2">Cadastrar-se</a></button>
+</div> 
+</form>
+</div>
+</body>
+</html>
