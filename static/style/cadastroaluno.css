@@ -8,12 +8,13 @@
   
 
 body {
-    background-image: url("/static/Cadastro2.jpg") ;
+    background-image: url("/static/media/Alunocadastro.jpg") ;
     background-repeat: no-repeat;
     background-color: #fff;
     background-position: right;
     font-weight: 400;
     height: 45rem;
+    font-family: 'Inder', sans-serif;
 }
 
 h1 {
