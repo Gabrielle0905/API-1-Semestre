@@ -1,0 +1,151 @@
+body {
+    font-family: 'Inder';
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+nav {
+    background-color: white;
+    padding: 15px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #1b3a5e;
+    margin: 20px 0;
+}
+
+.greeting {
+    text-align: justify;
+    font-size: 18px;
+    margin-left: 40px;
+    margin-right: 40px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img-section {
+    width: 400px;
+    margin-left: 50px;
+    float: left;
+}
+
+.text-section {
+    text-align: justify;
+    font-size: 18px;
+    margin-right: 40px;
+    margin-left: 15px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.blue-box {
+    background-color: #5892B7;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 30px auto;
+    width: 80%;
+}
+
+.form-container {
+    background-color:#1d5176;
+    ;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form-container p {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-entrar {
+    text-align: center;
+    margin-top: 20px; /* Ajuste conforme necessário */
+}
+
+.btn-entrar input {
+    background-color: #1d5176;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-entrar input:hover {
+    background-color: #5892B7;
+}
+
+label {
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+input[type="radio"] {
+    margin-right: 15px;
+}
+
+.form-img{
+    width: 400px;
+    height: 400px;
+    margin-left: 1000px;
+    margin-top: -250px;
+}
+
+.signup {
+    text-align: center;
+    font-size: 18px;
+    margin-top: -115px;
+    letter-spacing: 0.5px;
+
+}
+
+.signup a {
+    color: #1d5176;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
+footer{
+    font-size: 18px;
+    text-align: center;
+    margin-top: 130.5px;
+    letter-spacing: 0.5px;
+    
+}
