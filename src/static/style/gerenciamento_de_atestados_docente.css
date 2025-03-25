@@ -1,0 +1,115 @@
+body {
+  font-family: "inder", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+header nav {
+  background-color: #5892b7;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 20px;
+}
+header nav #seta {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 25px;
+  font-weight: 999;
+  margin: 0%;
+  padding-top: 0%;
+  cursor: pointer;
+}
+header nav h1 {
+  padding-right: 82px;
+  color: white;
+  font-size: 24px;
+}
+header section h2 {
+  text-align: center;
+  font-size: 48px;
+  padding-top: 1rem;
+}
+header section p {
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: start;
+  font-size: 20px;
+}
+main section h2 {
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: start;
+  font-size: 20px;
+}
+
+main section #barra_de_pesquisa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+main section #barra_de_pesquisa form {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 1748px;
+}
+main section #input_pesquisa {
+  border: none;
+  outline: none;
+  padding: 10px;
+  flex: 1;
+  font-size: 16px;
+}
+main section #botão_pesquisa {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+}
+main section #botão_pesquisa i {
+  font-size: 18px;
+  color: black;
+}
+main section #tabela_de_pesquisa {
+  display: flex;
+  color: white;
+  background-color: #1d5175;
+  margin-left: 60px;
+  margin-right: 60px;
+  border: 2px solid;
+  border-radius: 20px;
+  padding: 10px;
+  width: 1748px;
+}
+main section table,
+th,
+td {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 0;
+  margin-top: 10px;
+}
+main section th,
+td {
+  padding: 10px;
+  text-align: center;
+  width: 370px;
+}
+main section table #botão_excluir {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: white;
+  cursor: pointer;
+  font-family: "inder", sans-serif;
+}

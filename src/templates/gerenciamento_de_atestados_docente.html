@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./static/gerenciamento_de_atestados_docente.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inder&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <title>SIRAAS</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button id="seta">&larr;</button>
+        <h1>SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</h1>
+      </nav>
+      <section>
+        <h2>Tudo certo por aqui!</h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged.
+        </p>
+      </section>
+    </header>
+    <main>
+      <!-- Barra de pesquisa e Total de Registros-->
+      <section>
+        <h2>Total de registros: {{ atestados | length }}</h2>
+        <div id="barra_de_pesquisa">
+          <form action="/" method="get">
+            <input
+              type="text"
+              id="input_pesquisa"
+              name="pesquisa"
+              placeholder="Pesquisar"
+              value="{{ request.args.get('pesquisa','') }}"
+            />
+            <button type="submit" id="botão_pesquisa">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+      <!-- Tabela de pesquisa -->
+      <section>
+        <div id="tabela_de_pesquisa">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Turma</th>
+                <th>RA</th>
+                <th>Tipo de atestado</th>
+                <th>Início</th>
+                <th>Fim</th>
+                <th>Horas</th>
+                <th>Status</th>
+                <th>Motivo da recusa</th>
+                <th>Excluir</th>
+                <th>Comprovante</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for atestado in atestados %}
+              <tr>
+                <td>{{ atestado["Nome"] }}</td>
+                <td>{{ atestado["Turma"] }}</td>
+                <td>{{ atestado["RA"] }}</td>
+                <td>{{ atestado["Tipo"] }}</td>
+                <td>{{ atestado["Inicio"] }}</td>
+                <td>{{ atestado["Fim"] }}</td>
+                <td>{{ atestado["Horas"] }}</td>
+                <td>{{ atestado["Status"] }}</td>
+                <td>{{ atestado["Motivo"] }}</td>
+                <td>
+                  <form
+                    action="{{ url_for('gerenciamento_de_atestados_docente.excluir_atestado', atestado_id=atestado['ID']) }}"
+                    method="POST"
+                  >
+                    <button id="botão_excluir" type="submit">Excluir</button>
+                  </form>
+                </td>
+                <td><a href="#">Ver comprovante</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <!-- Redirecionamento para geração de relatórios -->
+        <h2 style="text-align: center">Gerar Relatório</h2>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
