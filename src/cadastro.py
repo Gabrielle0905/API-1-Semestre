@@ -3,7 +3,7 @@ app=Flask(__name__)
 def salvar_membro(nome, cpf, email, senha, funcao):
     with open('membros.txt', 'a') as arquivo:
         arquivo.write(f'{nome}, {cpf}, {email}, {senha}, {funcao}\n')
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/Cadastromembro', methods=['GET', 'POST'])
 def cadastro():
     if request.method == 'POST':
         nome=request.form['nome']
