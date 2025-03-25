@@ -7,11 +7,14 @@
 </head>
 <body>
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
         button {
             background-color: #1D5175; color: #FFFFFF;
-            margin: 10px; padding: 10px;
-            border-radius: 8px; border: none;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px; border: none;
             cursor: pointer;
+            font-size: 16px;
         }
         img {
             display: block;
@@ -23,6 +26,7 @@
         }
         h1 {
             text-align: center;
+            padding: 2rem;
         }
         h2 {
             text-align: center;
@@ -32,7 +36,8 @@
             justify-content: center;
         }
         header {
-            background-color: #5892B7; padding: 15px;
+            background-color: #5892B7; padding: 1.5rem;
+            font-size: 20px;
             justify-content: space-between;
             display: flex;
             align-items: center;
@@ -40,6 +45,7 @@
         }
         body, html {
             height: 100%; width: 100%;
+            font-family: "inder", sans-serif;
         }
         * {
             margin: 0;
@@ -47,20 +53,24 @@
         }
     </style>
     <header>
-        <button style="background-color: #5892B7; padding: 5px; margin: 5px;">Deslogar</button> 
-        <span style="color: #FFFFFF;">SIRAAS - Sistema de registro de atestados e avaliação scrum</span>
+        <button style="background-color: #5892B7; padding: 5px; margin: 5px; font-size: 18px;">Sair</button> 
+        <span style="color: #FFFFFF;">SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
     </header>
     <br>
     <h1>Olá</h1>
-    <p>Bem-vindo, docente. O SIRAAS, sistema de registro de atestados e avaliação scrum, permite que membros da sua instituição estejam em dia com os atestados médicos dos alunos de forma segura e eficiente.
+    <p>Bem-vindo, docente. O SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum, permite que membros da sua instituição estejam em dia com os atestados médicos dos alunos de forma segura e eficiente.
     </p>
     <img src="menina_tablet.png" alt="Menina com tablet">
     <h2>O que você deseja fazer?</h2>
+    <br>
     <section class="flex-container"> 
-        <a href=""><button>Gerenciar atestados</button></a> 
-        <a href=""><button>Estatísticas de afastamento</button></a>
+        <button>Gerenciar atestados</button> 
+        <button>Estatísticas de afastamento</button>
     </section>
+    <br>
     <p>O botão de gerenciar atestados te permite ver os atestados enviados e gerenciá-los por meio de status de aprovação. Já as estatísticas de afastamento te dá acesso a uma vizualização gráfica dos últimos afastamentos.
     </p>
+    <br>
+    <br>
 </body>
 </html>
