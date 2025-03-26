@@ -76,39 +76,24 @@ Dessa forma, com as Tarefas já traçadas, definimos a quantidade de tempo neces
 ## 👨‍💻**Equipe**
 >Nome da equipe: 404 - Not Found
 
-• Clara Resende - Scrum Team
+>• Clara Resende - Scrum Team
+>
+>• Fernanda Pereira - Scrum Team
+>
+>• Gabrielle Gonçalves - Product Owner
+>
+>• Guilherme Rosa - Scrum Team
+>
+>• Gustavo Gomes - Scrum Team
+>
+>• Isaura Batista - Scrum Team
+>
+>• Letícia Furtado - Scrum Team
+>
+>• Raphael Robim - Scrum Team
+>
+>• Wendy Mininel - Scrum Master
 
-• Fernanda Pereira - Scrum Team
-
-• Gabrielle Gonçalves - Product Owner
-
-• Guilherme Rosa - Scrum Team
-
-• Gustavo Gomes - Scrum Team
-
-• Isaura Batista - Scrum Team
-
-• Letícia Furtado - Scrum Team
-
-• Raphael Robim - Scrum Team
-
-• Wendy Mininel - Scrum Master
-
-## Requisitos
-• Desenvolver o back-end com a linguagem Python e o framework Flask.
-
-• Utilizar arquivo texto de controle de usuário.
-
-• Utilizar HTML5 para estruturação da interface.
-
-• Utilizar CSS3 para estilização e compatibilidade com Bootstrap.
-
-• Utilizar o GitHub para controle de versão dos artefatos do projeto.
-
-• Interface com navegação intuitiva e de fácil usabilidade.
-
-• Sistema responsivo para dispositivos móveis e desktop.
-
-• Implementação segura, garantindo a proteção de dados sensíveis dos alunos.
+<br>
 
 ## Entregas
