@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Inder&family=Oswald:wght@200..700&display=swap');
+
+body{
+    font-family: 'Inder';
+}
+
+
+h1 {
+margin-left: 16rem;
+color:#1d5176;
+font-size: 3rem;
+}
+
+img {
+margin-left: 25rem;
+height: 25rem;
+}
+
+a {
+font-size: 3rem;
+margin-left: 20rem;
+}
+
+#home{
+    background-color: #5892B7;
+    color: rgb(255, 255, 255);
+    font-family: "Inder";
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 10%;
+}
+
+#voltar{
+    color: #ffffff;
+    background-color: #00ff40;
+    border-radius: 15px;
+    margin-top: 40px;
+    width: 300px;
+    height: 60px;
+    font-size: large;
+    font-family: 'Inder';
+
+}
+
