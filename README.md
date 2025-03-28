@@ -107,4 +107,3 @@ Dessa forma, com as Tarefas já traçadas, definimos a quantidade de tempo neces
 
 <br>
 
-## Entregas
