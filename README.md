@@ -7,7 +7,7 @@
 <p align="center">
   |
   <a href="#sobre-o-projeto"> Sobre o Projeto </a> |
-  <a href="Metodologia"> Metodologia </a> |
+  <a href="#-metodologia"> Metodologia </a> |
   <a href="#tecnologia-utilizada"> Tecnologia Utilizada </a> |
   <a href="#mvp"> MVP </a> |
   <a href="#backlog-do-produto"> Backlog do Produto </a> |
