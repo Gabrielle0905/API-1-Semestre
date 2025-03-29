@@ -2,8 +2,11 @@
 Nesta Sprint foram criados e apresentados o Backlog do Projeto e seu Protótipo. 
 <br>
 
+## Protótipo do Site Funcionando:
+
+[vídeo]
+
 ## Backlog da Sprint
-<hr>
 
 | Rank | User Story | Sprint | Prioridade  | Estimativa de Esforço | Status | Data de Entrega |
 |:-------:|:--------------:|:--------:|:---------------:|:-----------------------------:|:--------:|:----------------------:|
