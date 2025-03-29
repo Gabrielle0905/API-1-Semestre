@@ -8,7 +8,7 @@
   
 
 body {
-    background-image: url("/API-1-Semestre/static/media/Alunocadastro.jpg") ;
+    background-image: url(/src/static/media/Alunocadastro.jpg) ;
     background-repeat: no-repeat;
     background-color: #fff;
     background-position: right;
@@ -17,10 +17,21 @@ body {
     font-family: 'Inder', sans-serif;
 }
 
+
+header a{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    position: absolute;
+    top: 45px;
+    left: 15px;
+}
+
 h1 {
-    margin-left: 8rem;
     color:#1d5176;
-    font-size: 5rem;
+    font-size: 4.5rem;
+    text-align: center;
+    margin-top: 20px;
 }
 
 fieldset  {
@@ -34,7 +45,7 @@ fieldset  {
 
 
 
-#Name,#CPF,#Email,#password,#RA {
+#Name,#CPF,#Email,#password,#RA,#funcao {
    display: flex;
    flex-direction: column;
    font-size: 20px;
@@ -56,25 +67,27 @@ label {
 .cadastrar button {
     width: 18%;
     margin-top: 2rem;
-    margin-left: 21rem;
+    margin-left: 20.5rem;
     border: none;
     background-color: #1d5176;
     padding: 1rem 3.5rem;
-    border-radius: 50px;
+    border-radius: 15px;
     cursor: pointer;
-   
-}
-
-
-.cadastrar button a {
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 450;
-    color: #e9eef1;
-   align-items: center;
+    color: #ffffff;
+    font-family: 'Inder';
+    font-size: large;
+    
    
 }
 
 ::placeholder{
     color:rgb(207, 203, 203);
+    padding: 8px;
+}
+
+.cadastroimg {
+    width: 600px;
+    height: 600px;
+    margin-left: 700px;
+    margin-top: -800px;
 }
