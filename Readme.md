@@ -10,6 +10,7 @@
   <a href="#-metodologia"> Metodologia </a> |
   <a href="#tecnologia-utilizada"> Tecnologia Utilizada </a> |
   <a href="#mvp"> MVP </a> |
+  <a href="#sprints"> Sprints </a> |
   <a href="#backlog-do-produto"> Backlog do Produto </a> |
   <a href="#Equipe"> Equipe </a> |
 </p>
