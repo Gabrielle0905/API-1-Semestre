@@ -99,11 +99,11 @@
 
     </style>
     <header>
-        <button style="background-color: rgb(88, 146, 183); padding: 5px; margin: 5px; font-size: 18px;">Sair</button> 
+        <button style="background-color: rgb(88, 146, 183); padding: 5px; margin: 5px; font-size: 18px;" onclick="window.location.href='/'">Sair</button> 
         <span style="color: #FFFFFF;">SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
     </header>
     <br>
-    <img src="8.png" alt="Friends Talking">
+    <img src="{{url_for('static', filename='media/areamembro.png')}}" alt="Friends Talking">
 
     <h1>Olá!</h1>
 
@@ -112,11 +112,11 @@
 
     <p>Scrum é baseado em ciclos curtos de trabalho chamados sprints, que geralmente duram de uma a quatro semanas. Cada sprint tem o objetivo de entregar uma parte funcional do produto final. Durante o processo, a equipe trabalha de forma autônoma, mas sempre com a supervisão de um Scrum Master, que é responsável por garantir que o processo seja seguido corretamente e remover obstáculos que possam surgir.  O Product Owner (dono do produto) é o responsável por priorizar as tarefas e garantir que o que está sendo desenvolvido atenda às necessidades do cliente ou usuário final.</p>
     
-    
     <h2 class="area_of_buttons">O que você deseja fazer?</h2>
     <br>
+    
     <section class="flex-container botoes"> 
-        <button>Avaliar Membro da Equipe</button> 
+        <button onclick="window.location.href='/home/membro/avaliar'">Avaliar Membro da Equipe</button> 
         <button>Gerenciar Avaliações</button>
         <button>Analisar Burndown Chart</button>
     </section>

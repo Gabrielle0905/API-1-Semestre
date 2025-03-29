@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRAAS</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style/upload_certificates_style.css')}}">
+    
+</head>
+<body>
+
+    <header>
+        <!-- Adicionar o caminho da home do aluno -->
+        <a href="/home/aluno" style="margin-left: 10px;">←</a>
+        <span>SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
+    </header>
+
+    <p style="text-align: center; margin: 30px;">Envie seu atestado de forma rápida e simples.
+        Preencha os dados necessários, anexe o arquivo em PDF e acompanhe o status da análise na plataforma.</p>
+        
+    <h2>Vamos começar?</h2>
+
+    <div class="'form-container">
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <p class="topic">Quem é você?</p>
+            <div class="form-box">      
+                <label for="nome">Nome Completo:</label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
+
+                <label for="ra">RA:</label>
+                <input type="text" name="ra" id="ra" placeholder="Digite o número do seu RA" required>
+
+                <label for="turma">Turma:</label>
+                <select type="text" name="turma" id="turma" style="width: 865px; padding: 9px;" required >
+                    <option value="Seleção">⋘ Selecione sua turma ⋙</option>
+                    <option value="1º">Primeiro Ano</option>
+                    <option value="2º">Segundo Ano</option>
+                    <option value="3º">Terceiro Ano</option>
+                </select>
+            </div>
+    
+            <p class="topic">Nos conte mais sobre seu atestado</p>
+            <div class="form-box">
+                <label for="tipo">Tipo do atestado:</label>
+                <select name="tipo" id="tipo" style="width: 865px; padding: 9px;" required>
+                    <option value="Seleção2">⋘ Selecione o tipo do atestado ⋙</option>
+                    <option value="Consulta Médica">Consulta Médica</option>
+                    <option value="Cirurgia">Cirurgia</option>
+                    <option value="Outros">Outros</option>
+                    <option value="Afastamento">Afastamento</option>
+                    <option value="Incapacidade">Incapacidade Temporária</option>
+                </select>
+
+                <label for="data">Data do atendimento:</label>
+                <input type="date" name="data" id="data" required>
+
+                <label for="periodo">Período de afastamento:</label>
+                <input type="text" name="periodo" id="periodo" placeholder="Insira o perído de afastamento" required>
+
+                <label for="crm">CRM ou CFO do médico:</label>
+                <input type="text" name="crm" id="crm" placeholder="Digite o número do CRM do médico" required>
+
+                <label for="">Atestado:</label>
+                <label for="file" class="botao-arquivo">Escolher arquivo</label>
+                <input type="file" id="file" name="file" accept=".pdf" required>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="image-box">
+        <img src="{{url_for('static', filename='media/img4_upload.png')}}" alt="Ilustração">
+    </div>
+</body>
+</html>

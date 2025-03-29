@@ -20,6 +20,7 @@
             font-family: "inder", sans-serif;
             letter-spacing: 0.5px;
             line-height: 1.5;
+            margin-bottom: 3rem;
         }
 
 
@@ -70,13 +71,13 @@
 
     
     <header>
-        <button id="seta" style="background-color: #5892B7; padding: 5px; margin: 5px;">&larr;</button>
+        <button id="seta" style="background-color: #5892B7; padding: 5px; margin: 5px;" onclick="window.location.href='/home/master'">&larr;</button>
         <span style="color: #FFFFFF;">SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
     </header>
     <br>
     <h1>Burndown chart</h1>
     <br>
-    <img src="/src/static/media/burndown2.png" alt="Burndown chart">
+    <img src="{{url_for('static', filename='media/burndown.png')}}" alt="Burndown chart att">
     <br>
     <h2>O que é o burndown chart?</h2>
     <p>O Burndown Chart (Gráfico de Queima) é uma ferramenta visual usada em metodologias ágeis, como o Scrum, para acompanhar o progresso de um projeto ao longo do tempo. Ele ajuda as equipes a visualizar quanto trabalho resta para ser feito, comparado com o tempo disponível. A principal função do gráfico é fornecer uma visão clara e rápida do andamento de um projeto ou sprint, ajudando a identificar possíveis problemas de forma antecipada. </p>

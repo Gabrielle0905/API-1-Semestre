@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRAAS</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/login.css')}}">
+</head>
+<body>
+    <header>
+        <a href="/" style="margin-left: 10px;">←</a>
+        <h1>Faça seu login!</h1>
+    </header>
+
+    <span>Área do Aluno</span>
+
+    <div class="container">
+        <div class="form-box">
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required >
+            
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+        </div>
+
+        <button type="submit" class="btn-enviar" onclick="window.location.href='/home/aluno'">Logar</button>
+    </div>
+
+
+</body>
+</html>

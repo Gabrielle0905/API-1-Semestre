@@ -19,14 +19,17 @@
         img {
             display: block;
             margin: auto;
-            width: 50%;
+            width: 40%;
         }
         p {
             text-align: center;
+            margin-inline: 200px;
+    
         }
         h1 {
             text-align: center;
             padding: 2rem;
+            font-size: 4rem;
         }
         h2 {
             text-align: center;
@@ -51,26 +54,37 @@
             margin: 0;
             box-sizing: border-box;
         }
+
+        #gerenciaratestados,#dadosalunos{
+            font-family: "Inder";
+            margin-bottom: 3rem;
+        }
+        #logout{
+            text-decoration: none;
+            background-color: #5892B7;
+            border: none;
+            color: white;
+            font-family: 'Inder';
+            font-size: 20px;
+            cursor: pointer;
+}
+
     </style>
     <header>
-        <button style="background-color: #5892B7; padding: 5px; margin: 5px; font-size: 18px;">Sair</button> 
+        <button id="logout" onclick="window.location.href='/'">Sair</button> 
         <span style="color: #FFFFFF;">SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
     </header>
     <br>
-    <h1>Olá</h1>
+    <h1>Olá!</h1>
     <p>Bem-vindo, docente. O SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum, permite que membros da sua instituição estejam em dia com os atestados médicos dos alunos de forma segura e eficiente.
     </p>
-    <img src="/static/media/menina_tablet.png" alt="Menina com tablet">
+    <img src="{{url_for('static', filename='media/menina_tablet.png')}}" alt="Menina com tablet">
     <h2>O que você deseja fazer?</h2>
     <br>
     <section class="flex-container"> 
-        <button>Gerenciar atestados</button> 
-        <button>Estatísticas de afastamento</button>
+        <button onclick="window.location.href='/home/docente/gerenciar_atestados'" id="gerenciaratestados">Gerenciar atestados</button> 
+        <button id="dadosalunos" >Estatísticas de afastamento</button>
     </section>
-    <br>
-    <p>O botão de gerenciar atestados te permite ver os atestados enviados e gerenciá-los por meio de status de aprovação. Já as estatísticas de afastamento te dá acesso a uma vizualização gráfica dos últimos afastamentos.
-    </p>
-    <br>
-    <br>
+
 </body>
 </html>

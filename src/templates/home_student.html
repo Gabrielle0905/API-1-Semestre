@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIRAAS</title>
-    <link rel="stylesheet" href="/static/style/home_student_style.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='style/home_student_style.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
@@ -13,14 +13,14 @@
     <nav class="navbar">
         <span>SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
         <div>
-            <button class="logout" value="logout" onclick="window.location.href='/logout'">Sair</button>
+            <button id="logout" value="logout" onclick="window.location.href='/'">Sair</button>
         </div>
     </nav>
 
     <section class="main">
         <h1>Olá</h1>
         <div class="content">
-            <img src="/static/media/img1_home_student.png" alt="Ilustração" class="illustration">
+            <img src="{{url_for('static',filename='media/img1_home_student.png')}}" alt="Ilustração" class="illustration">
             <div class="text">
                 <p>
                     Nosso sistema foi desenvolvido para tornar o envio e a consulta de atestados mais simples e rápidos. Com apenas alguns cliques, você pode registrar um novo atestado e garantir que a coordenação tenha acesso imediato às informações, sem complicações ou burocracias desnecessárias.
@@ -38,8 +38,8 @@
     <section class="actions">
         <h2>O que você deseja fazer?</h2>
         <div class="buttons">
-            <button class="btn" value="upload" onclick="window.location.href='/upload'">Upload de atestados</button>
-            <button class="btn" value="manage">Gerenciar meus atestados</button>
+            <button class="btn" value="upload" onclick="window.location.href='/home/aluno/enviar'">Upload de atestados</button>
+            <button class="btn" value="manage" onclick="window.location.href='/home/aluno/gerenciar'">Gerenciar meus atestados</button>
         </div>
     </section>
 </body>

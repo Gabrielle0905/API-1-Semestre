@@ -1,34 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autenticar</title>
 <style>
-    h1 {
-    margin-left: 16rem;
+    @import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inder', sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
     color:#1d5176;
-    font-size: 3rem;
+    font-size: 64px;
+    font-weight: 400;
+    padding-top: 2rem;
+}
+
+h3 {
+    text-align: center;
+    font-weight: 600;
 }
 
 img {
-    margin-left: 25rem;
-    height: 25rem;
+    display: block;
+    margin: 0 auto;
 }
 
 a {
     font-size: 3rem;
     margin-left: 20rem;
 }
+
+button {
+    background-color: #5892B7;
+    display: block;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #1D5175;
+    margin: auto;
+    font-size: 20px;
+}
+
+#voltar{
+    color: #ffffff;
+    background-color: #1D5175;
+    border-radius: 15px;
+    margin-top: 40px;
+    width: 300px;
+    height: 60px;
+    font-size: large;
+    font-family: 'Inder';
+    margin-bottom: 3rem;
+}
+
 </style>
+
 </head>
 <body>
     <header>
-        <h1> Oba, seu cadastro foi feito com sucesso!</h1>
+        <h1>Eba!</h1>
+        <h3>Cadastro concluído com sucesso.</h3>
     </header>
     <main>
-        <img src="/API-1-Semestre/static/media/Alunocadastro.jpg">
+        <img src="{{url_for('static', filename='media/cadastro.png')}}">
     </main>
-    <a href="#">Clique para acessar a página home</a>
+    <button id="voltar" onclick="window.location.href='/'">Voltar</button>
 </body>
 </html>
