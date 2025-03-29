@@ -101,6 +101,7 @@ label {
 ::placeholder {
     padding-left: 0.8rem;
     color: rgba(0, 0, 0, 0.712);
+    font-family: 'Inder';
 }
 
 #seta {
@@ -113,14 +114,19 @@ label {
     padding-top: 0%;
 }
 
-button {
-    background-color: #5892B7;
-    width: 100px;
-    height: 30px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 2px solid #1D5175;
-    margin: auto;
-    font-size: 20px;
+
+#funcao{
+    font-family: 'Inder'
+}
+
+#enviar{
+    color: #ffffff;
+    background-color: #1D5175;
+    border-radius: 15px;
+    margin-top: 40px;
+    width: 300px;
+    height: 60px;
+    font-size: large;
+    font-family: 'Inder';
+    margin: auto
 }
