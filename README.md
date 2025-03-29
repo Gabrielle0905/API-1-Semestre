@@ -28,7 +28,7 @@ software, avaliando os diferentes papéis dentro da equipe Scrum, como o Scrum M
 ## 📚 Metodologia
 > O framework de Metodologia Ágil utilizado no produto foi o Scrum, um método ágil adaptativo, iterativo, flexível e eficaz. Entre as ferramentas utilizadas no Scrum, uma é a divisão do projeto em **Sprints**. Para selecionar quais seriam as entregas das nossas Sprints, primeiro definimos nosso **MVP**, priorizando as tarefas que trariam maior entrega de valor para o cliente. Então, a partir das Tarefas foi construído o **Backlog do Produto**,  o qual foi aprovado pelo cliente e dividido em 3 Backlog de Sprint.
 
-Dessa forma, com as Tarefas já traçadas, definimos a quantidade de tempo necessário para cada Tarefa, sendo dividido, de maneira mais otimizada, entre os Desenvolvedores do time.
+>Dessa forma, com as Tarefas já traçadas, definimos a quantidade de tempo necessário para cada Tarefa, sendo dividido, de maneira mais otimizada, entre os Desenvolvedores do time.
 
 
 ## 🖥Tecnologia Utilizada
@@ -45,12 +45,12 @@ Dessa forma, com as Tarefas já traçadas, definimos a quantidade de tempo neces
 
 ## 🏆**MVP**:
 <p align="center">
-      <img src="" alt="MVP do Projeto">
+      <img src="./documents/img/MVP.png" alt="MVP do Projeto">
 <br>
 
-1. Wireframe: [Protótipo navegável](https://www.figma.com/proto/iYEZg1Tc6XGkPoGTsXqgic/api?node-id=549-626&p=f&t=dLv0M0OF4t2WS4ya-0&scaling=scale-down-width&content-scaling=fixed&page-id=548%3A2&starting-point-node-id=549%3A626)
-2. Web Site: 
-3. Web Site: 
+1. Protótipo do projeto: [Protótipo navegável](https://www.figma.com/proto/iYEZg1Tc6XGkPoGTsXqgic/api?node-id=549-626&p=f&t=dLv0M0OF4t2WS4ya-0&scaling=scale-down-width&content-scaling=fixed&page-id=548%3A2&starting-point-node-id=549%3A626)
+2. Coleta de dados: 
+3. Sistema completo: 
 
 
 <br>
@@ -106,4 +106,3 @@ Dessa forma, com as Tarefas já traçadas, definimos a quantidade de tempo neces
 >• Wendy Mininel - Scrum Master
 
 <br>
-
