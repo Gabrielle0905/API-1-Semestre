@@ -1,6 +1,6 @@
 # **SIRAAS**
 <p align="center">
-      <img src="logo.jpg" alt="logo do SIRAAS"> 
+      <img src="./documents/img/logo.jpg" alt="logo do SIRAAS"> 
 <br>
 <hr>
 <br>
