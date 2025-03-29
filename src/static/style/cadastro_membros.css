@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+body {
+    font-family: "Inder";
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+    color: #1D5175;
+}
+
+a{
+    margin: 35px;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    position: absolute;
+    top: 25px;
+}
+
+.formbox {
+    background-color: #1d4a72;
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+
+.cadastrar {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 30px;
+}
+
+.inputs {
+    flex: 1;
+}
+
+.formbox input,
+.formbox select {
+    border-radius: 5px;
+    height: 35px;
+    width: 70%; 
+    margin-bottom: 15px;
+    border: none;
+    padding: 4px;
+}
+
+.formbox select {
+    font-family: 'Inder';
+    padding: 4px;
+}
+
+.formbox label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+::placeholder {
+    font-family: 'Inder';
+    font-size: 16px;
+}
+
+#membrosimg {
+    width: 45%; 
+    height: auto;
+}
+
+.btn-enviar {
+    background-color: #1d4b72;
+    font-family: "Inder";
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    width: 10%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: white;
+    width: 12%;
+}
+
+.btn-enviar:hover {
+    background-color: #3274A0;
+}

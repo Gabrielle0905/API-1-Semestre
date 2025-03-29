@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -68,6 +70,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    font-family: 'Inder';
 }
 
 .btn {
@@ -79,8 +82,19 @@ body {
     cursor: pointer;
     border-radius: 5px;
     transition: 0.3s;
+    font-family: 'Inder';
 }
 
 .btn:hover {
     background-color: #3274A0;
+}
+
+#logout{
+    text-decoration: none;
+    background-color: #5892B7;
+    border: none;
+    color: white;
+    font-family: 'Inder';
+    font-size: 20px;
+    cursor: pointer;
 }

@@ -1,115 +1,113 @@
-body {
-  font-family: "inder", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: white;
+body{
+  font-family: 'Inder';
+    margin: 0;
+    padding: 0;
+    background-color: white;
 }
-header nav {
-  background-color: #5892b7;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+
+.navbar {
+  background-color: #5892B7;
   color: white;
-  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  font-size: 12px;
 }
-header nav #seta {
+
+.seta{
   background-color: transparent;
   border: none;
   color: white;
   font-size: 25px;
-  font-weight: 999;
-  margin: 0%;
-  padding-top: 0%;
   cursor: pointer;
-}
-header nav h1 {
-  padding-right: 82px;
-  color: white;
-  font-size: 24px;
-}
-header section h2 {
-  text-align: center;
-  font-size: 48px;
-  padding-top: 1rem;
-}
-header section p {
-  padding-left: 50px;
-  padding-right: 50px;
-  text-align: start;
-  font-size: 20px;
-}
-main section h2 {
-  padding-left: 50px;
-  padding-right: 50px;
-  text-align: start;
-  font-size: 20px;
 }
 
-main section #barra_de_pesquisa {
+.prompt{
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+
 }
-main section #barra_de_pesquisa form {
+
+.txt{
   display: flex;
-  justify-content: space-between;
-  border: 2px solid black;
-  border-radius: 15px;
-  overflow: hidden;
-  width: 1748px;
+  text-align: justify;
+  max-width: 95%;
+  margin-left: 1%;
+  margin-bottom: 80px;
+  margin-top: 50px;
 }
-main section #input_pesquisa {
-  border: none;
-  outline: none;
-  padding: 10px;
-  flex: 1;
-  font-size: 16px;
-}
-main section #botão_pesquisa {
-  background: none;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  color: black;
-}
-main section #botão_pesquisa i {
-  font-size: 18px;
-  color: black;
-}
-main section #tabela_de_pesquisa {
-  display: flex;
+
+.tabela_de_pesquisa{
+  background-color: #1D5175;
   color: white;
-  background-color: #1d5175;
-  margin-left: 60px;
-  margin-right: 60px;
-  border: 2px solid;
+  max-width: 90%;
+  margin: auto;
   border-radius: 20px;
-  padding: 10px;
-  width: 1748px;
+  padding: 30px;
+  margin-top: 20px;
+  border-spacing: 25px;
 }
-main section table,
-th,
-td {
-  border-spacing: 0;
-  border-collapse: collapse;
-  margin: 0;
-  margin-top: 10px;
+
+.input_pesquisa{
+  display: flex;
+  justify-content: center;
 }
-main section th,
-td {
-  padding: 10px;
+
+.btn-send{
+  background-color: #1d5176;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: auto;
+    display: flex;
+    padding: 12px 20px;
+    margin-bottom: 1rem;
+}
+
+.btn-send:hover {
+  background-color: #3274A0;
+}
+
+#barra {
+  padding: 8.5px ;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+#botão_excluir{
+  color: #000000;
+  background-color: #6eb8e6;
+  border-radius: 15px;
+  font-family: 'Inder'
+}
+
+td{
   text-align: center;
-  width: 370px;
 }
-main section table #botão_excluir {
-  background: transparent;
-  border: none;
-  padding: 0;
+
+#abrirarquivo{
+  text-decoration: none;
   color: white;
-  cursor: pointer;
-  font-family: "inder", sans-serif;
+  text-decoration: underline;
+}
+
+.btn-send{
+  font-family: 'Inder';
+}
+
+::placeholder{
+  font-family: 'Inder';
+  padding: 5px;
+}
+
+#botao_excluir {
+  color: #ffffff;
+  background-color: #6eb8e6;
+  border-radius: 15px;
+  font-family: "Inder";
 }

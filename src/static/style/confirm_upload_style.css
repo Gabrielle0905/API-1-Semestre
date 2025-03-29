@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+body{
+    font-family: 'Inder';
+    letter-spacing: 0.5px;
+}
+
+h1{
+    color: #1b3a5e;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+p{
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+img{
+    display: block;
+    margin: auto;
+}
+
+button {
+    background-color: #174873;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+    font-family: 'Inder';
+}
+
+button:hover {
+    background-color: #3274A0;
+}

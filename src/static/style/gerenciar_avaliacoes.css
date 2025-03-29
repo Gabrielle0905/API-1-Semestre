@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
 
-body{
+body {
     font-family: "Inder";
     margin: 0;
     background-color: white;
     letter-spacing: 0.5px;
     line-height: 1.5;
+    margin-bottom: 3rem;
+    width: 100%;
 }
 
 header {
@@ -15,7 +17,8 @@ header {
     align-items: center;
     justify-content: space-between;
     color: white;
-    font: 20px;
+    font-size: 20px;
+    width: 100%;
 }
 
 header a {
@@ -24,24 +27,25 @@ header a {
     font-size: 25px;
 }
 
-h1{
+h1 {
     font-size: 3rem;
     text-align: center;
 }
-.container{
+
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-label{
+label {
     display: block;
     margin-bottom: 20px;
     margin-left: 80px;
     font-size: 20px;
 }
 
-input{
+input {
     padding: 15px;
     margin-top: 5px;
     border-radius: 15px;
@@ -49,60 +53,23 @@ input{
     display: flex;
     align-items: center;
 }
-::placeholder{
+
+::placeholder {
     font-family: "Inder";
     font-size: 18px;
-    color: rgb(207,203,203);
+    color: rgb(207, 203, 203);
 }
 
-div div a{
-    zoom: 6%;
-    margin-left: -700px;
-    
+.graficos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+            
+    width: 100%;
+    padding: 20px;
 }
 
-#gabrielle{
-    margin-left: 5%;
-    margin-top: 5%;
-    zoom: 110%;
-}
-#wendy{
-    margin-left: 5%;
-    margin-top: 5%;
-    zoom: 110%;
-}
-#clara{
-    margin-left: 5%;
-    margin-top: 5%;
-    zoom: 110%;
-}
-#fernanda{
-    margin-left: 5%;
-    margin-top: 5%;
-    zoom: 110%;
-}
-#guilherme{
-    margin-left: 5%;
-    margin-top: 5%;
-    zoom: 110%;
-}
-#gustavo{
-    margin-left: 5%;
-    margin-top: 5%;
-    zoom: 110%;
-}
-#isaura{
-    margin-left: 5%;
-    margin-top: 5%;
-    zoom: 110%;
-}
-#leticia{
-    margin-left: 5%;
-    margin-top: 5%;
-    zoom: 110%;
-}
-#raphael{
-    margin-left: 5%;
-    margin-top: 5%;
-    zoom: 110%;
+.graficos img {
+    max-width: 90%;
+    height: auto;
 }

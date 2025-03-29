@@ -1,17 +1,7 @@
 body {
     font-family: 'Inder';
-    margin: 0;
     padding: 0;
     background-color: white;
-}
-
-nav {
-    background-color: white;
-    padding: 15px;
-    text-align: left;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
 }
 
 h1 {
@@ -148,4 +138,10 @@ footer{
     margin-top: 130.5px;
     letter-spacing: 0.5px;
     
+}
+
+.alert{
+    color: white;
+    font-family: 'Inder';
+    text-align: center;
 }
