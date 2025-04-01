@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{url_for('static', filename='style/gerenciamento_de_atestados_docente.css')}}">
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='style/gerenciamento_de_atestados_docente.css')}}"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,18 +32,32 @@
     <main>
       <!-- Barra de pesquisa e Total de Registros-->
       <section>
-        <h2 style="margin-top: 90px; font-size: 15px; font-weight: lighter; margin-left: 3%;">Total de registros: {{ atestados | length }}</h2>
+        <h2
+          style="
+            margin-top: 90px;
+            font-size: 15px;
+            font-weight: lighter;
+            margin-left: 3%;
+          "
+        >
+          Total de registros: {{ atestados | length }}
+        </h2>
         <div class="barra_de_pesquisa">
-          <form action="/" method="get" class="input_pesquisa">
-            <input id="barra"
+          <form action="/home/docente/gerenciar_atestados/" method="get" class="input_pesquisa">
+            <input
+              id="barra"
               type="text"
-              style="width:93.25%; border-radius: 20px; height: 25px;"
+              style="width: 93.25%; border-radius: 20px; height: 25px"
               name="pesquisa"
               placeholder="Pesquisar"
               value="{{ request.args.get('pesquisa','') }}"
             />
-            <button type="submit" id="botão_pesquisa" style="background-color: transparent; border: none;">
-              <i class="fas fa-search" style="margin-left: -50px;"></i>
+            <button
+              type="submit"
+              id="botão_pesquisa"
+              style="background-color: transparent; border: none"
+            >
+              <i class="fas fa-search" style="margin-left: -50px"></i>
             </button>
           </form>
         </div>
@@ -77,7 +94,10 @@
                 <td>{{ atestado["Status"] }}</td>
                 <td>{{ atestado["Motivo"] }}</td>
                 <td>
-                  <!-- adicionar o codigo do form pra funcionar -->
+                  <form
+                    action="{{ url_for('excluir_atestado_docente', atestado_id=atestado['ID']) }}"
+                    method="POST"
+                  >
                     <button id="botao_excluir" type="submit">Excluir</button>
                   </form>
                 </td>
@@ -90,7 +110,9 @@
       </section>
       <section>
         <!-- Redirecionamento para geração de relatórios -->
-        <button type="submit" class="btn-send" style="margin-top: 30px;">Gerar Relatório</button>
+        <button type="submit" class="btn-send" style="margin-top: 30px">
+          Gerar Relatório
+        </button>
       </section>
     </main>
   </body>
