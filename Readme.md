@@ -44,7 +44,7 @@
 
 ## 🏆**MVP**:
 <p align="center">
-      <img src="./documents/img/MVP.png" alt="MVP do Projeto">
+      <img src="./documents/img/MVP.jpg" alt="MVP do Projeto">
 <br>
 
 1. Site inicial: [Protótipo navegável](https://www.figma.com/proto/iYEZg1Tc6XGkPoGTsXqgic/api?node-id=549-626&p=f&t=dLv0M0OF4t2WS4ya-0&scaling=scale-down-width&content-scaling=fixed&page-id=548%3A2&starting-point-node-id=549%3A626)
