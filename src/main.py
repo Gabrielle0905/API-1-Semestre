@@ -3,6 +3,7 @@ import os
 import time
 
 app = Flask(__name__)
+app.secret_key = '4657'
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
