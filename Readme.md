@@ -86,21 +86,21 @@
 ## 👨‍💻**Equipe**
 >Nome da equipe: 404 - Not Found
 
->• Clara Resende - Scrum Team
+>• Clara Resende - Dev Team
 >
->• Fernanda Pereira - Scrum Team
+>• Fernanda Pereira - Dev Team
 >
 >• Gabrielle Gonçalves - Product Owner
 >
->• Guilherme Rosa - Scrum Team
+>• Guilherme Rosa - Dev Team
 >
->• Gustavo Gomes - Scrum Team
+>• Gustavo Gomes - Dev Team
 >
->• Isaura Batista - Scrum Team
+>• Isaura Batista - Dev Team
 >
->• Letícia Furtado - Scrum Team
+>• Letícia Furtado - Dev Team
 >
->• Raphael Robim - Scrum Team
+>• Raphael Robim - Dev Team
 >
 >• Wendy Mininel - Scrum Master
 
