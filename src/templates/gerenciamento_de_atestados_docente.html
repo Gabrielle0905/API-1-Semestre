@@ -43,7 +43,11 @@
           Total de registros: {{ atestados | length }}
         </h2>
         <div class="barra_de_pesquisa">
-          <form action="/home/docente/gerenciar_atestados/" method="get" class="input_pesquisa">
+          <form
+            action="/home/docente/gerenciar_atestados/"
+            method="get"
+            class="input_pesquisa"
+          >
             <input
               id="barra"
               type="text"
@@ -91,7 +95,11 @@
                 <td>{{ atestado["Inicio"] }}</td>
                 <td>{{ atestado["Fim"] }}</td>
                 <td>{{ atestado["Horas"] }}</td>
-                <td>{{ atestado["Status"] }}</td>
+                <td>
+                  {% if atestado["Status"] == 'Pendente' %} Pendente {% elif
+                  atestado["Status"] == True %} Aprovado {% elif
+                  atestado["Status"] == False %} Reprovado {% endif %}
+                </td>
                 <td>{{ atestado["Motivo"] }}</td>
                 <td>
                   <form
