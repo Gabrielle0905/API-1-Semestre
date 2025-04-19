@@ -2,6 +2,7 @@ from flask import Flask,render_template,url_for,request,flash,redirect
 from main import app, UPLOAD_FOLDER, os
 from lista_atestados import atestados
 import time
+import json
 
 @app.route('/')
 def homepage():
@@ -41,8 +42,7 @@ def homestudent():
 def upload_form():
     return render_template('upload_certificates.html')
 
-# Gerenciamento De Atestados Do Aluno #
-@app.route("/home/aluno/gerenciar/", methods=["GET"])
+@app.route("/home/aluno/gerenciar")
 def listaratestados_a():
     pesquisa = request.args.get('pesquisa', '').lower()
     atestados_filtrados = []
@@ -56,17 +56,6 @@ def listaratestados_a():
             atestados_filtrados.append(atestado) 
     return render_template('gerenciamento_de_atestados_aluno.html', atestados = atestados_filtrados)
 
-# Excluir Atestado Do Aluno #
-@app.route('/home/docente/gerenciar_atestados/<int:atestado_id>', methods=["POST"])
-def excluir_atestado_aluno(atestado_id):
-    atestado_para_remover = None
-    for atestado in atestados:
-        if atestado["ID"] == atestado_id:
-            atestado_para_remover = atestado
-            break
-    if atestado_para_remover:
-        atestados.remove(atestado_para_remover)
-    return render_template('gerenciamento_de_atestados_aluno.html', atestados=atestados)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -105,8 +94,7 @@ def upload_file():
 def homedocente():
     return render_template('home_docente.html')
 
-# Gerenciamento De Atestados Do Docente #
-@app.route('/home/docente/gerenciar_atestados/', methods=["GET"])
+@app.route('/home/docente/gerenciar_atestados', methods=["GET"])
 def listar_atestados():
     pesquisa = request.args.get('pesquisa', '').lower()
     atestados_filtrados = []
@@ -119,18 +107,6 @@ def listar_atestados():
             pesquisa in str(atestado["Inicio"]).lower()):
             atestados_filtrados.append(atestado) 
     return render_template('gerenciamento_de_atestados_docente.html', atestados = atestados_filtrados)
-
-# Excluir Atestado Docente #
-@app.route('/home/docente/gerenciar_atestados/<int:atestado_id>', methods=["POST"])
-def excluir_atestado_docente(atestado_id):
-    atestado_para_remover = None
-    for atestado in atestados:
-        if atestado["ID"] == atestado_id:
-            atestado_para_remover = atestado
-            break
-    if atestado_para_remover:
-        atestados.remove(atestado_para_remover)
-    return render_template('gerenciamento_de_atestados_docente.html', atestados=atestados)
 
 
 @app.route('/home/membro')
@@ -156,3 +132,23 @@ def registroscrum():
 @app.route('/home/master/gerenciar')
 def gerenciaravaliacoes():
     return render_template('gerenciar_avaliacoes.html')
+
+@app.route('/login_membro', methods = ['POST'])
+def login():
+    cpf = request.form.get('cpf')
+    password = request.form.get('password')
+
+    with open('users.json') as usersTemp:
+        users = json.load(usersTemp)
+
+        cont = 0
+        for user in users:
+            cont = cont + 1
+
+            if user['cpf'] == cpf and user['password'] == password:
+                if user['type'] in ['dev', 'master']:
+                    return render_template('homeMaster.html', cpf=cpf, user_type=user['type'])
+            
+            if cont >= len(users):
+                flash('usuario invalido')
+                return redirect('/')
