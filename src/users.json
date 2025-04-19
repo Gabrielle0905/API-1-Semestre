@@ -1,0 +1,14 @@
+[
+    {
+        "name": "wendy",
+        "cpf": "123",
+        "password": "123",
+        "type": "master"
+    },
+    {
+        "name": "isaura",
+        "cpf": "1234",
+        "password": "123",
+        "type": "dev"
+    }
+]
