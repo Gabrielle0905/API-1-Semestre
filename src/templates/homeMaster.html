@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Scrum Master</title>
+    <link rel="stylesheet" href="../templates/login_membro.html">
 </head>
 <body>
     <style>
@@ -118,7 +119,20 @@
         <button onclick="window.location.href='/home/membro/avaliar'">Avaliar Membro da Equipe</button> 
         <button onclick="window.location.href='/home/master/gerenciar'">Gerenciar Avaliações</button>
         <button onclick="window.location.href='/home/master/burndown'">Burndown Chart</button>
-        <button onclick="window.location.href='/home/master/registroscrum'">Cadastrar Membros da Equipe</button>
+        <button onclick="window.location.href='/home/master/registroscrum'" id="btn_cad">Cadastrar Membros da Equipe</button>
     </section>
+
+    <script>
+        const user_type = "{{ user_type }}"; 
+        const btn = document.getElementById('btn_cad');
+        
+        if(user_type === 'dev'){
+            btn.disabled = true;
+            btn.style.opacity = 0.5;
+            btn.innerText = "Acesso bloqueado";
+            btn.style.cursor = "not-allowed";
+    }
+
+    </script>
 </body>
 </html>
