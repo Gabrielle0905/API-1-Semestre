@@ -1,12 +1,12 @@
-body{
-  font-family: 'Inder';
-    margin: 0;
-    padding: 0;
-    background-color: white;
+body {
+  font-family: "Inder";
+  margin: 0;
+  padding: 0;
+  background-color: white;
 }
 
 .navbar {
-  background-color: #5892B7;
+  background-color: #5892b7;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -14,7 +14,7 @@ body{
   font-size: 12px;
 }
 
-.seta{
+.seta {
   background-color: transparent;
   border: none;
   color: white;
@@ -22,13 +22,12 @@ body{
   cursor: pointer;
 }
 
-.prompt{
+.prompt {
   display: flex;
   justify-content: center;
-
 }
 
-.txt{
+.txt {
   display: flex;
   text-align: justify;
   max-width: 95%;
@@ -37,8 +36,8 @@ body{
   margin-top: 50px;
 }
 
-.tabela_de_pesquisa{
-  background-color: #1D5175;
+.tabela_de_pesquisa {
+  background-color: #1d5175;
   color: white;
   max-width: 90%;
   margin: auto;
@@ -48,60 +47,80 @@ body{
   border-spacing: 25px;
 }
 
-.input_pesquisa{
+.input_pesquisa {
   display: flex;
   justify-content: center;
 }
 
-.btn-send{
+.btn-send {
   background-color: #1d5176;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: auto;
-    display: flex;
-    padding: 12px 20px;
-    margin-bottom: 1rem;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: auto;
+  display: flex;
+  padding: 12px 20px;
+  margin-bottom: 1rem;
 }
 
 .btn-send:hover {
-  background-color: #3274A0;
+  background-color: #3274a0;
 }
 
 #barra {
-  padding: 8.5px ;
+  padding: 8.5px;
 }
-
+.filtro_radial {
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 1rem;
+  display: flex;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.botão {
+  color: #000000;
+  background-color: #6eb8e6;
+  border-radius: 15px;
+  font-family: "Inder";
+}
+.filtro {
+  padding: 0.5rem;
+}
 h2 {
   font-size: 40px;
 }
 
-#botão_excluir{
+#botão_excluir {
   color: #000000;
   background-color: #6eb8e6;
   border-radius: 15px;
-  font-family: 'Inder'
+  font-family: "Inder";
 }
 
-td{
+td {
   text-align: center;
 }
 
-#abrirarquivo{
+#abrirarquivo {
   text-decoration: none;
   color: white;
   text-decoration: underline;
 }
 
-.btn-send{
-  font-family: 'Inder';
+.btn-send {
+  font-family: "Inder";
 }
 
-::placeholder{
-  font-family: 'Inder';
+::placeholder {
+  font-family: "Inder";
   padding: 5px;
 }
 

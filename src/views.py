@@ -43,10 +43,16 @@ def upload_form():
     return render_template('upload_certificates.html')
 
 @app.route("/home/aluno/gerenciar_atestados/", methods=["GET"])
-def listaratestados_a():
+def listar_atestados_alunos():
+    filtro = request.args.get('filtro')
+    if filtro == 'nome':
+        atestados.sort(key=lambda x: x['Nome'].lower())
+    elif filtro == 'data':
+        atestados.sort(key=lambda x: x['Inicio']) 
+    elif filtro == 'status':
+        atestados.sort(key=lambda x: 0 if x['Status'] == "Pendente" else 1 if x['Status'] == True else 2)
     pesquisa = request.args.get('pesquisa', '').lower()
     atestados_filtrados = []
-    
     for atestado in atestados:
         if (pesquisa in str(atestado["Nome"]).lower() or
             pesquisa in str(atestado["Turma"]).lower() or
@@ -106,10 +112,16 @@ def homedocente():
     return render_template('home_docente.html')
 
 @app.route('/home/docente/gerenciar_atestados/', methods=["GET"])
-def listar_atestados():
+def listar_atestados_docente():
+    filtro = request.args.get('filtro')
+    if filtro == 'nome':
+        atestados.sort(key=lambda x: x['Nome'].lower())
+    elif filtro == 'data':
+        atestados.sort(key=lambda x: x['Inicio']) 
+    elif filtro == 'status':
+        atestados.sort(key=lambda x: 0 if x['Status'] == "Pendente" else 1 if x['Status'] == True else 2)
     pesquisa = request.args.get('pesquisa', '').lower()
     atestados_filtrados = []
-    
     for atestado in atestados:
         if (pesquisa in str(atestado["Nome"]).lower() or
             pesquisa in str(atestado["Turma"]).lower() or
