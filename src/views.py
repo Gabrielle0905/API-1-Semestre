@@ -42,7 +42,7 @@ def homestudent():
 def upload_form():
     return render_template('upload_certificates.html')
 
-@app.route("/home/aluno/gerenciar/", methods=["GET"])
+@app.route("/home/aluno/gerenciar_atestados/", methods=["GET"])
 def listaratestados_a():
     pesquisa = request.args.get('pesquisa', '').lower()
     atestados_filtrados = []
