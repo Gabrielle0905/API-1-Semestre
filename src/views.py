@@ -42,7 +42,7 @@ def homestudent():
 def upload_form():
     return render_template('upload_certificates.html')
 
-@app.route("/home/aluno/gerenciar")
+@app.route("/home/aluno/gerenciar/", methods=["GET"])
 def listaratestados_a():
     pesquisa = request.args.get('pesquisa', '').lower()
     atestados_filtrados = []
@@ -55,6 +55,17 @@ def listaratestados_a():
             pesquisa in str(atestado["Inicio"]).lower()):
             atestados_filtrados.append(atestado) 
     return render_template('gerenciamento_de_atestados_aluno.html', atestados = atestados_filtrados)
+
+@app.route('/home/aluno/gerenciar_atestados/<int:atestado_id>', methods=["POST"])
+def excluir_atestado_aluno(atestado_id):
+    atestado_para_remover = None
+    for atestado in atestados:
+        if atestado["ID"] == atestado_id:
+            atestado_para_remover = atestado
+            break
+    if atestado_para_remover:
+        atestados.remove(atestado_para_remover)
+    return render_template('gerenciamento_de_atestados_aluno.html', atestados=atestados)
 
 
 @app.route('/upload', methods=['POST'])
@@ -94,7 +105,7 @@ def upload_file():
 def homedocente():
     return render_template('home_docente.html')
 
-@app.route('/home/docente/gerenciar_atestados', methods=["GET"])
+@app.route('/home/docente/gerenciar_atestados/', methods=["GET"])
 def listar_atestados():
     pesquisa = request.args.get('pesquisa', '').lower()
     atestados_filtrados = []
@@ -107,6 +118,17 @@ def listar_atestados():
             pesquisa in str(atestado["Inicio"]).lower()):
             atestados_filtrados.append(atestado) 
     return render_template('gerenciamento_de_atestados_docente.html', atestados = atestados_filtrados)
+
+@app.route('/home/docente/gerenciar_atestados/<int:atestado_id>', methods=["POST"])
+def excluir_atestado_docente(atestado_id):
+    atestado_para_remover = None
+    for atestado in atestados:
+        if atestado["ID"] == atestado_id:
+            atestado_para_remover = atestado
+            break
+    if atestado_para_remover:
+        atestados.remove(atestado_para_remover)
+    return render_template('gerenciamento_de_atestados_docente.html', atestados=atestados)
 
 
 @app.route('/home/membro')
