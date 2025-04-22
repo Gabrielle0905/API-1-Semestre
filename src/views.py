@@ -3,6 +3,7 @@ from main import app, UPLOAD_FOLDER, os
 from lista_atestados import atestados
 import time
 import json
+import os
 
 @app.route('/')
 def homepage():
@@ -172,8 +173,11 @@ def login():
     cpf = request.form.get('cpf')
     password = request.form.get('password')
 
-    with open('users.json') as usersTemp:
-        users = json.load(usersTemp)
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(BASE_DIR, 'users.json')
+
+    with open(json_path, 'r', encoding='utf-8') as f:
+        users = json.load(f)
 
         cont = 0
         for user in users:
