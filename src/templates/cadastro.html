@@ -15,6 +15,7 @@
   </header>
   <!--Dados de cadastro-->
   <fieldset>
+    <form action="/cadastro" id="autenticar" method="post">
     <div class="input-box">
       <label for ="firstname">Nome completo</label>
       <input id="Name"type="text" name="Name" placeholder="Digite seu nome" required>
@@ -47,7 +48,8 @@
   <div class="cadastrar"> 
     <button onclick='location.href="/autenticar"' id="Cadastrar-se">Cadastrar-se</button>
   </div> 
-
+</form>
+    
   <img src="{{url_for('static', filename='media/cadastro.png')}}" alt="Ilustração"  class="cadastroimg">
 
 
