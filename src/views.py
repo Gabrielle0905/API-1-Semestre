@@ -1,33 +1,137 @@
-from flask import Flask,render_template,url_for,request,flash,redirect, jsonify
-from main import app, UPLOAD_FOLDER, os
+from flask import Flask,render_template,url_for,request,flash,redirect, session
+from main import app, UPLOAD_FOLDER, os, caminho_usuarios
 from lista_atestados import atestados
 import time
 import json
 import os
 
+def load_user():
+    with open(caminho_usuarios, 'r') as u:
+        return json.load(u)
+    
+def save_user(usuarios):
+    with open(caminho_usuarios, 'w') as u:
+        json.dump(usuarios, u, indent=4)
+
+def get_primeiro_nome():
+    cpf = session.get('cpf')
+    funcao = session.get('funcao')
+    usuarios = load_user()
+
+    if not cpf or cpf not in usuarios:
+        return 'Usuário'
+    
+    usuario = usuarios[cpf]
+    nome_completo=usuario.get("nome", 'Usuário')
+    primeiro_nome=nome_completo.split()[0]
+    return primeiro_nome
+
 @app.route('/')
 def homepage():
     return render_template('first_page.html')
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET','POST'])
 def redirect_user():
     escolha = request.form.get('user-type')
 
     if escolha == 'Aluno':
-        return render_template('login_aluno.html')
+        return redirect('/login/aluno')
 
     if escolha == 'Docente':
-        return render_template('login_docente.html')
+        return redirect('/login/docente')
 
     if escolha == 'Equipe':
-        return render_template('login_membro.html')
+        return redirect('/login/membro')
     
     else:
         flash('Por favor, selecione um tipo de usuário antes de continuar!!', 'error')
         return redirect('/')
+    
+@app.route('/login/aluno', methods=['GET', 'POST'])
+def login_aluno():
+    if request.method == 'POST':
+        cpf = request.form['cpf']
+        senha = request.form['senha']
 
-@app.route('/cadastro')
+        usuarios = load_user()
+
+        if cpf in usuarios and usuarios[cpf]['senha'] == senha and usuarios[cpf]['funcao'] == 'aluno':
+            session['usuario_logado'] = cpf
+            session['cpf'] = cpf
+            session['funcao'] = 'aluno'
+            return redirect('/home/aluno')
+        else:
+            flash('CPF ou senha inválidos!', 'error')
+            return render_template('login_aluno.html')
+    return render_template('login_aluno.html')
+
+@app.route('/login/docente', methods=['GET', 'POST'])
+def login_docente():
+    if request.method == 'POST':
+        cpf = request.form['cpf']
+        senha = request.form['senha']
+        usuarios = load_user()
+
+        if cpf in usuarios and usuarios[cpf]['senha'] == senha and usuarios[cpf]['funcao'] == 'docente':
+            session['usuario_logado'] = cpf
+            session['cpf'] = cpf
+            session['funcao'] = 'docente'
+            return redirect('/home/docente')
+        else:
+            flash('CPF ou senha inválidos!', 'error')
+            return redirect('/login/docente')
+    return render_template('login_docente.html')
+
+@app.route('/login/membro', methods=['GET', 'POST'])
+def login_membro():
+    if request.method == 'POST':
+        cpf = request.form['cpf']
+        senha = request.form['senha']
+
+        usuarios = load_user()
+        funcoes_permitidas = ['sm', 'po', 'dt']
+
+        if cpf in usuarios and usuarios[cpf]['senha'] == senha and usuarios[cpf]['funcao'] in funcoes_permitidas:
+            session['usuario_logado'] = cpf
+            session['cpf'] = cpf
+            session['funcao'] = usuarios[cpf]['funcao'] 
+            return redirect('/home/membro')
+        else:
+            flash('CPF ou senha inválidos!', 'error')
+            return redirect('/login/membro')
+    return render_template('login_membro.html')
+
+@app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
+    if request.method == 'POST':
+        nome = request.form['name']
+        cpf = request.form['cpf']
+        email = request.form['email']
+        senha = request.form['senha']
+        funcao = request.form['funcao']
+
+        try:
+            with open(caminho_usuarios,'r') as u:
+                usuarios = json.load(u)
+        except FileNotFoundError:
+            usuarios = {}
+
+        if cpf in usuarios:
+            flash('CPF já cadastrado!', 'error')
+            return redirect('/cadastro')
+        
+        usuarios[cpf] = {
+            'nome': nome,
+            'email': email,
+            'senha': senha,
+            'funcao': funcao
+        }
+
+        save_user(usuarios)
+        return cadastroconcluido()
+
+
+
     return render_template('cadastro.html') 
    
 @app.route('/autenticar')
@@ -37,7 +141,11 @@ def cadastroconcluido():
 
 @app.route('/home/aluno')
 def homestudent():
-    return render_template('home_student.html')
+    if 'usuario_logado' not in session or session.get('funcao') != 'aluno':
+        flash('Você precisa estar logado pra acessar essa página!', 'error')
+        return redirect(url_for('login_aluno'))
+    primeiro_nome = get_primeiro_nome()   
+    return render_template('home_student.html', nome=primeiro_nome)
 
 @app.route("/home/aluno/enviar")
 def upload_form():
@@ -110,7 +218,11 @@ def upload_file():
     
 @app.route('/home/docente')
 def homedocente():
-    return render_template('home_docente.html')
+    if 'usuario_logado' not in session or session.get('funcao') != 'docente':
+        flash('Você precisa estar logado para acessar essa página!', 'error')
+        return redirect(url_for('login_docente'))
+    primeiro_nome = get_primeiro_nome()
+    return render_template('home_docente.html', nome=primeiro_nome)
 
 @app.route('/home/docente/gerenciar_atestados/', methods=["GET"])
 def listar_atestados_docente():
@@ -143,67 +255,63 @@ def excluir_atestado_docente(atestado_id):
         atestados.remove(atestado_para_remover)
     return render_template('gerenciamento_de_atestados_docente.html', atestados=atestados)
 
+@app.route('/home/docente/estatisticas')
+def estatisticas_afastamento():
+    return render_template('estatisticas_afastamento.html')
 
 @app.route('/home/membro')
 def homemembro():
-    return render_template('homePODevteam.html')
-
-@app.route('/home/master')
-def homemaster():
-    return render_template('homeMaster.html')
+    if 'usuario_logado' not in session or session.get('funcao') not in ['sm', 'po', 'dt']:
+        flash('Você precisa estar logado para acessar essa página!', 'error')
+        return redirect(url_for('login_membro'))
+    primeiro_nome = get_primeiro_nome()
+    user_type = session.get('funcao')
+    return render_template('homeMaster.html', nome=primeiro_nome, user_type=user_type)
 
 @app.route('/home/membro/avaliar')
 def avaliarmembro():
     return render_template('avaliar_membro.html')
 
-@app.route('/home/master/burndown')
+@app.route('/home/membro/burndown')
 def burndown():
     return render_template('BurndownChart.html')
 
-@app.route('/home/master/registroscrum')
+@app.route('/home/master/registroscrum', methods=['GET','POST'])
 def registroscrum():
+    if request.method == 'POST':
+        nome = request.form['name']
+        cpf = request.form['cpf']
+        email = request.form['email']
+        senha = request.form['senha']
+        funcao = request.form['funcao']
+
+        try:
+            with open(caminho_usuarios,'r') as u:
+                usuarios = json.load(u)
+        except FileNotFoundError:
+            usuarios = {}
+        if cpf in usuarios:
+            flash('CPF já cadastrado!','error') 
+            return redirect(url_for('registroscrum'))
+
+        usuarios[cpf] = {
+            'nome': nome,
+            'email': email,
+            'senha' : senha,
+            'funcao' : funcao
+        }
+        save_user(usuarios)
+        return cadastroconcluido()
+    
     return render_template('cadastro_membro.html')
 
-@app.route('/home/master/gerenciar')
+@app.route('/home/membro/gerenciar')
 def gerenciaravaliacoes():
     return render_template('gerenciar_avaliacoes.html')
 
-@app.route('/login_membro', methods = ['POST'])
-def login():
-    cpf = request.form.get('cpf')
-    password = request.form.get('password')
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(BASE_DIR, 'users.json')
-
-    with open(json_path, 'r', encoding='utf-8') as f:
-        users = json.load(f)
-
-        cont = 0
-        for user in users:
-            cont = cont + 1
-
-            if user['cpf'] == cpf and user['password'] == password:
-                if user['type'] in ['dev', 'master']:
-                    return render_template('homeMaster.html', cpf=cpf, user_type=user['type'])
-            
-            if cont >= len(users):
-                flash('usuario invalido')
-                return redirect('/')
-
-@app.route('/save_data', methods=['POST'])
-def save_data():
-    data = request.get_json()
-    file_path = 'dados.json'
-
-    if os.path.exists(file_path):
-        with open(file_path, 'r') as file:
-            current_data = json.load(file)
-        current_data.append(data)
-    else:
-        current_data = [data]
-
-    with open(file_path, 'w') as file:
-        json.dump(current_data, file, indent=2)
-
-    return jsonify({'message': 'Dados salvos com sucesso!'}), 200
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('Logout realizado com sucesso.', 'success')
+    return redirect('/')
