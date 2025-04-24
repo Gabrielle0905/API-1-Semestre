@@ -56,9 +56,9 @@
 
 ## 📅Sprints
 
-### Sprint - 1️⃣ 🎯 ([Clique aqui](/documents/Sprints/Sprint1)):  Em andamento⏳
+### Sprint - 1️⃣ 🎯 ([Clique aqui](/documents/Sprints/Sprint1)):  Concluída✅
 
-### Sprint - 2️⃣ 🎯 ([Clique aqui](/documents/Sprints/Sprint2))  
+### Sprint - 2️⃣ 🎯 ([Clique aqui](/documents/Sprints/Sprint2)) : Em andamento ⏳
 
 ### Sprint - 3️⃣ 🎯 ([Clique aqui](/documents/Sprints/Sprint3))  
 
