@@ -29,7 +29,7 @@
         h1 {
             text-align: center;
             padding: 2rem;
-            font-size: 4rem;
+            font-size: 3rem;
         }
         h2 {
             text-align: center;
@@ -71,11 +71,11 @@
 
     </style>
     <header>
-        <button id="logout" onclick="window.location.href='/'">Sair</button> 
+        <button id="logout" onclick="window.location.href='/logout'">Sair</button> 
         <span style="color: #FFFFFF;">SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
     </header>
     <br>
-    <h1>Olá!</h1>
+    <h1>Olá {{ nome }}!</h1>
     <p>Bem-vindo, docente. O SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum, permite que membros da sua instituição estejam em dia com os atestados médicos dos alunos de forma segura e eficiente.
     </p>
     <img src="{{url_for('static', filename='media/menina_tablet.png')}}" alt="Menina com tablet">
@@ -83,7 +83,7 @@
     <br>
     <section class="flex-container"> 
         <button onclick="window.location.href='/home/docente/gerenciar_atestados'" id="gerenciaratestados">Gerenciar atestados</button> 
-        <button id="dadosalunos" >Estatísticas de afastamento</button>
+        <button onclick="window.location.href='/home/docente/estatisticas'" id="dadosalunos" >Estatísticas de afastamento</button>
     </section>
 
 </body>
