@@ -1,5 +1,5 @@
 ## Sprint - 2️⃣🎯
-Nesta Sprint será desenvolvida a coleta de dados e funções do site se tornarão operacionais.
+Nesta Sprint foi desenvolvida a coleta de dados e as funções do site se tornaram operacionais.
 
 ## Vídeo do Site Funcionando (Versão atualizada):
 
@@ -15,6 +15,7 @@ Nesta Sprint será desenvolvida a coleta de dados e funções do site se tornar�
 <br>
 
 ## User Story's detalhadas 📝
+<hr>
 
 | Rank | Prioridade | User Story | Estimativa | Sprint |
 |:----:|:----------:|:----------:|:----------:|:------:|
