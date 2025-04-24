@@ -39,6 +39,7 @@
 > - Figma
 > - Canva
 > - Adobe Photoshop
+> - JavaScript
 
 <br>
 
@@ -48,8 +49,8 @@
 <br>
 
 1. Site inicial: [Protótipo navegável](https://www.figma.com/proto/iYEZg1Tc6XGkPoGTsXqgic/api?node-id=549-626&p=f&t=dLv0M0OF4t2WS4ya-0&scaling=scale-down-width&content-scaling=fixed&page-id=548%3A2&starting-point-node-id=549%3A626)
-2. Coleta de dados: 
-3. Sistema completo: 
+2. Coleta de dados
+3. Sistema completo
 
 
 <br>
