@@ -13,12 +13,12 @@
     <nav class="navbar">
         <span>SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
         <div>
-            <button id="logout" value="logout" onclick="window.location.href='/'">Sair</button>
+            <button id="logout" value="logout" onclick="window.location.href='/logout'">Sair</button>
         </div>
     </nav>
 
     <section class="main">
-        <h1>Olá</h1>
+        <h1>Olá {{ nome }}! </h1>
         <div class="content">
             <img src="{{url_for('static',filename='media/img1_home_student.png')}}" alt="Ilustração" class="illustration">
             <div class="text">
