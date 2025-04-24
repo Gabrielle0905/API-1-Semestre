@@ -98,3 +98,17 @@ span{
     font-family:'Inder';
     color: rgb(207, 203, 203);
 }
+
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#alerta{
+    font-family: 'Inder';
+    padding: 20px;
+    background-color: #def1ff;
+    border-radius: 45px;
+    margin-top: 15px;
+}
