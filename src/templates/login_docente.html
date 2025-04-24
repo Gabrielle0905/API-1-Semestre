@@ -15,15 +15,23 @@
     <span>Área do Docente</span>
 
     <div class="container">
-        <div class="form-box">
-            <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="Digite seu CPF" required >
-            
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-        </div>
-
-        <button type="submit" class="btn-enviar" onclick="window.location.href='/home/docente'">Logar</button>
+        <form method="post">
+            <div class="form-box">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required >
+                
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                 <div id='alerta' class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endwith %}
+            <button type="submit" class="btn-enviar" value="entrar">Entrar</button>
+        </form>
     </div>
+
+
 </body>
 </html>

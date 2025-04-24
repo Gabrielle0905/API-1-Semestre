@@ -14,25 +14,22 @@
 
     <span>Área do Membro</span>
 
-    {% set message = get_flashed_messages() %}
-    {% if message %}
-        <div class="flash_alert">
-            {{message[0]}}
-        </div>
-    {% endif%}
-
     <div class="container">
-        <div class="form-box">
-            <form action="/login_membro" method="post">
+        <form method="post">
+            <div class="form-box">
                 <label for="cpf">CPF:</label>
-                <input type="text" name="cpf" id="cpf">
-
-                <label for="password">Senha:</label>
-                <input type="password" name="password" id="password">
-
-                <button type="submit">Logar</button>
-            </form>
-        </div>
+                <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required >
+                
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                 <div id='alerta' class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endwith %}
+            <button type="submit" class="btn-enviar" value="entrar">Entrar</button>
+        </form>
     </div>
 
 </body>
