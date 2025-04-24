@@ -13,45 +13,44 @@
     <a href="/" style="margin-left: 10px;">←</a>
     <h1> Faça já seu cadastro!</h1>
   </header>
-  <!--Dados de cadastro-->
-  <fieldset>
-    <form action="/cadastro" id="autenticar" method="post">
-    <div class="input-box">
-      <label for ="firstname">Nome completo</label>
-      <input id="Name"type="text" name="Name" placeholder="Digite seu nome" required>
-    </div>
-  <br>
-    <div class="input-box"> 
-      <label for="CPF">CPF</label>
-      <input id="CPF"type="text" name="CPF" placeholder="Digite seu CPF" required>
-    </div>
+  <form action="/cadastro" method="post">
+    <!--Dados de cadastro-->
+    <fieldset>
+      <div class="input-box">
+        <label for ="name">Nome completo</label>
+        <input id="name"type="text" name="name" placeholder="Digite seu nome" required>
+      </div>
     <br>
-    <div class="input-box"> 
-      <label for="Email">Email</label>
-      <input id="Email"type="email" name="Email" placeholder="Digite seu Email" required>
-    </div>
-    <br>
-    <div class="input-box"> 
-      <label for="password">Senha</label>
-      <input id="password"type="password" name="password" placeholder="Digite sua senha" required>
-    </div>
-    <br>
-    <div>
-      <label for="sou" style="display: block;">Eu sou</label>
-      <select name="funcao" id="funcao" required>
-        <option value="aluno">Aluno</option>
-        <option value="docente">Docente</option>
-      </select>
-    </div>
-  </fieldset>
-        <!--botão-->
-  <div class="cadastrar"> 
-    <button onclick='location.href="/autenticar"' id="Cadastrar-se">Cadastrar-se</button>
-  </div> 
-</form>
-    
+      <div class="input-box"> 
+        <label for="cpf">CPF</label>
+        <input id="cpf"type="text" name="cpf" placeholder="Digite seu CPF" required>
+      </div>
+      <br>
+      <div class="input-box"> 
+        <label for="email">Email</label>
+        <input id="email"type="email" name="email" placeholder="Digite seu email" required>
+      </div>
+      <br>
+      <div class="input-box"> 
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+      </div>
+      <br>
+      <div>
+        <label for="sou" style="display: block;">Eu sou</label>
+        <select name="funcao" id="funcao" required>
+          <option value="aluno">Aluno</option>
+          <option value="docente">Docente</option>
+          <option value="sm">Scrum Master</option>
+        </select>
+      </div>
+    </fieldset>
+          <!--botão-->
+    <div class="cadastrar"> 
+      <button id="Cadastrar-se">Cadastrar-se</button>
+    </div> 
+  </form>  
+
   <img src="{{url_for('static', filename='media/cadastro.png')}}" alt="Ilustração"  class="cadastroimg">
-
-
 </body>
 </html>
