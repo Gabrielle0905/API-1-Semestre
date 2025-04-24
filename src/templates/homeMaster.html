@@ -105,7 +105,7 @@
     <br>
     <img src="{{url_for('static', filename='media/areamembro.png')}}" alt="Friends Talking">
 
-    <h1>Olá!</h1>
+    <h1>Olá {{ nome }}!</h1>
 
     <h2>Você sabe como funciona a metodologia Scrum?</h2>
     <p>A metodologia Scrum é uma abordagem ágil para o gerenciamento de projetos, especialmente em ambientes de desenvolvimento de software. Ela busca entregar resultados de forma incremental e interativa, com foco em flexibilidade, colaboração e comunicação constante entre todos os membros da equipe.</p>
@@ -117,8 +117,8 @@
     <br>
     <section class="flex-container botoes"> 
         <button onclick="window.location.href='/home/membro/avaliar'">Avaliar Membro da Equipe</button> 
-        <button onclick="window.location.href='/home/master/gerenciar'">Gerenciar Avaliações</button>
-        <button onclick="window.location.href='/home/master/burndown'">Burndown Chart</button>
+        <button onclick="window.location.href='/home/membro/gerenciar'">Gerenciar Avaliações</button>
+        <button onclick="window.location.href='/home/membro/burndown'">Burndown Chart</button>
         <button onclick="window.location.href='/home/master/registroscrum'" id="btn_cad">Cadastrar Membros da Equipe</button>
     </section>
 
@@ -126,7 +126,7 @@
         const user_type = "{{ user_type }}"; 
         const btn = document.getElementById('btn_cad');
         
-        if(user_type === 'dev'){
+        if(user_type === 'dt'|| user_type === 'po'){
             btn.disabled = true;
             btn.style.opacity = 0.5;
             btn.innerText = "Acesso bloqueado";
