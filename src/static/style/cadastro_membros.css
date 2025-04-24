@@ -49,6 +49,8 @@ a{
     margin-bottom: 15px;
     border: none;
     padding: 4px;
+    font-size: 18px;
+    font-family: 'Inder';
 }
 
 .formbox select {
@@ -89,4 +91,14 @@ a{
 
 .btn-enviar:hover {
     background-color: #3274A0;
+}
+
+#alerta{
+    font-family: 'Inder';
+    font-size: 22px;
+    padding: 30px;
+    background-color: #def1ff;
+    border-radius: 45px;
+    margin: 10px auto 0 auto;
+    width: fit-content;
 }
