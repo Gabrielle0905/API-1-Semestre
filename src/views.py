@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,request,flash,redirect
+from flask import Flask,render_template,url_for,request,flash,redirect, jsonify
 from main import app, UPLOAD_FOLDER, os
 from lista_atestados import atestados
 import time
@@ -26,53 +26,16 @@ def redirect_user():
         flash('Por favor, selecione um tipo de usuário antes de continuar!!', 'error')
         return redirect('/')
 
-@app.route('/cadastro', methods=['GET', 'POST'])
+@app.route('/cadastro')
 def cadastro():
-    if request.method == 'POST':
-        print(request.form)
-        nome = request.form.get('Name')
-        cpf = request.form.get('CPF')
-        email = request.form.get('Email')
-        senha = request.form.get('password')
-        tipo = request.form.get('funcao')
-        
-        if not all([nome, cpf, email, senha, tipo]) :
-            flash("Por favor, preencha todos os campos.")
-            return redirect('/cadastro')
-        
-        novo_usuario = {
-            "nome": nome,
-            "cpf": cpf,
-            "email": email,
-            "senha": senha,
-            "tipo": tipo
-        }
-
-        try:
-            with open('usuarios.json') as usuariosTemp:
-                usuarios = json.load(usuariosTemp)
-        except (FileNotFoundError, json.decoder.JSONDecodeError):
-            usuarios = []
-
-        usuarios.append(novo_usuario)
-
-        with open('usuarios.json', 'w', encoding='utf-8') as gravarTemp:
-            json.dump(usuarios, gravarTemp, indent=4, ensure_ascii=False)
-
-        print("Usuário salvo:", novo_usuario)
-
-        flash("Usuário cadastrado com sucesso!")
-        return render_template('autenticar.html')
-
-    return render_template('cadastro.html')
-
+    return render_template('cadastro.html') 
    
-@app.route('/autenticar', methods=['POST'])
-def confirm_upload():
-   return render_template("autenticar.html")
+@app.route('/autenticar')
+def cadastroconcluido():
+    return render_template('autenticar.html')
    
 
-@app.route('/home/aluno', methods=['POST'])
+@app.route('/home/aluno')
 def homestudent():
     return render_template('home_student.html')
 
@@ -227,3 +190,20 @@ def login():
             if cont >= len(users):
                 flash('usuario invalido')
                 return redirect('/')
+
+@app.route('/save_data', methods=['POST'])
+def save_data():
+    data = request.get_json()
+    file_path = 'dados.json'
+
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
+            current_data = json.load(file)
+        current_data.append(data)
+    else:
+        current_data = [data]
+
+    with open(file_path, 'w') as file:
+        json.dump(current_data, file, indent=2)
+
+    return jsonify({'message': 'Dados salvos com sucesso!'}), 200
