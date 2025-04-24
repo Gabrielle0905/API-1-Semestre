@@ -45,7 +45,7 @@ fieldset  {
 
 
 
-#Name,#CPF,#Email,#password,#RA,#funcao {
+#name,#cpf,#email,#senha,#funcao {
    display: flex;
    flex-direction: column;
    font-size: 20px;
