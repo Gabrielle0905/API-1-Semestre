@@ -63,6 +63,7 @@ fieldset {
     padding: 1.5rem;
     border-radius: 20px;
     border: none;
+    margin-bottom: 10px;
 }
 
 input[type="text"] {
@@ -130,3 +131,4 @@ label {
     font-family: 'Inder';
     margin: auto
 }
+
