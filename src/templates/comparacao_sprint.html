@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparação das Avaliações por Sprint</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: "Inder";
+            margin: 0;
+            color: rgb(29, 81, 117);
+            text-align: center;
+            
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+
+            margin-bottom: 20px;
+            font-family: "Inder";
+        }
+
+        .botoes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .botoes button {
+            padding: 12px 24px;
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(135deg, #e98a4e, #e98a4e);
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: "Inder";
+        }
+
+        .botoes button.ativo {
+            background: linear-gradient(135deg, #28a745, #00cc66);
+            box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
+        }
+
+        .grafico-container {
+            display: none;
+        }
+
+        .grafico-container.ativo {
+            display: block;
+        }
+
+        header {
+            background-color: rgb(88, 146, 183); padding: 1.5rem;
+            font-size: 20px;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            font-family: "inder" sans-serif;
+            
+        }
+
+
+        .sair {
+        color: #FFFFFF;
+        border: none;
+        background-color: rgb(88, 146, 183);
+        font-size: 18px;
+        font-family: "inder";
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <button class="sair" style="background-color: rgb(88, 146, 183); padding: 5px; margin: 5px; font-size: 18px;" onclick="window.location.href='/'">Sair</button> 
+        <span style="color: #FFFFFF;">SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
+    </header>
+
+    <h1>Comparação das avaliações por Sprints</h1>
+
+    <div class="botoes">
+        <button class="ativo" onclick="mostrarGrafico('grafico1', this)">Sprint 1</button>
+        <button onclick="mostrarGrafico('grafico2', this)">Sprint 2</button>
+        <button onclick="mostrarGrafico('grafico3', this)">Sprint 3</button>
+    </div>
+
+    <div id="grafico1" class="grafico-container ativo">
+        <canvas id="canvas1" width="1000" height="600"></canvas>
+    </div>
+    <div id="grafico2" class="grafico-container">
+        <canvas id="canvas2" width="1000" height="600"></canvas>
+    </div>
+    <div id="grafico3" class="grafico-container">
+        <canvas id="canvas3" width="1000" height="600"></canvas>
+    </div>
+
+    <script>
+        const criterios = [
+            "Wendy", "Fernanda", "Gabrielle", "Clara",
+            "Gustavo", "Letícia", "Isaura",
+            "Raphael", "Guilherme"
+        ];
+
+        function criarGrafico(ctx, dados) {
+            return new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: criterios,
+                    datasets: dados
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 3
+                        }
+                    }
+                }
+            });
+        }
+
+        const dadosSprint1 = [
+            { label: 'Produtividade', data: [2.6, 2.9, 2.9, 1.7, 2.9, 1.7, 2.9, 1.6, 2.0], backgroundColor: 'rgba(255, 99, 132, 0.6)' },
+            { label: 'Autonomia', data: [2.6, 2.9, 2.7, 1.9, 2.9, 2.5, 3.0, 1.7, 1.7], backgroundColor: 'rgba(54, 162, 235, 0.6)' },
+            { label: 'Colaboração', data: [2.6, 2.7, 2.9, 1.2, 2.9, 2.0, 2.9, 1.9, 2.1], backgroundColor: 'rgba(255, 206, 86, 0.6)' },
+            { label: 'Entrega de Resultados', data: [2.4, 2.6, 2.5, 2.1, 2.7, 2.1, 2.9, 1.7, 2.0], backgroundColor: 'rgba(75, 192, 192, 0.6)' }
+        ];
+
+        const dadosSprint2e3 = [
+            { label: 'Produtividade', data: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0], backgroundColor: 'rgba(255, 99, 132, 0.6)' },
+            { label: 'Autonomia', data: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0], backgroundColor: 'rgba(54, 162, 235, 0.6)' },
+            { label: 'Colaboração', data: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0], backgroundColor: 'rgba(255, 206, 86, 0.6)' },
+            { label: 'Entrega de Resultados', data: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0], backgroundColor: 'rgba(75, 192, 192, 0.6)' }
+        ];
+
+        criarGrafico(document.getElementById('canvas1').getContext('2d'), dadosSprint1);
+        criarGrafico(document.getElementById('canvas2').getContext('2d'), dadosSprint2e3);
+        criarGrafico(document.getElementById('canvas3').getContext('2d'), dadosSprint2e3);
+
+        function mostrarGrafico(id, botao) {
+            document.querySelectorAll('.grafico-container').forEach(div => div.classList.remove('ativo'));
+            document.getElementById(id).classList.add('ativo');
+
+            document.querySelectorAll('.botoes button').forEach(btn => btn.classList.remove('ativo'));
+            botao.classList.add('ativo');
+        }
+    </script>
+</body>
+</html>

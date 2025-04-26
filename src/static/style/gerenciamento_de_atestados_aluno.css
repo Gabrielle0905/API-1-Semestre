@@ -73,18 +73,6 @@ body {
 #barra {
   padding: 8.5px;
 }
-.filtro_radial {
-  background-color: white;
-  color: black;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 1rem;
-  display: flex;
-  padding: 12px 20px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
 .botão {
   color: #000000;
   background-color: #6eb8e6;
@@ -92,7 +80,14 @@ body {
   font-family: "Inder";
 }
 .filtro {
-  padding: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.botão_filtrar{
+  color: #ffffff;
+  background-color: #6eb8e6;
+  border-radius: 15px;
+  font-family: "Inder";
 }
 h2 {
   font-size: 40px;
