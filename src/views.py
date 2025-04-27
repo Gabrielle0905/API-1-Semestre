@@ -1,5 +1,5 @@
 from flask import Flask,render_template,url_for,request,flash,redirect, session
-from main import app, UPLOAD_FOLDER, os, caminho_usuarios
+from main import app, UPLOAD_FOLDER, os, caminho_usuarios, caminho_atestados
 from lista_atestados import atestados
 import time
 import json
@@ -20,11 +20,15 @@ def get_primeiro_nome():
 
     if not cpf or cpf not in usuarios:
         return 'Usuário'
-    
+
     usuario = usuarios[cpf]
     nome_completo=usuario.get("nome", 'Usuário')
     primeiro_nome=nome_completo.split()[0]
     return primeiro_nome
+
+def save_atestados(atestados):
+    with open(caminho_atestados, 'w') as u:
+        json.dump(atestados, u, indent=4)
 
 @app.route('/')
 def homepage():
@@ -121,10 +125,10 @@ def cadastro():
             return redirect('/cadastro')
         
         usuarios[cpf] = {
-            'nome': nome,
-            'email': email,
-            'senha': senha,
-            'funcao': funcao
+            'Nome': nome,
+            'Email': email,
+            'Senha': senha,
+            'Funcao': funcao
         }
 
         save_user(usuarios)
@@ -209,8 +213,22 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
 
-            with open(os.path.join(UPLOAD_FOLDER, 'dados.txt'), 'a') as f:
-                f.write(f'Nome: {nome}\nRA: {ra}\nTurma: {turma}\nTipo de Atestado: {tipo}\nData: {data}\nPeríodo de afastamento:{periodo}\nCrum/CFO: {crm}\nArquivo: {filename} \n\n')
+            try:
+                with open(caminho_atestados,'r') as u:
+                    atestados = json.load(u)
+            except FileNotFoundError:
+                atestados = {}
+
+            atestados[nome] = {
+                'RA' : ra,
+                'Turma' : turma,
+                'Tipo de Atestado' : tipo,
+                'Data' : data,
+                'Periodo' : periodo,
+                'CRM' : crm,
+                'Nome do arquivo' : filename
+            }
+            save_atestados(atestados)
 
             return render_template("confirm_upload.html")     
 

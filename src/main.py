@@ -5,15 +5,18 @@ import json
 
 app = Flask(__name__)
 app.secret_key = '4657'
-UPLOAD_FOLDER = 'uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+dir_base = os.path.dirname(os.path.abspath(__file__))
 
 from views import *
-
+UPLOAD_FOLDER = os.path.join(dir_base, 'uploads_atestados')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-dir_base = os.path.dirname(os.path.abspath(__file__))
-caminho_usuarios = os.path.join(dir_base, 'usuarios.json')
+caminho_atestados = os.path.join(UPLOAD_FOLDER, 'dados_atestados.json')
+if not os.path.exists(caminho_atestados):
+    with open(caminho_atestados, 'w') as u:
+        json.dump({}, u)
 
+caminho_usuarios = os.path.join(dir_base, 'usuarios.json')
 if not os.path.exists(caminho_usuarios):
     with open(caminho_usuarios, 'w') as u:
         json.dump({}, u)
