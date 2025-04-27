@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,request,flash,redirect, session
+from flask import Flask,render_template,url_for,request,flash,redirect, session, jsonify
 from main import app, UPLOAD_FOLDER, os, caminho_usuarios, caminho_atestados
 from lista_atestados import atestados
 import time
@@ -290,6 +290,34 @@ def homemembro():
 def avaliarmembro():
     return render_template('avaliar_membro.html')
 
+@app.route('/save_data', methods=['POST'])
+def save_data():
+    data = request.get_json()
+    folder_path = 'src'
+    file_path = os.path.join(folder_path, 'dados.json')
+
+    os.makedirs(folder_path, exist_ok=True)
+
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
+            try:
+                current_data = json.load(file)
+            except json.JSONDecodeError:
+                current_data = []
+        current_data.append(data)
+    else:
+        current_data = [data]
+
+    with open(file_path, 'w') as file:
+        json.dump(current_data, file, indent=2)
+
+    return jsonify({'message': 'Dados salvos com sucesso!'}), 200
+
+@app.route('/home/membro/confirm_evaluation')
+def confirm_evaluation():
+    return render_template('confirm_evaluation.html')
+
+
 @app.route('/home/membro/burndown')
 def burndown():
     return render_template('BurndownChart.html')
@@ -333,3 +361,4 @@ def logout():
     session.clear()
     flash('Logout realizado com sucesso.', 'success')
     return redirect('/')
+
