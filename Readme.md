@@ -59,7 +59,7 @@
 
 ### Sprint - 1️⃣ 🎯 ([Clique aqui](/documents/Sprints/Sprint1)):  Concluída✅
 
-### Sprint - 2️⃣ 🎯 ([Clique aqui](/documents/Sprints/Sprint2)) : Em andamento ⏳
+### Sprint - 2️⃣ 🎯 ([Clique aqui](/documents/Sprints/Sprint2)) : Concluída✅
 
 ### Sprint - 3️⃣ 🎯 ([Clique aqui](/documents/Sprints/Sprint3))  
 
@@ -75,10 +75,10 @@
 | 3  | "Como docente, quero obter acesso à página home destinada aos docentes para que eu possa fazer a gestão dos atestados e analisar as estatísticas de afastamento." | 1      | Alta | 25h | ✅ |  30/03            |    
 | 4  | "Como membro da equipe ágil, quero obter acesso à página home destinada aos membros para que eu possa avaliar os outros membros, gerenciar os resultados das avaliações, analisar o Burndown Chart que contém o desenvolvimento do projeto e exportar relatórios analíticos sobre o desempenho da equipe."   | 1      | Alta                | 42h |✅|  30/03            |    
 | 5  | "Como desenvolvedor, quero criar o protótipo do site utilizando HTML, CSS e Flask."                 | 1      | Alta                | 101h |✅ |  30/03            |    
-| 6  | "Como desenvolvedor, quero tornar o gerenciamento de atestados operacionais.."     | 2     | Média               | 12h | ⏳ |  27/04            |    
-| 7  | "Como desenvolvedor, quero tornar o upload de atestados operacional."      | 2  | Alta             | 40h | ⏳ |  27/04            |    
-| 8  | "Como desenvolvedor, quero que seja possível gerar relatórios analíticos sobre o desempenho da equipe e o desenvolvimento do projeto." | 2    | Alta                | 40h |⏳|  27/04            |    
-| 9  | "Como desenvolvedor, quero tornar as estatísticas de atestados operacionais gerando um relatório."    | 3      | Alta                | 30h |⏳|  25/05            |    
+| 6  | "Como desenvolvedor, quero tornar o gerenciamento de atestados operacionais.."     | 2     | Média               | 12h | ✅ |  27/04            |    
+| 7  | "Como desenvolvedor, quero tornar o upload de atestados operacional."      | 2  | Alta             | 40h | ✅ |  27/04            |    
+| 8  | "Como desenvolvedor, quero que seja possível gerar relatórios analíticos sobre o desempenho da equipe e o desenvolvimento do projeto." | 2    | Alta                | 40h |✅|  27/04            |    
+| 9  | "Como desenvolvedor, quero tornar as estatísticas de atestados operacionais gerando um relatório."    | 3      | Alta                | 30h ||  25/05            |    
 | 10   | “Como desenvolvedor, quero gerar documentos em PDF e/ou Excel sobre os relatórios, para facilitar a análise externa.”  | 2  | Alta  | 25h |  ⏳ |  25/05            |
 | 11  | "Como avaliador, quero um sistema de comparação com resultado das avaliações entre as sprints, para uma noção de evolução no processo ágil"      | 3      | Média              | 25h |⏳|  25/05            |
 | 12  | "Como desenvolvedor, quero tornar o sistema web responsivo para melhor utilização do site em celulares."  | 3      | Alta                 | 80h |⏳ |  25/05            |
@@ -87,21 +87,21 @@
 ## 👨‍💻**Equipe**
 >Nome da equipe: 404 - Not Found
 
->• Clara Resende - Scrum Team
+>• Clara Resende - Dev Team
 >
->• Fernanda Pereira - Scrum Team
+>• Fernanda Pereira - Dev Team
 >
 >• Gabrielle Gonçalves - Product Owner
 >
->• Guilherme Rosa - Scrum Team
+>• Guilherme Rosa - Dev Team
 >
->• Gustavo Gomes - Scrum Team
+>• Gustavo Gomes - Dev Team
 >
->• Isaura Batista - Scrum Team
+>• Isaura Batista - Dev Team
 >
->• Letícia Furtado - Scrum Team
+>• Letícia Furtado - Dev Team
 >
->• Raphael Robim - Scrum Team
+>• Raphael Robim - Dev Team
 >
 >• Wendy Mininel - Scrum Master
 
