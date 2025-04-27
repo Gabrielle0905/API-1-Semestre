@@ -19,25 +19,17 @@
       <div class="input-box">
         <label for ="name">Nome completo</label>
         <input id="name"type="text" name="name" placeholder="Digite seu nome" required>
-      </div>
-    <br>
-      <div class="input-box"> 
+        <br> 
         <label for="cpf">CPF</label>
         <input id="cpf"type="text" name="cpf" placeholder="Digite seu CPF" required>
-      </div>
-      <br>
-      <div class="input-box"> 
+        <br> 
         <label for="email">Email</label>
         <input id="email"type="email" name="email" placeholder="Digite seu email" required>
-      </div>
-      <br>
-      <div class="input-box"> 
+        <br>
         <label for="senha">Senha</label>
         <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-      </div>
-      <br>
-      <div>
-        <label for="sou" style="display: block;">Eu sou</label>
+        <br>
+        <label for="funcao" style="display: block;">Eu sou</label>
         <select name="funcao" id="funcao" required>
           <option value="aluno">Aluno</option>
           <option value="docente">Docente</option>
@@ -45,8 +37,13 @@
         </select>
       </div>
     </fieldset>
-          <!--botão-->
-    <div class="cadastrar"> 
+
+    <div class="cadastrar">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+          <div id='alerta' class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endwith %} 
       <button id="Cadastrar-se">Cadastrar-se</button>
     </div> 
   </form>  
