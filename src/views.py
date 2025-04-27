@@ -125,10 +125,10 @@ def cadastro():
             return redirect('/cadastro')
         
         usuarios[cpf] = {
-            'Nome': nome,
-            'Email': email,
-            'Senha': senha,
-            'Funcao': funcao
+            'nome': nome,
+            'email': email,
+            'senha': senha,
+            'funcao': funcao
         }
 
         save_user(usuarios)
@@ -325,7 +325,7 @@ def registroscrum():
 
 @app.route('/home/membro/gerenciar')
 def gerenciaravaliacoes():
-    return render_template('gerenciar_avaliacoes.html')
+    return render_template('comparacao_sprint.html')
 
 
 @app.route('/logout')
