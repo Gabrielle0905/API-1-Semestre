@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burndown chart</title>
-    <link rel="stylesheet" href="/SIRAAS-main/src/static/style/burndown.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/burndown.css')}}">
 </head>
 <body>
     <header>
@@ -20,10 +20,10 @@
     <section>
         <figure>
             <h3>Sprint 1</h3>
-            <img src="/SIRAAS-main/src/static/media/brundown1sprint.png" alt="Burndown chart 1">
+            <img src="{{url_for('static', filename='media/brundown1sprint.png')}}" alt="Burndown chart 1">
             <br>
             <h3>Sprint 2</h3>
-            <img src="/SIRAAS-main/src/static/media/burndown2sprint.png" alt="Burndown chart 2">
+            <img src="{{url_for('static', filename='media/burndown2sprint.png')}}" alt="Burndown chart 2">
         </figure>
     </section>
     <br>
