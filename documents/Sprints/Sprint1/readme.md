@@ -4,9 +4,7 @@ Nesta Sprint foram criados e apresentados o Backlog do Projeto e seu Protótipo.
 
 ## Protótipo do Site Funcionando:
 
-<video>
-<source src="documents/img/Sprint1.mp4" type="video/mp4">
-</video>
+https://github.com/user-attachments/assets/3ed5b9aa-6a17-41e7-a4af-1945947f781b
 
 ## Backlog da Sprint
 
