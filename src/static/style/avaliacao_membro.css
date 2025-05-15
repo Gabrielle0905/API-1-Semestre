@@ -48,7 +48,7 @@ h3 {
 
 h5 {
     color:white;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 400;
     padding-bottom: 0.8rem;
     text-decoration: underline;
@@ -61,28 +61,28 @@ fieldset {
     width: 55rem;
     margin: auto;
     padding: 1.5rem;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     border: none;
-    margin-bottom: 10px;
+    margin-bottom: 0.6rem;
 }
 
 input[type="text"] {
     width:90% ;
-    height: 25px;
-    border-radius: 25px;
+    height: 1.5rem;
+    border-radius: 1.5rem;
     border: none;
     background-color: #f4f0eab9;
 }
 
 select {
-    border-radius: 25px;
+    border-radius: 1.5rem;
     border: none;
     background-color: #f4f0eab9;
     cursor: pointer;
     color: rgba(0, 0, 0, 0.712);
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    height: 25px;
+    height: 1.5rem;
     width: 20%;
     
 }
@@ -109,7 +109,7 @@ label {
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 25px;
+    font-size: 1.5rem;
     font-weight: 999;
     margin: 0%;
     padding-top: 0%;
@@ -124,10 +124,10 @@ label {
 #enviar{
     color: #ffffff;
     background-color: #1D5175;
-    border-radius: 15px;
-    margin-top: 40px;
-    width: 300px;
-    height: 60px;
+    border-radius: 1rem;
+    margin-top: 2.5rem;
+    width: 19rem;
+    height: 3.75rem;
     font-size: large;
     font-family: 'Inder';
     margin: auto
