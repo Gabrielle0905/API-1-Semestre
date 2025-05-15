@@ -8,30 +8,29 @@
 </head>
 <body>
     <header>
-        <a href="/" style="margin-left: 10px;">←</a>
+        <a href="/">←</a>
         <h1>Faça seu login!</h1>
     </header>
 
     <span>Área do Aluno</span>
 
-    <div class="container">
-        <form method="post">
-            <div class="form-box">
-                <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required >
+    
+    <form class="container" method="post">
+        <div class="form-box">
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required >
                 
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-            </div>
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% for category, message in messages %}
-                 <div id='alerta' class="alert alert-{{ category }}">{{ message }}</div>
-                {% endfor %}
-            {% endwith %}
-            <button type="submit" class="btn-enviar" value="entrar">Entrar</button>
-        </form>
-    </div>
-
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div id='alerta' class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+        <button type="submit" class="btn-enviar" value="entrar">Entrar</button>
+    </form>
+    
 
 </body>
 </html>

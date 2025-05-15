@@ -3,42 +3,38 @@
 body,html{
     font-family: 'Inder', sans-serif;
     background-color: white;
+    display: grid;
 }
 
 
 header{
     width: 100%;
-    display: flex;
-    padding: 10px 20px;
+    display: grid;
+    padding: 0.625rem 0rem  ;
 }
 
 header a{
     text-decoration: none;
     color: black;
-    font-size: 25px;
+    font-size: 1.56rem;
     position: absolute;
-    top: 25px;
+    top: 1.56rem;
+    margin-left: 1.25rem;
 }
 
 h1{
     color: #1D5175;
     font-size: 3rem;
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 25px;
-    transform: translateX(-50%);
+    justify-self: center;
+    top: 1.56rem;
     margin: 0;
 }
 
 span{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 100px;
-    margin-bottom: 25px;
-    font-size: large;
+    justify-self: center;
+    margin-top: 4rem;
+    margin-bottom: 1.56rem;
+    font-size: 1.25rem;
 }
 
 .container {
@@ -54,26 +50,26 @@ span{
     align-items: center;
     justify-content: center;
     background-color: #1D5175;
-    border-radius: 15px;
+    border-radius: 0.93rem;
     color: white;
-    width: 500px;
-    height: 200px;
-    padding: 20px 45px;
+    width: 40%;
+    height: 60%;
+    padding: 1.25rem 2.81rem;
 }
 
 .form-box label {
-    margin-bottom: 5px;
-    font-size: 18px;
+    margin-bottom: 0.3rem;
+    font-size: 1.12rem;
     align-self: flex-start;
 }
 
 
 .form-box input{
-    padding: 15px;
-    margin-top: 5px;
-    border-radius: 5px;
+    padding: 0.93rem;
+    margin-top: 0.3rem;
+    border-radius: 0.3rem;
     border: none;
-    margin-bottom: 30px;
+    margin-bottom: 1.87rem;
     display: flex;
     width: 95%;
 }
@@ -81,22 +77,18 @@ span{
 .btn-enviar{
     color: #ffffff;
     background-color: #1D5175;
-    border-radius: 15px;
-    margin-top: 40px;
-    width: 300px;
-    height: 60px;
+    border-radius: 0.93rem;
+    margin-top: 2.5rem;
+    width: 20%;
+    padding: 0.93rem;
     font-size: large;
     font-family: 'Inder';
-}
-
-.container button a{
-    text-decoration: none;
-    color: white;
 }
 
 ::placeholder{
     font-family:'Inder';
     color: rgb(207, 203, 203);
+    font-size: 1rem;
 }
 
 form{
@@ -107,8 +99,44 @@ form{
 
 #alerta{
     font-family: 'Inder';
-    padding: 20px;
+    padding: 1.25rem;
     background-color: #def1ff;
-    border-radius: 45px;
-    margin-top: 15px;
+    border-radius: 2.81rem;
+    margin-top: 0.93rem;
+}
+
+@media (max-width: 768px) {
+    h1{
+    font-size: 2rem;
+}
+
+    header a{
+    display: none;
+    
+} 
+    span{
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+    .form-box{
+    border-radius: 1rem;
+    color: white;
+    width: 60%;
+    height: 55%;
+    padding: 1.25rem 2.81rem;
+}
+
+    .form-box input{
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+    .btn-enviar{
+    margin-top: 2rem;
+    width: 30%;
+    font-size: large;
+}
+
 }
