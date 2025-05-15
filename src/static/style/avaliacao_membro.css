@@ -19,14 +19,14 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 main {
     display: flex;
     flex-direction: column;
     padding:2rem;
-    gap:4px;
+    gap:0.25rem;
 }
 
 h1 {
@@ -39,11 +39,11 @@ h1 {
 
 h3 {
     color: black;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 6000;
-    padding-left: 150px;
-    padding-bottom: 15px;
-    padding-top: 15px;
+    padding-left: 9.5rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 h5 {
