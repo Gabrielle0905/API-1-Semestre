@@ -32,16 +32,7 @@
     <main>
       <!-- Barra de pesquisa e Total de Registros-->
       <section>
-        <h2
-          style="
-            margin-top: 90px;
-            font-size: 15px;
-            font-weight: lighter;
-            margin-left: 3%;
-          "
-        >
-          Total de registros: {{ atestados | length }}
-        </h2>
+        <h2 class="total-registros"> Total de registros: {{ atestados | length }}</h2>
         <div class="barra_de_pesquisa">
           <form
             action="/home/docente/gerenciar_atestados/"
@@ -51,7 +42,6 @@
             <input
               id="barra"
               type="text"
-              style="width: 93.25%; border-radius: 20px; height: 25px"
               name="pesquisa"
               placeholder="Pesquisar"
               value="{{ request.args.get('pesquisa','') }}"
@@ -61,7 +51,7 @@
               id="botão_pesquisa"
               style="background-color: transparent; border: none"
             >
-              <i class="fas fa-search" style="margin-left: -50px"></i>
+              <i class="fas fa-search" style="margin-left: -3.125rem"></i>
             </button>
           </form>
         </div>
@@ -148,7 +138,7 @@
       </section>
       <section>
         <!-- Redirecionamento para geração de relatórios -->
-        <button type="submit" class="btn-send" style="margin-top: 30px">
+        <button type="submit" class="btn-send" style="margin-top: 1.875rem">
           Gerar Relatório
         </button>
       </section>

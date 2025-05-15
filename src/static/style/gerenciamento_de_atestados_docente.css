@@ -1,3 +1,4 @@
+
 body {
   font-family: "Inder";
   margin: 0;
@@ -11,20 +12,27 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .seta {
   background-color: transparent;
   border: none;
   color: white;
-  font-size: 25px;
+  font-size: 1.563rem;
   cursor: pointer;
 }
 
 .prompt {
   display: flex;
   justify-content: center;
+}
+
+.total-registros {
+  margin-top: 5.625rem;
+  font-size: 0.938rem;
+  font-weight: lighter;
+  margin-left: 3%;
 }
 
 .txt {
@@ -41,10 +49,12 @@ body {
   color: white;
   max-width: 90%;
   margin: auto;
-  border-radius: 20px;
-  padding: 30px;
-  margin-top: 20px;
-  border-spacing: 25px;
+  border-radius: 1.25rem;
+  padding: 1.875rem;
+  margin-top: 1.25rem;
+  border-spacing: 1.5rem;
+  display: block;
+  overflow-x: auto;
 }
 
 .input_pesquisa {
@@ -55,14 +65,14 @@ body {
 .btn-send {
   background-color: #1d5176;
   color: white;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   cursor: pointer;
   margin: auto;
   display: flex;
-  padding: 12px 20px;
+  padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
 }
 
@@ -71,7 +81,10 @@ body {
 }
 
 #barra {
-  padding: 8.5px;
+  padding: 0.531rem;
+  width: 93.25%;
+  border-radius: 1.25rem;
+  height: 1.563rem
 }
 .filtro {
   cursor: pointer;
@@ -80,17 +93,17 @@ body {
 .botão_filtrar{
   color: #ffffff;
   background-color: #6eb8e6;
-  border-radius: 15px;
+  border-radius: 0.938rem;
   font-family: "Inder";
 }
 h2 {
-  font-size: 40px;
+  font-size: 2.5rem;
 }
 
 #botão_excluir {
   color: #000000;
   background-color: #6eb8e6;
-  border-radius: 15px;
+  border-radius: 0.938rem;
   font-family: "Inder";
 }
 
@@ -110,12 +123,52 @@ td {
 
 ::placeholder {
   font-family: "Inder";
-  padding: 5px;
+  padding: 0.313rem;
 }
 
 #botao_excluir {
   color: #ffffff;
   background-color: #6eb8e6;
-  border-radius: 15px;
+  border-radius: 0.938rem;
   font-family: "Inder";
+}
+
+@media (max-width: 768px) {
+  .prompt{
+    font-size: 1.25rem;
+    margin-top: 2rem;
+}
+  .navbar {
+  padding: 0.8rem;
+  justify-content: center;
+}
+  .navbar h1 {
+  font-size: 0.7rem;
+}
+
+.seta {
+  display: none;
+}
+
+.total-registros {
+  margin-top: 3.5rem;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  justify-self: center;
+}
+
+#barra {
+  padding: 0.531rem;
+  width: 85%;
+  border-radius: 1rem;
+  height: 1rem
+}
+
+.tabela_de_pesquisa{
+  max-width: 95%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border-spacing: 0.5rem;
+  scrollbar-color: #ffffff #585858;
+}
 }
