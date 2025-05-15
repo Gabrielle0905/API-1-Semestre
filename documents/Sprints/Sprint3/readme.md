@@ -2,7 +2,6 @@
 
 ## Vídeo do Site Funcionando (Versão atualizada):
 
-https://github.com/user-attachments/assets/a8fff5f6-404b-4638-b21d-fb03f4e2b314
 
 ## Backlog da Sprint
 
