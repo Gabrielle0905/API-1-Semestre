@@ -6,16 +6,16 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 40px;
+    font-size: 2.5rem;
     color: #1b3a5e;
-    margin: 20px 0;
+    margin: 1.25rem 0;
 }
 
 .greeting {
     text-align: justify;
-    font-size: 18px;
-    margin-left: 40px;
-    margin-right: 40px;
+    font-size: 1.1rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
     line-height: 1.5;
     letter-spacing: 0.5px;
 }
@@ -28,22 +28,22 @@ h1 {
 }
 
 .img-section {
-    width: 400px;
-    margin-left: 50px;
+    width: 25rem;
+    margin-left: 3.1rem;
     float: left;
 }
 
 @media(min-width: 1190px) {
     .img-section {
-        width: 340px;
+        width: 21.25rem;
     }
 }
 
 .text-section {
     text-align: justify;
-    font-size: 18px;
-    margin-right: 40px;
-    margin-left: 15px;
+    font-size: 1.1rem;
+    margin-right: 2.5rem;
+    margin-left: 0.9rem;
     line-height: 1.5;
     letter-spacing: 0.5px;
 }
@@ -55,7 +55,7 @@ h1 {
     }
 
     .img-section {
-        width: 300px;
+        width: 18.75rem;
         margin: auto;
     }
 
@@ -66,7 +66,7 @@ h1 {
 
 @media(min-width: 990px) {
     .img-section {
-        width: 400px;
+        width: 25rem;
         margin-bottom: 30rem;
         margin-right: 1rem;
     }
@@ -114,26 +114,25 @@ h1 {
 .blue-box {
     background-color: #5892B7;
     color: white;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     text-align: center;
-    padding: 15px;
-    border-radius: 10px;
-    margin: 30px auto;
+    padding: 0.9rem;
+    border-radius: 0.6rem;
+    margin: 1.8rem auto;
     width: 80%;
 }
 
 .form-container {
     background-color: #1d5176;
-    ;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 1.25rem;
+    border-radius: 0.6rem;
     width: 80%;
     margin: 0 auto;
 }
 
 .form-container p {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     color: white;
     letter-spacing: 0.5px;
@@ -142,25 +141,24 @@ h1 {
 .radio-group {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0.9rem;
 }
 
 .btn-entrar {
     text-align: center;
-    margin-top: 20px;
-    /* Ajuste conforme necessário */
+    margin-top: 1.25rem;
 }
 
 .btn-entrar input {
     background-color: #1d5176;
     color: white;
-    font-size: 18px;
+    font-size: 1.1rem;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 0.6rem 1.25rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 0.9rem;
 }
 
 .btn-entrar input:hover {
@@ -168,20 +166,20 @@ h1 {
 }
 
 label {
-    font-size: 18px;
+    font-size: 1.1rem;
     cursor: pointer;
     color: white;
     letter-spacing: 0.5px;
 }
 
 input[type="radio"] {
-    margin-right: 15px;
+    margin-right: 0.9rem;
 }
 
 .signup {
     text-align: center;
-    font-size: 18px;
-    margin-top: -115px;
+    font-size: 1.1rem;
+    margin-top: -7.1rem;
     letter-spacing: 0.5px;
 
 }
@@ -219,9 +217,9 @@ input[type="radio"] {
 }
 
 footer {
-    font-size: 18px;
+    font-size: 1.1rem;
     text-align: center;
-    margin-top: 130.5px;
+    margin-top: 8.1rem;
     letter-spacing: 0.5px;
 
 }
