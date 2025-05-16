@@ -83,6 +83,11 @@ span{
     padding: 0.93rem;
     font-size: large;
     font-family: 'Inder';
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background-color: #3274A0;
 }
 
 ::placeholder{

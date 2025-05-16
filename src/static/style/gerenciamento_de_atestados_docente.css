@@ -1,4 +1,3 @@
-
 body {
   font-family: "Inder";
   margin: 0;
@@ -124,13 +123,6 @@ td {
 ::placeholder {
   font-family: "Inder";
   padding: 0.313rem;
-}
-
-#botao_excluir {
-  color: #ffffff;
-  background-color: #6eb8e6;
-  border-radius: 0.938rem;
-  font-family: "Inder";
 }
 
 @media (max-width: 768px) {

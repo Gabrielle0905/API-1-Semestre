@@ -32,14 +32,7 @@
     <main>
       <!-- Barra de pesquisa e Total de Registros-->
       <section>
-        <h2
-          style="
-            margin-top: 90px;
-            font-size: 15px;
-            font-weight: lighter;
-            margin-left: 3%;
-          "
-        >
+        <h2 class="total-registros">
           Total de registros: {{ atestados | length }}
         </h2>
         <div class="barra_de_pesquisa">
@@ -51,7 +44,6 @@
             <input
               id="barra"
               type="text"
-              style="width: 93.25%; border-radius: 20px; height: 25px"
               name="pesquisa"
               placeholder="Pesquisar"
               value="{{ request.args.get('pesquisa','') }}"
