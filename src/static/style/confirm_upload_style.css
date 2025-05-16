@@ -1,40 +1,131 @@
 @import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
 
-body{
-    font-family: 'Inder';
+body {
+    font-family: 'Inder', sans-serif;
     letter-spacing: 0.5px;
+    margin: 0;
+    padding: 0;
 }
 
-h1{
-    color: #1b3a5e;
-    font-size: 40px;
+h1 {
     text-align: center;
-    margin-top: 30px;
+    color: #1d5176;
+    font-size: 64px;
+    font-weight: 400;
+    padding-top: -1rem;
+    margin-bottom: 1rem;
 }
 
-p{
+h3 {
     text-align: center;
-    font-size: 18px;
-    margin-top: 10px;
+    font-weight: 600;
+    font-size: 1.5rem;
 }
 
-img{
+img {
     display: block;
-    margin: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 button {
-    background-color: #174873;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
+    background-color: #1D5175;
+    display: block;
+    width: 150px;
+    height: 40px;
+    text-align: center;
     cursor: pointer;
-    width: 10%;
-    font-family: 'Inder';
+    border-radius: 5px;
+    border: 2px solid #1D5175;
+    margin: -1.5rem auto;
+    font-size: 20px;
 }
 
 button:hover {
     background-color: #3274A0;
+}
+
+#voltar {
+    color: #ffffff;
+    background-color: #1D5175;
+    border-radius: 15px;
+    width: 300px;
+    height: 60px;
+    font-size: large;
+    font-family: 'Inder', sans-serif;
+}
+
+@media (min-width: 1030px) {
+    img {
+        margin: -1.5rem auto;
+    }
+}
+
+@media (min-width: 781px) and (max-width: 1029px) {
+    img {
+        width: 490px;
+        margin: 1.5rem auto;
+    }
+}
+
+@media (max-width: 780px) {
+    img {
+        width: 450px;
+        margin: 2.5rem auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 48px;
+    }
+
+    #voltar {
+        width: 250px;
+        height: 50px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    button {
+        width: 130px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+    #voltar {
+        width: 220px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    button {
+        width: 120px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    #voltar {
+        width: 200px;
+        height: 45px;
+        font-size: 1rem;
+    }
 }
