@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -10,26 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <img src="{{url_for('static', filename='media/logo.jpg')}}" alt="Logo" style="width: 100%;">
-
     <div class="greeting">
-        <p>Bem-Vindo! O SIRAAS (Sistema de Registro de Atestados e Avaliação Scrum) foi desenvolvido para simplificar e otimizar o processo de envio e gerenciamento de atestados médicos dentro das instituições de ensino. Nosso objetivo é oferecer uma solução digital moderna, ágil e acessível, reduzindo burocracias e facilitando a comunicação entre alunos, docentes e a coordenação escolar.</p>
+        <p>Bem-Vindo! O SIRAAS (Sistema de Registro de Atestados e Avaliação Scrum) foi desenvolvido para simplificar e
+            otimizar o processo de envio e gerenciamento de atestados médicos dentro das instituições de ensino. Nosso
+            objetivo é oferecer uma solução digital moderna, ágil e acessível, reduzindo burocracias e facilitando a
+            comunicação entre alunos, docentes e a coordenação escolar.</p>
     </div>
-    
     <div class="container">
         <img src="{{url_for('static', filename='media/img1_first_page.png')}}" alt="Ilustração" class="img-section">
         <div class="text-section">
-            <p>Com o SIRAAS, os alunos podem enviar seus atestados de forma rápida e intuitiva. O sistema permite o preenchimento de informações essenciais, como nome, RA, tipo de atestado e período de afastamento, garantindo que os documentos sejam enviados corretamente e armazenados de maneira segura.</p>
-            <p>Já a coordenação tem acesso a um painel organizado, onde pode visualizar, filtrar e gerenciar todos os atestados recebidos. Além disso, o sistema possibilita a exportação de documentos para planilhas e PDFs, tornando a administração ainda mais eficiente e eliminando a necessidade de processos manuais demorados.</p>
-            <p>Para garantir uma experiência otimizada, utilizamos a metodologia ágil Scrum, um modelo de desenvolvimento que nos permite avaliar e aprimorar continuamente o sistema. Com ciclos frequentes de feedback e adaptação, buscamos constantemente melhorias para tornar o SIRAAS ainda mais eficiente e alinhado às necessidades dos usuários.</p>
-            <p>Nosso compromisso é oferecer uma ferramenta que facilite a rotina acadêmica, proporcionando mais organização, transparência e praticidade para alunos e instituições de ensino. Com o SIRAAS, o gerenciamento de atestados médicos se torna muito mais simples, rápido e seguro.</p>
-            <p>Comece agora e descubra como o SIRAAS pode transformar sua experiência!</p>
+            <div class="t_c1">
+                <p>Com o SIRAAS, os alunos podem enviar seus atestados de forma rápida e intuitiva. O sistema permite o
+                    preenchimento de informações essenciais, como nome, RA, tipo de atestado e período de afastamento,
+                    garantindo que os documentos sejam enviados corretamente e armazenados de maneira segura.</p>
+                <p>Já a coordenação tem acesso a um painel organizado, onde pode visualizar, filtrar e gerenciar todos
+                    os atestados recebidos. Além disso, o sistema possibilita a exportação de documentos para planilhas
+                    e PDFs, tornando a administração ainda mais eficiente e eliminando a necessidade de processos
+                    manuais demorados.</p>
+            </div>
+            <div class="t_c2">
+                <p class="ph1">Para garantir uma experiência otimizada, utilizamos a metodologia ágil Scrum, um modelo
+                    de
+                    desenvolvimento que nos permite avaliar e aprimorar continuamente o sistema. Com ciclos frequentes
+                    de feedback e adaptação, buscamos constantemente melhorias para tornar o SIRAAS ainda mais eficiente
+                    e alinhado às necessidades dos usuários.</p>
+            </div>
         </div>
     </div>
-
     <div class="blue-box">A gente se conhece?</div>
-
     <form action="/login" method="post">
         <div class="form-container">
             <p>Eu sou:</p>
@@ -39,26 +48,21 @@
                 <label><input type="radio" name="user-type" value="Equipe">Membro da equipe ágil</label>
             </div>
             {% with messages = get_flashed_messages(with_categories=true) %}
-                {% for category, message in messages %}
-                    <div class="alert">{{ message }}</div>
-                    {% endfor %}
-                {% endwith %}
+            {% for category, message in messages %}
+            <div class="alert">{{ message }}</div>
+            {% endfor %}
+            {% endwith %}
         </div>
-    
-        <!-- Botão de entrada fora do quadrado azul -->
         <div class="btn-entrar">
             <input type="submit" value="Entrar">
         </div>
     </form>
-    
-    <img src="{{url_for('static', filename='media/img2_first_page.png')}}" alt="Ilustração" class="form-img">
-
-    <form  action="/cadastro" id="cadastro"  method="post">
-      <div class="signup">
-        Ainda não possui cadastro? <a href="/cadastro">Inscreva-se agora!</a> 
-      </div>
+    <form action="/cadastro" id="cadastro" method="post">
+        <div class="signup">
+            Ainda não possui cadastro? <a href="/cadastro">Inscreva-se agora!</a>
+        </div>
     </form>
-    
+
     <footer>
         <p>Facilitando o dia a dia da escola, porque organização e praticidade fazem a diferença.</p>
     </footer>
