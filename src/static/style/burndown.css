@@ -2,7 +2,7 @@
         * {
             margin: 0;
             box-sizing: border-box;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.031rem;
             line-height: 1.2;
         }
         
@@ -10,16 +10,14 @@
         body , html {
             height: 100%; width: 100%;
             font-family: "inder", sans-serif;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.031rem;
             line-height: 1.5;
             margin-bottom: 3rem;
         }
-
-
         
         header {
             background-color: #5892B7; padding: 1.5rem;
-            font-size: 20px;
+            font-size: 1.25rem;
             justify-content: space-between;
             display: flex;
             align-items: center;
@@ -30,10 +28,14 @@
 
         button {
             background-color: #5892B7; color: #FFFFFF;
-            margin: 10px; padding: 1.5rem;
-            border-radius: 8px; border: none;
+            margin: 0.62rem; padding: 1.5rem;
+            border-radius: 0.5rem; border: none;
             cursor: pointer;
-            font-size: 25px;
+            font-size: 1.56rem;
+        }
+
+        span::before{
+            content: 'SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum';
         }
 
 
@@ -47,17 +49,47 @@
 
 
         p {
-            max-width: 770px;
+            max-width: 70%;
             margin: 0 auto;
-            
+            text-align: center;
         }
 
 
-        h1 {
+        h1,h2 {
             text-align: center;
         }
         
 
-        h2 {
-            text-align: center;
-        }
+@media (max-width:768px){
+    header{
+    height: 10%;
+}
+    span::before{
+    content: 'SIRAAS';
+}
+    p{
+    max-width: 80%;
+    font-size: 0.8rem;
+}
+    h1{
+    font-size: 1.7rem;
+}
+    h2,h3{
+    font-size: 1.2rem;
+    text-align: center
+}   
+    img{
+    width: 75%;
+    align-items: center;
+}
+    figure{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    
+}    
+
+}   
