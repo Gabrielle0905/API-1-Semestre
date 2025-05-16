@@ -10,9 +10,9 @@ body {
 h1 {
     text-align: center;
     color: #1d5176;
-    font-size: 64px;
+    font-size: 4rem;
     font-weight: 400;
-    padding-top: -1rem;
+    padding-top: -1rem; 
     margin-bottom: 1rem;
 }
 
@@ -31,14 +31,14 @@ img {
 button {
     background-color: #1D5175;
     display: block;
-    width: 150px;
-    height: 40px;
+    width: 9.3rem;
+    height: 2.5rem;
     text-align: center;
     cursor: pointer;
-    border-radius: 5px;
-    border: 2px solid #1D5175;
+    border-radius: 0.3rem;
+    border: 0.1rem solid #1D5175;
     margin: -1.5rem auto;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 button:hover {
@@ -48,9 +48,9 @@ button:hover {
 #voltar {
     color: #ffffff;
     background-color: #1D5175;
-    border-radius: 15px;
-    width: 300px;
-    height: 60px;
+    border-radius: 0.9rem;
+    width: 18.75rem;
+    height: 3.75rem;
     font-size: large;
     font-family: 'Inder', sans-serif;
 }
@@ -63,33 +63,33 @@ button:hover {
 
 @media (min-width: 781px) and (max-width: 1029px) {
     img {
-        width: 490px;
+        width: 30.6rem;
         margin: 1.5rem auto;
     }
 }
 
 @media (max-width: 780px) {
     img {
-        width: 450px;
+        width: 28.1rem;
         margin: 2.5rem auto;
     }
 }
 
 @media (max-width: 1024px) {
     h1 {
-        font-size: 48px;
+        font-size: 3rem;
     }
 
     #voltar {
-        width: 250px;
-        height: 50px;
+        width: 15.6rem;
+        height: 3.1rem;
         font-size: 1rem;
     }
 }
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 36px;
+        font-size: 2.25rem;
     }
 
     h3 {
@@ -97,20 +97,20 @@ button:hover {
     }
 
     button {
-        width: 130px;
-        height: 38px;
-        font-size: 18px;
+        width: 8.1rem;
+        height: 2.3rem;
+        font-size: 1.1rem;
     }
 
     #voltar {
-        width: 220px;
-        height: 50px;
+        width: 13.75rem;
+        height: 3.1rem;
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 28px;
+        font-size: 1.75rem;
     }
 
     h3 {
@@ -118,14 +118,14 @@ button:hover {
     }
 
     button {
-        width: 120px;
-        height: 36px;
-        font-size: 16px;
+        width: 7.5rem;
+        height: 2.25rem;
+        font-size: 1rem;
     }
 
     #voltar {
-        width: 200px;
-        height: 45px;
+        width: 12.5rem;
+        height: 2.8rem;
         font-size: 1rem;
     }
 }
