@@ -5,8 +5,8 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inder';
-    letter-spacing: 0.5px;
-    line-height: 1.5;
+    letter-spacing: 0.03rem;
+    line-height: 1.5rem;
 }
 
 .navbar {
@@ -15,7 +15,13 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 1.5rem;
-    font-size: 20px;
+    font-size: 1.25rem;
+    align-items: center;
+}
+
+nav span::before{
+    content: 'SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum';
+
 }
 
 .logout {
@@ -23,64 +29,66 @@ body {
     text-decoration: none;
     background-color: transparent;
     border: none;
-    font-size: 18px;
+    font-size: 1.12rem;
     cursor: pointer;
 }
 
 .main {
     text-align: center;
-    padding: 40px 20px;
 }
 
-.main h1 {
-    font-size: 32px;
+h1 {
+    font-size: 2rem;
+    margin-top: 3rem;
 }
 
 .content {
     display: flex;
     justify-content: space-between;
     max-width: 100%;
-    margin: 30px auto;
     text-align: left;
 }
 
 .illustration {
-    width: 450px;
+    width: 28.5rem;
+    height: auto;
 
 }
 
 .text {
-    font-size: 16px;
-    margin-bottom: 10px;
-    margin-top: 70px;
+    font-size: 1rem;
+    margin-bottom: 0.62rem;
+    margin-top: 4.37rem;
+    width: 70%;
+    padding-right: 1.5rem;
 }
 
 .actions {
     text-align: center;
-    padding: 40px;
-    margin-top: -180px;
 }
 
 .actions h2 {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 1.5rem;
+    margin: 0;
+    margin-bottom: 1.87rem;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 1.25rem;
     font-family: 'Inder';
+    margin-bottom: 3rem;
 }
 
 .btn {
     background-color: #1d5176;
     color: white;
     border: none;
-    padding: 12px 20px;
-    font-size: 16px;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0.31rem;
     transition: 0.3s;
     font-family: 'Inder';
 }
@@ -95,6 +103,59 @@ body {
     border: none;
     color: white;
     font-family: 'Inder';
-    font-size: 20px;
+    font-size: 1.25rem;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inder';
+    line-height: 1rem;
+}
+    .navbar {
+    background-color: #5892B7;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    font-size: 1.25rem;
+}
+    h1,h2 {
+    font-size: 1.90rem;
+    margin-top: 1.5rem;
+}
+    nav span::before{
+    content: 'SIRAAS';
+}
+    .content img {
+    width: 15rem;
+    justify-self: center;
+
+}
+    .text {
+    font-size: 0.75rem;
+    margin-bottom: 0.62rem;
+    margin-top: 0rem;
+    width: 70%;
+    padding-right: 1.5rem;
+    justify-self: center;
+}
+    .text p{
+    text-align: center;
+}
+    .content {
+    display: grid;
+    justify-content: space-between;
+    max-width: 100%;
+    text-align: left;
+}
+    .btn {
+    padding: 1rem;
+    font-size: 0.75rem;
+    border-radius: 0.4rem;
+}
+
 }
