@@ -277,7 +277,7 @@ def excluir_atestado_docente(atestado_id):
 @app.route('/home/docente/gerenciar_atestados/relatorios/')
 def relatorios_template():
     data_hoje = datetime.today().strftime('%d/%m/%Y')
-    atestados_filtrados = sorted(atestados, key=lambda x: x['Inicio'])
+    atestados_filtrados = sorted(atestados, key=lambda x: x['Inicio'], reverse=True)
     return render_template('relatorios.html', atestados = atestados_filtrados, data_hoje = data_hoje)
 
 @app.route('/home/docente/estatisticas')
