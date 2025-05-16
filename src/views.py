@@ -1,5 +1,6 @@
 from flask import Flask,render_template,url_for,request,flash,redirect, session, jsonify
 from main import app, UPLOAD_FOLDER, os, caminho_usuarios, caminho_atestados
+from datetime import datetime
 from lista_atestados import atestados
 import time
 import json
@@ -272,6 +273,12 @@ def excluir_atestado_docente(atestado_id):
     if atestado_para_remover:
         atestados.remove(atestado_para_remover)
     return render_template('gerenciamento_de_atestados_docente.html', atestados=atestados)
+
+@app.route('/home/docente/gerenciar_atestados/relatorios/')
+def relatorios_template():
+    data_hoje = datetime.today().strftime('%d/%m/%Y')
+    atestados_filtrados = sorted(atestados, key=lambda x: x['Inicio'])
+    return render_template('relatorios.html', atestados = atestados_filtrados, data_hoje = data_hoje)
 
 @app.route('/home/docente/estatisticas')
 def estatisticas_afastamento():

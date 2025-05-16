@@ -32,7 +32,9 @@
     <main>
       <!-- Barra de pesquisa e Total de Registros-->
       <section>
-        <h2 class="total-registros"> Total de registros: {{ atestados | length }}</h2>
+        <h2 class="total-registros">
+          Total de registros: {{ atestados | length }}
+        </h2>
         <div class="barra_de_pesquisa">
           <form
             action="/home/docente/gerenciar_atestados/"
@@ -60,7 +62,7 @@
       <section>
         <div>
           <form
-            action="/home/aluno/gerenciar_atestados/"
+            action="/home/docente/gerenciar_atestados/"
             method="get"
             class="filtro_radial"
           >
@@ -136,11 +138,9 @@
           </form>
         </div>
       </section>
-      <section>
+      <section class="section-btn-center">
         <!-- Redirecionamento para geração de relatórios -->
-        <button type="submit" class="btn-send" style="margin-top: 1.875rem">
-          Gerar Relatório
-        </button>
+        <a href="{{url_for('relatorios_template')}}" target="_blank" class="btn-link">Criar Relatorio</a>
       </section>
     </main>
   </body>

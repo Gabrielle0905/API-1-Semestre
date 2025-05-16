@@ -99,8 +99,8 @@ h2 {
   font-size: 2.5rem;
 }
 
-#botão_excluir {
-  color: #000000;
+#botao_excluir {
+  color: white;
   background-color: #6eb8e6;
   border-radius: 0.938rem;
   font-family: "Inder";
@@ -123,6 +123,12 @@ td {
 ::placeholder {
   font-family: "Inder";
   padding: 0.313rem;
+}
+
+.section-btn-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
 }
 
 @media (max-width: 768px) {
@@ -163,4 +169,27 @@ td {
   border-spacing: 0.5rem;
   scrollbar-color: #ffffff #585858;
 }
+}
+.btn-link {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  background-color: #1d5176;
+  color: white;
+  font-family: "Inder";
+  font-weight: bold;
+  font-size: 1.125rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.313rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.btn-link:hover {
+  background-color: #3274a0; 
+  text-decoration: none;
+  color: white;
 }
