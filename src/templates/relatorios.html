@@ -3,10 +3,117 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style/relatorio.css') }}"
-    />
+    <style>
+      @page {
+        size: A4;
+        margin: 2cm;
+      }
+      /* Reset básico */
+      body {
+        font-family: "Inder", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+      }
+
+      /* Header para preencher toda a largura da viewport */
+      header {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        background-color: #5892b7;
+        box-sizing: border-box;
+        padding: 2rem 1rem;
+        color: white;
+      }
+
+      /* Conteúdo do cabeçalho centralizado e com limite max-width */
+      .cabecalho-relatorio {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .cabecalho-relatorio h1 {
+        margin: 0 0 0.5rem 0;
+        font-size: 2.5rem;
+      }
+
+      .cabecalho-relatorio span {
+        font-size: 1rem;
+        display: block;
+      }
+
+      /* Tabela estilizada */
+      .tabela_de_pesquisa {
+        background-color: #1d5175;
+        color: white;
+        width: 90%;
+        margin: 2rem auto;
+        border-radius: 1.25rem;
+        padding: 1.5rem;
+        overflow-x: auto;
+        border-spacing: 1rem;
+        box-sizing: border-box;
+      }
+
+      .tabela_de_pesquisa th,
+      .tabela_de_pesquisa td {
+        padding: 0.75rem;
+        text-align: center;
+      }
+
+      .tabela_de_pesquisa th {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .tabela_de_pesquisa td {
+        font-size: 0.95rem;
+      }
+
+      /* Responsividade */
+      @media (max-width: 768px) {
+        .cabecalho-relatorio h1 {
+          font-size: 1.75rem;
+        }
+
+        .cabecalho-relatorio span {
+          font-size: 0.875rem;
+        }
+
+        .tabela_de_pesquisa {
+          width: 95%;
+          padding: 1rem;
+          font-size: 0.875rem;
+        }
+
+        .tabela_de_pesquisa th,
+        .tabela_de_pesquisa td {
+          padding: 0.5rem;
+        }
+      }
+      footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #5892b7;
+        color: white;
+        padding: 1rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        width: 95%;
+        text-align: center;
+      }
+      @media print {
+        footer {
+          display: none !important;
+        }
+      }
+    </style>
     <title>Relatórios</title>
   </head>
   <body class="pagina-relatorios">
@@ -52,5 +159,8 @@
         </tbody>
       </table>
     </main>
+    <footer>
+      <a href="{{url_for('gerar_pdf')}}" target="_blank">Exportar para PDF</a>
+    </footer>
   </body>
 </html>

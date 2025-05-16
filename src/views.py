@@ -1,7 +1,9 @@
-from flask import Flask,render_template,url_for,request,flash,redirect, session, jsonify
+from flask import Flask,render_template,url_for,request,flash,redirect, session, jsonify, make_response
 from main import app, UPLOAD_FOLDER, os, caminho_usuarios, caminho_atestados
 from datetime import datetime
+from xhtml2pdf import pisa
 from lista_atestados import atestados
+import io
 import time
 import json
 import os
@@ -280,6 +282,21 @@ def relatorios_template():
     atestados_filtrados = sorted(atestados, key=lambda x: x['Inicio'], reverse=True)
     return render_template('relatorios.html', atestados = atestados_filtrados, data_hoje = data_hoje)
 
+@app.route('/home/docente/gerenciar_atestados/relatorios/gerarpdf')
+def gerar_pdf():
+    data_hoje = datetime.today().strftime('%d/%m/%Y')
+    atestados_filtrados = sorted(atestados, key=lambda x: x['Inicio'], reverse=True)
+    html = render_template('relatorios.html', atestados = atestados_filtrados, data_hoje = data_hoje)
+    result = io.BytesIO()
+    pdf = pisa.CreatePDF(io.StringIO(html), dest = result)
+    if not pdf.err:
+        response = make_response(result.getvalue())
+        response.headers['Content-Type'] = 'application/pdf'
+        response.headers['Content-Disposition'] = 'inline; filename=relatorio.pdf'
+        return response
+    else:
+        return "Erro ao gerar PDF", 500
+    
 @app.route('/home/docente/estatisticas')
 def estatisticas_afastamento():
     return render_template('estatisticas_afastamento.html')
