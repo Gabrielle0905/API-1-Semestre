@@ -1,47 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Inder&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
 
-body{
-    font-family: 'Inder';
+/* Reset e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inder', sans-serif;
+    box-sizing: border-box;
 }
 
-
+/* Títulos */
 h1 {
-margin-left: 16rem;
-color:#1d5176;
-font-size: 3rem;
+    text-align: center;
+    color: #1d5176;
+    font-size: 64px;
+    font-weight: 400;
+    padding-top: 2rem;
 }
 
+h3 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Imagens */
 img {
-margin-left: 25rem;
-height: 25rem;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
 }
 
+/* Links */
 a {
-font-size: 3rem;
-margin-left: 20rem;
+    font-size: 3rem;
+    margin-left: 20rem;
+    display: inline-block;
 }
 
-#home{
-    background-color: #5892B7;
-    color: rgb(255, 255, 255);
-    font-family: "Inder";
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
+/* Botões */
+button {
+    background-color: #1D5175;
+    display: block;
+    width: 150px;
+    height: 40px;
+    text-align: center;
     cursor: pointer;
-    width: 10%;
+    border-radius: 5px;
+    border: 2px solid #1D5175;
+    margin: -1.5rem auto;
+    font-size: 20px;
 }
 
-#voltar{
+button:hover {
+    background-color: #3274A0;
+}
+
+/* Botão "voltar" */
+#voltar {
     color: #ffffff;
-    background-color: #00ff40;
+    background-color: #1D5175;
     border-radius: 15px;
-    margin-top: 40px;
     width: 300px;
     height: 60px;
     font-size: large;
-    font-family: 'Inder';
-
+    font-family: 'Inder', sans-serif;
 }
 
+/* Responsividade */
+
+/* Telas muito grandes */
+@media (min-width: 1030px) {
+    img {
+        margin: -1.5rem auto;
+    }
+}
+
+/* Telas médias-altas (notebooks/tablets grandes) */
+@media (min-width: 781px) and (max-width: 1029px) {
+    img {
+        width: 490px;
+        margin: 1.5rem auto;
+    }
+}
+
+/* Telas médias-baixas (tablets e celulares grandes) */
+@media (max-width: 780px) {
+    img {
+        width: 450px;
+        margin: 2.5rem auto;
+    }
+}
+
+/* Telas até 1024px */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 48px;
+    }
+
+    a {
+        font-size: 2.5rem;
+        margin-left: 5rem;
+    }
+    #voltar {
+        width: 250px;
+        height: 50px;
+        font-size: 1rem;
+    }
+}
+
+/* Telas até 768px */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    a {
+        font-size: 2rem;
+        margin-left: 2rem;
+    }
+
+    button {
+        width: 130px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+    #voltar {
+        width: 220px;
+        height: 50px;
+    }
+}
+
+/* Telas pequenas (até 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+        padding: 1rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    a {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+
+    button {
+        width: 120px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    #voltar {
+        width: 200px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
