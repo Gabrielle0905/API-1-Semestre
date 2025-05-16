@@ -11,14 +11,14 @@
 
     <header>
         <!-- Adicionar o caminho da home do aluno -->
-        <a href="/home/aluno" style="margin-left: 10px;">←</a>
-        <span>SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
+        <a href="/home/aluno">←</a>
+        <span></span>
     </header>
 
-    <p style="text-align: center; margin: 30px;">Envie seu atestado de forma rápida e simples.
-        Preencha os dados necessários, anexe o arquivo em PDF e acompanhe o status da análise na plataforma.</p>
-        
     <h2>Vamos começar?</h2>
+    
+    <p id="sub">Envie seu atestado de forma rápida e simples.
+        Preencha os dados necessários, anexe o arquivo em PDF e acompanhe o status da análise na plataforma.</p>
 
     <div class="form-container">
         <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
@@ -31,7 +31,7 @@
                 <input type="text" name="ra" id="ra" placeholder="Digite o número do seu RA" required>
 
                 <label for="turma">Turma:</label>
-                <select type="text" name="turma" id="turma" style="width: 865px; padding: 9px;" required >
+                <select type="text" name="turma" id="turma" required >
                     <option value="Seleção">⋘ Selecione sua turma ⋙</option>
                     <option value="1°">Primeiro Ano</option>
                     <option value="2°">Segundo Ano</option>
@@ -42,7 +42,7 @@
             <p class="topic">Nos conte mais sobre seu atestado</p>
             <div class="form-box">
                 <label for="tipo">Tipo do atestado:</label>
-                <select name="tipo" id="tipo" style="width: 865px; padding: 9px;" required>
+                <select name="tipo" id="tipo" required>
                     <option value="Seleção2">⋘ Selecione o tipo do atestado ⋙</option>
                     <option value="Consulta Médica">Consulta Médica</option>
                     <option value="Cirurgia">Cirurgia</option>
