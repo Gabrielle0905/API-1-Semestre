@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     font-family: 'Inder', sans-serif;
     box-sizing: border-box;
 }
-  
 
 body {
-    background-image: url(/src/static/media/Alunocadastro.jpg) ;
+    background-image: url(/src/static/media/Alunocadastro.jpg);
     background-repeat: no-repeat;
     background-color: #fff;
     background-position: right;
@@ -17,88 +17,201 @@ body {
     font-family: 'Inder', sans-serif;
 }
 
-
-header a{
+header a {
     text-decoration: none;
     color: black;
-    font-size: 25px;
-    position: absolute;
-    top: 45px;
-    left: 15px;
+    font-size: 1.5rem;
+    position: fixed;
+    top: 2.8rem;
+    left: 0.9rem;
 }
 
 h1 {
-    color:#1d5176;
+    color: #1d5176;
     font-size: 4.5rem;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
-fieldset  {
+@media(max-width: 900px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+@media(min-width: 900px) and (max-width: 1100px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+@media(min-width: 1100px) and (max-width: 1320px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+
+fieldset {
     width: 20%;
     margin: 2rem 0 0 14rem;
     background-color: #1d5176;
-    border-radius: 2rem ;
+    border-radius: 2rem;
     padding: 2rem 5rem 2rem 2rem;
     border: none;
 }
 
-
-
-#name,#cpf,#email,#senha,#funcao {
-   display: flex;
-   flex-direction: column;
-   font-size: 20px;
-   border-radius: 8px;
-   border:none;
-   width: 23rem;
-   height: 2rem;
-   background-color: #fff;
-   
+@media(max-width: 560px){
+    fieldset{
+        max-width: 20rem;
+        width: 100%;
+        padding: 2rem;
+        border: none;
+        border-radius: 2rem;
+    }
 }
 
+@media(max-width: 1100px) {
+    fieldset {
+        margin: 1rem auto;
+    }
+}
+
+@media(min-width: 1290px) and (max-width: 1320px) {
+    fieldset {
+        max-width: 27.5rem;
+        width: 100%;
+        padding: 2rem;
+        border: none;
+        border-radius: 2rem;
+    }
+}
+
+@media(min-width: 1100px) and (max-width:1290px) {
+    fieldset {
+        max-width: 21.8rem;
+        width: 100%;
+        padding: 1.5rem;
+        border: none;
+        border-radius: 2rem;
+    }
+}
+
+#name, #cpf, #email, #senha, #funcao {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+    border: none;
+    width: 23rem;
+    height: 2rem;
+    background-color: #fff;
+
+}
 
 label {
     color: #fcf7f1;
     font-size: 1.5rem;
 }
 
-
-.cadastrar button {
-    width: 18%;
+.cadastrar {
     margin-top: 2rem;
-    margin-left: 20.5rem;
+}
+
+@media(max-width: 560px) {
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cadastrar  button{
+        margin-right: 20rem;
+    }
+}
+
+@media(min-width: 560px) and (max-width: 1100px) {
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cadastrar {
+        margin-top: 2rem;
+        margin-left: -11.5rem;
+    }
+}
+
+@media(min-width: 549px) and (max-width: 561px) { 
+
+    .cadastrar button {
     border: none;
     background-color: #1d5176;
+    margin-left: 15rem;
     padding: 1rem 3.5rem;
-    border-radius: 15px;
+    border-radius: 0.9rem;
     cursor: pointer;
     color: #ffffff;
     font-family: 'Inder';
     font-size: large;
-    
-   
+    white-space: nowrap;
+}
 }
 
-::placeholder{
-    color:rgb(207, 203, 203);
-    padding: 8px;
+.cadastrar button {
+    border: none;
+    background-color: #1d5176;
+    margin-left: 20rem;
+    padding: 1rem 3.5rem;
+    border-radius: 0.9rem;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: 'Inder';
+    font-size: large;
+    white-space: nowrap;
+}
+
+::placeholder {
+    color: rgb(207, 203, 203);
+    padding: 0.5rem;
 }
 
 .cadastroimg {
-    width: 600px;
-    height: 600px;
-    margin-left: 700px;
-    margin-top: -800px;
+    width: 37.5rem;
+    height: 37.5rem;
+    margin-left: 43.75rem;
+    margin-top: -50rem;
 }
 
-#alerta{
+@media(max-width: 1100px) {
+    .cadastroimg {
+        display: none;
+    }
+}
+
+@media(min-width: 1290px) and (max-width:1320px) {
+    .cadastroimg {
+        width: 35rem;
+        height: 35rem;
+        margin-left: 40rem;
+    }
+}
+
+@media(min-width: 1100px) and (max-width:1290px) {
+    .cadastroimg {
+        width: 30rem;
+        height: 30rem;
+        margin-left: 40rem;
+        margin-bottom: 2rem;
+    }
+}
+
+#alerta {
     font-family: 'Inder';
-    padding: 20px;
+    padding: 1.25rem;
     background-color: #def1ff;
-    border-radius: 45px;
-    width: 25%;
+    border-radius: 2.8rem;
+    width: 20rem;
     margin-top: 2rem;
     margin-left: 17.2rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
