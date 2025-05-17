@@ -5,40 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{url_for('static', filename='style/cadastro.css')}}">
   <title>Área de cadastro</title>
-  
 </head>
-
 <body>
   <header>
     <a href="/" style="margin-left: 10px;">←</a>
-    <h1> Faça já seu cadastro!</h1>
+    <h1 id="titulo"></h1>
   </header>
-  <form action="/cadastro" method="post">
-    <!--Dados de cadastro-->
-    <fieldset>
-      <div class="input-box">
-        <label for ="name">Nome completo</label>
-        <input id="name"type="text" name="name" placeholder="Digite seu nome" required>
-        <br> 
-        <label for="cpf">CPF</label>
-        <input id="cpf"type="text" name="cpf" placeholder="Digite seu CPF" required>
-        <br> 
-        <label for="email">Email</label>
-        <input id="email"type="email" name="email" placeholder="Digite seu email" required>
-        <br>
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-        <br>
-        <label for="funcao" style="display: block;">Eu sou</label>
-        <select name="funcao" id="funcao" required>
-          <option value="aluno">Aluno</option>
-          <option value="docente">Docente</option>
-          <option value="sm">Scrum Master</option>
-        </select>
-      </div>
-    </fieldset>
-
-    <div class="cadastrar">
+  <div class="container">
+    <form action="/cadastro" method="post">
+      <fieldset>
+        <div class="input-box">
+          <label for="name">Nome completo</label>
+          <input id="name" type="text" name="name" placeholder="Digite seu nome" required>
+          <br>
+          <label for="cpf">CPF</label>
+          <input id="cpf" type="text" name="cpf" placeholder="Digite seu CPF" required>
+          <br>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="Digite seu email" required>
+          <br>
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+          <br>
+          <label for="funcao" style="display: block;">Eu sou</label>
+          <select name="funcao" id="funcao" required>
+            <option value="aluno">Aluno</option>
+            <option value="docente">Docente</option>
+            <option value="sm">Scrum Master</option>
+          </select>
+        </div>
+      </fieldset>
+      <div class="cadastrar">
       {% with messages = get_flashed_messages(with_categories=true) %}
         {% for category, message in messages %}
           <div id='alerta' class="alert alert-{{ category }}">{{ message }}</div>
@@ -46,8 +43,24 @@
       {% endwith %} 
       <button id="Cadastrar-se">Cadastrar-se</button>
     </div> 
-  </form>  
+    </form>
+    <img src="{{url_for('static', filename='media/cadastro.png')}}" alt="Ilustração" class="cadastroimg">
+  </div>
 
-  <img src="{{url_for('static', filename='media/cadastro.png')}}" alt="Ilustração"  class="cadastroimg">
+  <script>
+    function ajustarTexto() {
+      const titulo = document.getElementById('titulo');
+      const largura = window.innerWidth;
+
+      if (largura <= 900) {
+        titulo.textContent = "Cadastre-se!";
+      } else {
+        titulo.textContent = "Faça Já seu cadastro!";
+      }
+    }
+
+    ajustarTexto();
+    window.addEventListener('resize', ajustarTexto);
+  </script>
 </body>
 </html>
