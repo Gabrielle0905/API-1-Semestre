@@ -32,7 +32,7 @@ main {
 h1 {
     color: black;
     text-align: center;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 500;
     padding: 2rem;
 }
@@ -133,3 +133,121 @@ label {
     margin: auto
 }
 
+@media (max-width: 768px) {
+    body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inder';
+    line-height: 1rem;
+}
+
+header {
+    padding: 1rem;
+    background-color:#5892B7 ;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 1rem;
+    line-height: 2rem;
+}
+
+h3 {
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 6000;
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+fieldset {
+    background-color: #1D5175;
+    width: 90%;
+    margin: auto;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    border: none;
+    margin-bottom: 0.6rem;
+}
+
+input[type="text"] {
+    width:80% ;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    border: none;
+    background-color: #f4f0eab9;
+}
+
+select {
+    border-radius: 1.5rem;
+    border: none;
+    background-color: #f4f0eab9;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.712);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    height: 1.5rem;
+    width: 50%;
+    
+}
+
+input[type="radio"] {
+    color: white;
+    accent-color: rgb(0, 4, 241);
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+label {
+    color: white;
+    font-weight: 400;
+    font-size: 1rem;
+    padding-right: 0.5rem;
+    line-height: 1.5rem;
+}
+
+::placeholder {
+    padding-left: 0.8rem;
+    color: rgba(0, 0, 0, 0.712);
+    font-family: 'Inder';
+}
+
+#seta {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 999;
+    margin: 0%;
+    padding-top: 0%;
+    cursor: pointer;
+}
+
+
+#funcao{
+    font-family: 'Inder'
+}
+
+#enviar{
+    color: #ffffff;
+    background-color: #1D5175;
+    border-radius: 1rem;
+    margin-top: 2.5rem;
+    width: 10rem;
+    height: 3.75rem;
+    font-size: large;
+    font-family: 'Inder';
+    margin: auto
+}
+
+}
