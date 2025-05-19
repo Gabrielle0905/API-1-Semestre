@@ -276,12 +276,6 @@ def excluir_atestado_docente(atestado_id):
         atestados.remove(atestado_para_remover)
     return render_template('gerenciamento_de_atestados_docente.html', atestados=atestados)
 
-@app.route('/home/docente/gerenciar_atestados/relatorios/')
-def relatorios_template():
-    data_hoje = datetime.today().strftime('%d/%m/%Y')
-    atestados_filtrados = sorted(atestados, key=lambda x: x['Inicio'], reverse=True)
-    return render_template('relatorios.html', atestados = atestados_filtrados, data_hoje = data_hoje)
-
 @app.route('/home/docente/gerenciar_atestados/relatorios/gerarpdf')
 def gerar_pdf():
     data_hoje = datetime.today().strftime('%d/%m/%Y')
