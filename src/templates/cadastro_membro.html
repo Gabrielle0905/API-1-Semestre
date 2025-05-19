@@ -8,7 +8,7 @@
 </head>
 <body>
     <a href="/home/membro">←</a>
-    <h1>Inclua alguém na equipe!</h1>
+    <h1 id="titulo"></h1>
 
     <form method="POST" action="/home/master/registroscrum" id="cadastro">
         <div class="formbox">
@@ -33,7 +33,7 @@
                             <option value="sm">Scrum Master</option>
                         </select>
                     </div>
-                    <img src="{{url_for('static', filename='media/membros_equipe.png')}}" alt="membros" id="membrosimg">
+                    <img src="{{url_for('static', filename='media/membros_equipe5.png')}}" alt="membros" id="membrosimg">
                 </div>
             
         </div>
@@ -46,5 +46,21 @@
             <button type="submit" class="btn-enviar">Enviar</button>
         </div>
     </form>
+
+    <script>
+    function ajustarTexto() {
+      const titulo = document.getElementById('titulo');
+      const largura = window.innerWidth;
+
+      if (largura <= 900) {
+        titulo.textContent = "Cadastre membros";
+      } else {
+        titulo.textContent = "Inclua alguém na equipe!";
+      }
+    }
+
+    ajustarTexto();
+    window.addEventListener('resize', ajustarTexto);
+  </script>
 </body>
 </html>
