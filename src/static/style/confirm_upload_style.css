@@ -55,6 +55,10 @@ button:hover {
     font-family: 'Inder', sans-serif;
 }
 
+p{
+    text-align: center;
+}
+
 @media (min-width: 1030px) {
     img {
         margin: -1.5rem auto;
