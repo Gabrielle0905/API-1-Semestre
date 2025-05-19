@@ -6,27 +6,45 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 60px;
+    font-size: 3.75rem;
     color: #1D5175;
 }
 
+@media(max-width: 700px){
+    h1{
+        font-size: 2.5rem;
+    }
+}
+
 a{
-    margin: 35px;
+    margin: 2.1rem;
     text-decoration: none;
     color: black;
-    font-size: 25px;
+    font-size: 1.5rem;
     position: absolute;
-    top: 25px;
+    top: 1.5rem;
+}
+
+@media(max-width: 768px){
+    a{
+        display: none;
+    }
 }
 
 .formbox {
     background-color: #1d4a72;
-    border-radius: 30px;
+    border-radius: 1.8rem;
     color: rgb(255, 255, 255);
-    padding: 30px;
+    padding: 1.8rem;
     width: 90%;
     margin: auto;
     margin-bottom: 3rem;
+}
+
+@media(max-width:800px){
+    .formbox{
+        width: 85%;
+    }
 }
 
 
@@ -34,7 +52,7 @@ a{
     display: flex;
     align-items: center; 
     justify-content: space-between; 
-    gap: 30px;
+    gap: 1.8rem;
 }
 
 .inputs {
@@ -43,50 +61,71 @@ a{
 
 .formbox input,
 .formbox select {
-    border-radius: 5px;
-    height: 35px;
-    width: 70%; 
-    margin-bottom: 15px;
+    border-radius: 0.3rem;
+    height: 2.1rem;
+    width: 85%; 
+    margin-bottom: 0.9rem;
     border: none;
-    padding: 4px;
-    font-size: 18px;
+    padding: 0.25rem;
+    font-size: 1.1rem;
     font-family: 'Inder';
 }
 
 .formbox select {
     font-family: 'Inder';
-    padding: 4px;
+    padding: 0.25rem;
 }
 
 .formbox label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 0.6rem;
     font-size: 1.5rem;
 }
 
 ::placeholder {
     font-family: 'Inder';
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 #membrosimg {
-    width: 45%; 
+    width: 50%; 
     height: auto;
+}
+
+@media(min-width:1000px) and (max-width:1100px){
+    #membrosimg{
+        width: 50%;
+        height: auto;
+    }
+}
+
+@media(max-width: 1000px){
+    #membrosimg{
+        display: none;
+    }
 }
 
 .btn-enviar {
     background-color: #1d4b72;
     font-family: "Inder";
-    padding: 10px;
+    padding: 0.6rem;
     border: none;
-    border-radius: 10px;
-    font-size: 25px;
+    border-radius: 0.6rem;
+    font-size: 1.5rem;
     cursor: pointer;
     width: 10%;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 1.8rem;
+    margin-bottom: 1.25rem;
     color: white;
     width: 12%;
+}
+
+@media(max-width: 768px){
+    .btn-enviar{
+    margin-top: 2rem;
+    width: 30%;
+    font-size: large;
+    }
 }
 
 .btn-enviar:hover {
@@ -95,10 +134,10 @@ a{
 
 #alerta{
     font-family: 'Inder';
-    font-size: 22px;
-    padding: 30px;
+    font-size: 1.3rem;
+    padding: 1.8rem;
     background-color: #def1ff;
-    border-radius: 45px;
-    margin: 10px auto 0 auto;
+    border-radius: 2.8rem;
+    margin: 0.6rem auto 0 auto;
     width: fit-content;
 }
