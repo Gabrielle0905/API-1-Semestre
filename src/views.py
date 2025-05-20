@@ -2,7 +2,7 @@ from flask import Flask,render_template,url_for,request,flash,redirect, session,
 from main import app, UPLOAD_FOLDER, os, caminho_usuarios, caminho_atestados
 from datetime import datetime
 from xhtml2pdf import pisa
-from lista_atestados import atestados
+from gerenciador_de_atestados import atestados
 import io
 import time
 import json
