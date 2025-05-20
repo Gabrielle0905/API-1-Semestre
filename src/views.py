@@ -222,15 +222,27 @@ def upload_file():
             except FileNotFoundError:
                 atestados = {}
 
-            atestados[nome] = {
-                'RA' : ra,
-                'Turma' : turma,
-                'Tipo de Atestado' : tipo,
-                'Data' : data,
-                'Periodo' : periodo,
-                'CRM' : crm,
-                'Nome do arquivo' : filename
-            }
+            if nome in atestados:
+                atestados[nome].append({
+                'RA': ra,
+                'Turma': turma,
+                'Tipo de Atestado': tipo,
+                'Data': data,
+                'Periodo': periodo,
+                'CRM': crm,
+                'Nome do arquivo': filename
+                })
+            else:
+                atestados[nome] = [{
+                'RA': ra,
+                'Turma': turma,
+                'Tipo de Atestado': tipo,
+                'Data': data,
+                'Periodo': periodo,
+                'CRM': crm,
+                'Nome do arquivo': filename
+                }]
+            
             save_atestados(atestados)
 
             return render_template("confirm_upload.html")     
