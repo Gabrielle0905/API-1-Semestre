@@ -1,0 +1,114 @@
+body {
+    font-family: "Inder";
+    margin: 0;
+    color: rgb(29, 81, 117);
+    text-align: center;      
+}
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-family: "Inder";
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.56rem;
+}
+
+.botoes button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    background: linear-gradient(135deg, #e98a4e, #e98a4e);
+    border: none;
+    border-radius: 0.62rem;
+    box-shadow: 0 0.25rem 0.37rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Inder";
+}
+
+.botoes button.ativo {
+    background: linear-gradient(135deg, #28a745, #00cc66);
+    box-shadow: 0 0 0.62rem rgba(40, 167, 69, 0.6);
+}
+
+.grafico-container {
+    display: none;
+}
+
+.grafico-container.ativo {
+    display: block;
+}
+
+header {
+    background-color: rgb(88, 146, 183); 
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-family: "inder" sans-serif;   
+}
+
+header span::before{
+    content: 'SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum'
+}
+
+#seta {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.56rem;
+    top: 1.56rem;
+}
+
+.grafico-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.grafico-container canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    aspect-ratio: 2 / 1;
+    max-height: 30rem;
+}
+
+@media (max-width: 768px) {
+    header{
+    justify-content: right;
+    padding: 1rem;
+}
+    #seta{
+        display: none;
+}
+    header span::before{
+    content: 'SIRAAS';
+    
+}
+    h1{
+    font-size: 1.75rem;
+    width: 80%;
+    justify-self: center;
+}
+    .botoes button {
+    font-size: 0.8rem;
+
+}
+    .grafico-container canvas {
+    min-height: 15rem;
+}
+}
