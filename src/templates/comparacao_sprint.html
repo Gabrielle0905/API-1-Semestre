@@ -33,6 +33,12 @@
         <canvas id="canvas3"></canvas>
     </div>
 
+    <div class="botoes" style="text-align: center; margin-top: 1rem;">
+        <button onclick="exportarCSV('grafico1', dadosSprint1)">Exportar Sprint 1 (.csv)</button>
+        <button onclick="exportarCSV('grafico2', dadosSprint2)">Exportar Sprint 2 (.csv)</button>
+        <button onclick="exportarCSV('grafico3', dadosSprint3)">Exportar Sprint 3 (.csv)</button>
+    </div>
+
     <script>
     const criterios = [
         "Wendy", "Fernanda", "Gabrielle", "Clara",
@@ -114,6 +120,25 @@
 
         document.querySelectorAll('.botoes button').forEach(btn => btn.classList.remove('ativo'));
         botao.classList.add('ativo');
+    }
+    function exportarCSV(nomeArquivo, dados) {
+        const criterios = ["Wendy", "Fernanda", "Gabrielle", "Clara", "Gustavo", "Letícia", "Isaura", "Raphael", "Guilherme"];
+
+        let csv = 'Critério;' + dados.map(d => d.label).join(';') + '\n';
+
+        for (let i = 0; i < criterios.length; i++) {
+            let linha = [criterios[i]];
+            for (let j = 0; j < dados.length; j++) {
+                linha.push(dados[j].data[i]);
+            }
+            csv += linha.join(';') + '\n';
+        }
+
+        const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = nomeArquivo + '.csv';
+        link.click();
     }
 </script>
 </body>
