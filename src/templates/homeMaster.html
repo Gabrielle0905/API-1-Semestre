@@ -5,137 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Scrum Master</title>
     <link rel="stylesheet" href="../templates/login_membro.html">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/home_master.css')}}">
 </head>
 <body>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
-        button {
-            background-color: rgb(29, 81, 117); color: #FFFFFF;
-            padding: 0.93rem;
-            margin: 0.62rem;
-            border-radius: 0.31rem; 
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            text-align: center;
-            justify-content: center;
-            font-family: "Inder"
-        }
-
-        .area_of_buttons {
-            width: 100%;
-            margin: auto;
-            padding-bottom: 1.87rem;
-        }
-
-        img {
-            display: block;
-            width: 50%;
-            float: right;
-            width: 30%;
-            margin-left: 1.25rem; 
-        }
-
-        p {
-            text-align: center;
-            float: left;
-            width: 60%;
-            margin-left: 3.12rem;
-        }
-
-        .p1{
-            width: 100%;
-        }
-        
-        h1 {
-            margin-left: -5rem;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        h2 {
-            margin-left: 3.12rem;
-            text-align: center;
-            float: left;
-            width: 60%;
-            margin-bottom: 1.25rem;
-        }
-
-        .flex-container {
-            display: flex;
-            justify-content: center;
-        }
-
-        header {
-            background-color: rgb(88, 146, 183); padding: 1.5rem;
-            font-size: 1.25rem;
-            justify-content: space-between;
-            display: flex;
-            align-items: center;
-            width: 100%
-            
-        }
-
-        body, html {
-            height: 100%; width: 100%;
-            font-family: "Inder";
-        }
-
-
-        * {
-            margin: 0;
-            box-sizing: border-box;
-
-        }
-
-
-        .botoes{
-            float: left;
-            width: 100%;
-            gap: 2rem;
-            margin: auto;
-        }
-
-        @media (max-width: 768px) {
-        
-        }
-
-    </style>
     <header>
-        <button style="background-color: rgb(88, 146, 183); padding: 0.31rem; margin: 0.31rem; font-size: 1.12rem;" onclick="window.location.href='/'">Sair</button> 
-        <span style="color: #FFFFFF;">SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
+        <button style="background-color: rgb(88, 146, 183); padding: 0.31rem; margin: 0.31rem; font-size: 1.12rem;"
+            onclick="window.location.href='/'">Sair</button>
+        <span id="titulo"></span>
     </header>
-    <br>
-    <img src="{{url_for('static', filename='media/areamembro.png')}}" alt="Friends Talking">
-
     <h1>Olá {{ nome }}!</h1>
-
-    <h2>Você sabe como funciona a metodologia Scrum?</h2>
-    <p>A metodologia Scrum é uma abordagem ágil para o gerenciamento de projetos, especialmente em ambientes de desenvolvimento de software. Ela busca entregar resultados de forma incremental e interativa, com foco em flexibilidade, colaboração e comunicação constante entre todos os membros da equipe.</p>
-
-    <p>Scrum é baseado em ciclos curtos de trabalho chamados sprints, que geralmente duram de uma a quatro semanas. Cada sprint tem o objetivo de entregar uma parte funcional do produto final. Durante o processo, a equipe trabalha de forma autônoma, mas sempre com a supervisão de um Scrum Master, que é responsável por garantir que o processo seja seguido corretamente e remover obstáculos que possam surgir. O Product Owner (dono do produto) é o responsável por priorizar as tarefas e garantir que o que está sendo desenvolvido atenda às necessidades do cliente ou usuário final.</p>
-    
-    
+    <div class="content">
+        <img src="{{url_for('static', filename='media/areamembro2.png')}}" alt="Friends Talking">
+        <div class="text-container">
+            <h2 class="subtitle">Você sabe como funciona a metodologia Scrum?</h2>
+            <p id="p1">A metodologia Scrum é uma abordagem ágil para o gerenciamento de projetos, especialmente em
+                ambientes
+                de
+                desenvolvimento de software. Ela busca entregar resultados de forma incremental e interativa, com foco
+                em
+                flexibilidade, colaboração e comunicação constante entre todos os membros da equipe.</p>
+            <p id="p2">Scrum é baseado em ciclos curtos de trabalho chamados sprints, que geralmente duram de uma a
+                quatro
+                semanas. Cada sprint tem o objetivo de entregar uma parte funcional do produto final. Durante o
+                processo, a
+                equipe trabalha de forma autônoma, mas sempre com a supervisão de um Scrum Master, que é responsável por
+                garantir que o processo seja seguido corretamente e remover obstáculos que possam surgir. O Product
+                Owner
+                (dono
+                do produto) é o responsável por priorizar as tarefas e garantir que o que está sendo desenvolvido atenda
+                às
+                necessidades do cliente ou usuário final.</p>
+            <p id="p3">Scrum é uma metodologia ágil usada para gerenciar projetos, especialmente no desenvolvimento de
+                software.
+                Ela se baseia em ciclos curtos de trabalho chamados sprints (1 a 4 semanas), nos quais a equipe entrega
+                partes
+                funcionais do produto. O Scrum Master garante que o processo seja seguido e remove obstáculos. O Product
+                Owner
+                define as prioridades e assegura que o produto atenda às necessidades do cliente. A equipe trabalha de
+                forma
+                colaborativa, com foco em entregas rápidas, comunicação constante e adaptação contínua.</p>
+        </div>
+    </div>
     <h2 class="area_of_buttons">O que você deseja fazer?</h2>
     <br>
-    <section class="flex-container botoes"> 
-        <button onclick="window.location.href='/home/membro/avaliar'">Avaliar Membro da Equipe</button> 
-        <button onclick="window.location.href='/home/membro/gerenciar'">Gerenciar Avaliações</button>
-        <button onclick="window.location.href='/home/membro/burndown'">Burndown Chart</button>
-        <button onclick="window.location.href='/home/master/registroscrum'" id="btn_cad">Cadastrar Membros da Equipe</button>
+    <section class="flex-container botoes">
+        <div class="btn-container">
+            <button onclick="window.location.href='/home/membro/avaliar'" id="btn_av"></button>
+            <button onclick="window.location.href='/home/membro/gerenciar'">Gerenciar Avaliações</button>
+            <button onclick="window.location.href='/home/membro/burndown'">Burndown Chart</button>
+            <button onclick="window.location.href='/home/master/registroscrum'" id="btn_cad"></button>
+        </div>
     </section>
 
     <script>
-        const user_type = "{{ user_type }}"; 
+        const user_type = "{{ user_type }}";
         const btn = document.getElementById('btn_cad');
-        
-        if(user_type === 'dt'|| user_type === 'po'){
+
+        if (user_type === 'dt' || user_type === 'po') {
             btn.disabled = true;
             btn.style.opacity = 0.5;
             btn.innerText = "Acesso bloqueado";
             btn.style.cursor = "not-allowed";
-    }
+        }
 
+        function ajustarTexto() {
+            const titulo = document.getElementById('titulo');
+            const largura = window.innerWidth;
+            const btn_cad = document.getElementById('btn_cad')
+            const btn_av = document.getElementById('btn_av')
+
+            if (largura <= 768) {
+                titulo.textContent = "SIRAAS";
+                btn_cad.textContent = 'Cadastrar Membros';
+                btn_av.textContent = 'Avaliar Membros';
+            } else {
+                titulo.textContent = "SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum";
+                btn_cad.textContent = 'Cadastrar Membros da Equipe';
+                btn_av.textContent = 'Avaliar Membros da Equipe';
+            }
+        }
+
+        ajustarTexto();
+        window.addEventListener('resize', ajustarTexto);
     </script>
 </body>
 </html>
