@@ -3,35 +3,12 @@ from main import app, UPLOAD_FOLDER, os, caminho_usuarios, caminho_atestados
 from datetime import datetime
 from xhtml2pdf import pisa
 from gerenciador_de_atestados import atestados
+from werkzeug.security import generate_password_hash, check_password_hash
+from utils import *
 import io
 import time
 import json
 import os
-
-def load_user():
-    with open(caminho_usuarios, 'r') as u:
-        return json.load(u)
-    
-def save_user(usuarios):
-    with open(caminho_usuarios, 'w') as u:
-        json.dump(usuarios, u, indent=4)
-
-def get_primeiro_nome():
-    cpf = session.get('cpf')
-    funcao = session.get('funcao')
-    usuarios = load_user()
-
-    if not cpf or cpf not in usuarios:
-        return 'Usuário'
-
-    usuario = usuarios[cpf]
-    nome_completo=usuario.get("nome", 'Usuário')
-    primeiro_nome=nome_completo.split()[0]
-    return primeiro_nome
-
-def save_atestados(atestados):
-    with open(caminho_atestados, 'w') as u:
-        json.dump(atestados, u, indent=4)
 
 @app.route('/')
 def homepage():
@@ -58,11 +35,11 @@ def redirect_user():
 def login_aluno():
     if request.method == 'POST':
         cpf = request.form['cpf']
-        senha = request.form['senha']
+        senha_digitada = request.form['senha']
 
         usuarios = load_user()
 
-        if cpf in usuarios and usuarios[cpf]['senha'] == senha and usuarios[cpf]['funcao'] == 'aluno':
+        if cpf in usuarios and check_password_hash(usuarios[cpf]['senha'], senha_digitada) and usuarios[cpf]['funcao'] == 'aluno':
             session['usuario_logado'] = cpf
             session['cpf'] = cpf
             session['funcao'] = 'aluno'
@@ -76,10 +53,10 @@ def login_aluno():
 def login_docente():
     if request.method == 'POST':
         cpf = request.form['cpf']
-        senha = request.form['senha']
+        senha_digitada = request.form['senha']
         usuarios = load_user()
 
-        if cpf in usuarios and usuarios[cpf]['senha'] == senha and usuarios[cpf]['funcao'] == 'docente':
+        if cpf in usuarios and check_password_hash(usuarios[cpf]['senha'], senha_digitada) and usuarios[cpf]['funcao'] == 'docente':
             session['usuario_logado'] = cpf
             session['cpf'] = cpf
             session['funcao'] = 'docente'
@@ -93,12 +70,12 @@ def login_docente():
 def login_membro():
     if request.method == 'POST':
         cpf = request.form['cpf']
-        senha = request.form['senha']
+        senha_digitada = request.form['senha']
 
         usuarios = load_user()
         funcoes_permitidas = ['sm', 'po', 'dt']
 
-        if cpf in usuarios and usuarios[cpf]['senha'] == senha and usuarios[cpf]['funcao'] in funcoes_permitidas:
+        if cpf in usuarios and check_password_hash(usuarios[cpf]['senha'], senha_digitada) and usuarios[cpf]['funcao'] in funcoes_permitidas:
             session['usuario_logado'] = cpf
             session['cpf'] = cpf
             session['funcao'] = usuarios[cpf]['funcao'] 
@@ -115,7 +92,7 @@ def cadastro():
         cpf = request.form['cpf']
         email = request.form['email']
         senha = request.form['senha']
-        funcao = request.form['funcao']
+        funcao = "aluno"
 
         try:
             with open(caminho_usuarios,'r') as u:
@@ -127,10 +104,12 @@ def cadastro():
             flash('CPF já cadastrado!', 'error')
             return redirect('/cadastro')
         
+        senha_hash = generate_password_hash(senha)
+        
         usuarios[cpf] = {
             'nome': nome,
             'email': email,
-            'senha': senha,
+            'senha': senha_hash,
             'funcao': funcao
         }
 
@@ -147,18 +126,18 @@ def cadastroconcluido():
    
 
 @app.route('/home/aluno')
+@login_required(['aluno'], rota_login='login_aluno')
 def homestudent():
-    if 'usuario_logado' not in session or session.get('funcao') != 'aluno':
-        flash('Você precisa estar logado pra acessar essa página!', 'error')
-        return redirect(url_for('login_aluno'))
     primeiro_nome = get_primeiro_nome()   
     return render_template('home_student.html', nome=primeiro_nome)
 
 @app.route("/home/aluno/enviar")
+@login_required(['aluno'], rota_login='login_aluno')
 def upload_form():
     return render_template('upload_certificates.html')
 
 @app.route("/home/aluno/gerenciar_atestados/", methods=["GET"])
+@login_required(['aluno'], rota_login='login_aluno')
 def listar_atestados_alunos():
     filtro = request.args.get('filtro')
     if filtro == 'nome':
@@ -179,6 +158,7 @@ def listar_atestados_alunos():
     return render_template('gerenciamento_de_atestados_aluno.html', atestados = atestados_filtrados)
 
 @app.route('/home/aluno/gerenciar_atestados/<int:atestado_id>', methods=["POST"])
+@login_required(['aluno'], rota_login='login_aluno')
 def excluir_atestado_aluno(atestado_id):
     atestado_para_remover = None
     for atestado in atestados:
@@ -191,6 +171,7 @@ def excluir_atestado_aluno(atestado_id):
 
 
 @app.route('/upload', methods=['POST'])
+@login_required(['aluno'], rota_login='login_aluno')
 def upload_file():
     if request.method == 'POST':
         if "file" not in request.files:
@@ -250,14 +231,13 @@ def upload_file():
         return "Formato de arquivo inválido.Apenas PDFs são permitidos",400
     
 @app.route('/home/docente')
+@login_required(['docente'], rota_login='login_docente')
 def homedocente():
-    if 'usuario_logado' not in session or session.get('funcao') != 'docente':
-        flash('Você precisa estar logado para acessar essa página!', 'error')
-        return redirect(url_for('login_docente'))
     primeiro_nome = get_primeiro_nome()
     return render_template('home_docente.html', nome=primeiro_nome)
 
 @app.route('/home/docente/gerenciar_atestados/', methods=["GET"])
+@login_required(['docente'], rota_login='login_docente')
 def listar_atestados_docente():
     filtro = request.args.get('filtro')
     if filtro == 'nome':
@@ -278,6 +258,7 @@ def listar_atestados_docente():
     return render_template('gerenciamento_de_atestados_docente.html', atestados = atestados_filtrados)
 
 @app.route('/home/docente/gerenciar_atestados/<int:atestado_id>', methods=["POST"])
+@login_required(['docente'], rota_login='login_docente')
 def excluir_atestado_docente(atestado_id):
     atestado_para_remover = None
     for atestado in atestados:
@@ -289,6 +270,7 @@ def excluir_atestado_docente(atestado_id):
     return render_template('gerenciamento_de_atestados_docente.html', atestados=atestados)
 
 @app.route('/home/docente/gerenciar_atestados/relatorios/gerarpdf')
+@login_required(['docente'], rota_login='login_docente')
 def gerar_pdf():
     data_hoje = datetime.today().strftime('%d/%m/%Y')
     atestados_filtrados = sorted(atestados, key=lambda x: x['Inicio'], reverse=True)
@@ -304,23 +286,24 @@ def gerar_pdf():
         return "Erro ao gerar PDF", 500
     
 @app.route('/home/docente/estatisticas')
+@login_required(['docente'], rota_login='login_docente')
 def estatisticas_afastamento():
     return render_template('estatisticas_afastamento.html')
 
 @app.route('/home/membro')
+@login_required(['sm', 'po', 'dt'], rota_login='login_membro')
 def homemembro():
-    if 'usuario_logado' not in session or session.get('funcao') not in ['sm', 'po', 'dt']:
-        flash('Você precisa estar logado para acessar essa página!', 'error')
-        return redirect(url_for('login_membro'))
     primeiro_nome = get_primeiro_nome()
     user_type = session.get('funcao')
     return render_template('homeMaster.html', nome=primeiro_nome, user_type=user_type)
 
 @app.route('/home/membro/avaliar')
+@login_required(['sm', 'po', 'dt'], rota_login='login_membro')
 def avaliarmembro():
     return render_template('avaliar_membro.html')
 
 @app.route('/save_data', methods=['POST'])
+@login_required(['sm', 'po', 'dt'], rota_login='login_membro')
 def save_data():
     data = request.get_json()
     folder_path = 'src'
@@ -344,15 +327,18 @@ def save_data():
     return jsonify({'message': 'Dados salvos com sucesso!'}), 200
 
 @app.route('/home/membro/confirm_evaluation')
+@login_required(['sm', 'po', 'dt'], rota_login='login_membro')
 def confirm_evaluation():
     return render_template('confirm_evaluation.html')
 
 
 @app.route('/home/membro/burndown')
+@login_required(['sm', 'po', 'dt'], rota_login='login_membro')
 def burndown():
     return render_template('BurndownChart.html')
 
 @app.route('/home/master/registroscrum', methods=['GET','POST'])
+@login_required(['sm'], rota_login='login_membro')
 def registroscrum():
     if request.method == 'POST':
         nome = request.form['name']
@@ -382,6 +368,7 @@ def registroscrum():
     return render_template('cadastro_membro.html')
 
 @app.route('/home/membro/gerenciar')
+@login_required(['sm', 'po', 'dt'], rota_login='login_membro')
 def gerenciaravaliacoes():
     return render_template('comparacao_sprint.html')
 
