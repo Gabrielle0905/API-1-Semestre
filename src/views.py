@@ -1,5 +1,5 @@
 from flask import Flask,render_template,url_for,request,flash,redirect, session, jsonify, make_response
-from main import app, UPLOAD_FOLDER, os, caminho_usuarios, caminho_atestados
+from main import app, UPLOAD_FOLDER, os, caminho_usuarios, caminho_atestados, caminho_equipes
 from datetime import datetime
 from xhtml2pdf import pisa
 from gerenciador_de_atestados import atestados
@@ -340,12 +340,16 @@ def burndown():
 @app.route('/home/master/registroscrum', methods=['GET','POST'])
 @login_required(['sm'], rota_login='login_membro')
 def registroscrum():
+    with open(caminho_equipes, 'r', encoding='utf-8') as f:
+        equipes = json.load(f)
+    
     if request.method == 'POST':
         nome = request.form['name']
         cpf = request.form['cpf']
         email = request.form['email']
         senha = request.form['senha']
         funcao = request.form['funcao']
+        equipe = get_equipe()
 
         try:
             with open(caminho_usuarios,'r') as u:
@@ -355,12 +359,21 @@ def registroscrum():
         if cpf in usuarios:
             flash('CPF já cadastrado!','error') 
             return redirect(url_for('registroscrum'))
+        
+        senha_hash = generate_password_hash(senha)
+
+        if equipe in equipes:
+            nome_com_funcao = f"{nome} (Scrum Master)"
+            if nome_com_funcao not in equipes[equipe]['Membros']:
+                equipes[equipe]['Membros'].append(nome_com_funcao)
+        save_membro(equipes)
 
         usuarios[cpf] = {
             'nome': nome,
             'email': email,
-            'senha' : senha,
-            'funcao' : funcao
+            'senha' : senha_hash,
+            'funcao' : funcao,
+            'equipe' : equipe
         }
         save_user(usuarios)
         return cadastroconcluido()
@@ -379,3 +392,114 @@ def logout():
     flash('Logout realizado com sucesso.', 'success')
     return redirect('/')
 
+
+@app.route('/login/adm', methods=['GET', 'POST'])
+def login_adm():
+    if request.method == 'POST':
+        cpf = "ADM"
+        senha_digitada = request.form['senha']
+
+        usuarios = load_user()
+
+        if cpf in usuarios and check_password_hash(usuarios[cpf]['senha'], senha_digitada) and usuarios[cpf]['funcao'] == 'adm':
+            session['usuario_logado'] = cpf
+            session['cpf'] = cpf
+            session['funcao'] = 'adm'
+            return redirect('/adm')
+        else:
+            flash('CPF ou senha inválidos!', 'error')
+            return render_template('login_adm.html')
+    return render_template('login_adm.html')
+
+@app.route('/adm')
+@login_required(['adm'], rota_login='login_adm')
+def administracao():
+    primeiro_nome = get_primeiro_nome()
+    return render_template('home_adm.html', nome=primeiro_nome)
+
+@app.route('/adm/acessos', methods=['GET', 'POST'])
+@login_required(['adm'], rota_login='login_adm')
+def criar_acesso():
+    with open(caminho_equipes, 'r', encoding='utf-8') as f:
+        equipes = json.load(f)
+
+        if request.method == 'POST':
+            nome = request.form['name']
+            cpf = request.form['cpf']
+            email = request.form['email']
+            senha = request.form['senha']
+            funcao = request.form['funcao']
+
+            try:
+                with open(caminho_usuarios,'r') as u:
+                    usuarios = json.load(u)
+            except FileNotFoundError:
+                usuarios = {}
+            if cpf in usuarios:
+                flash('CPF já cadastrado!','error') 
+                return redirect(url_for('criar_acesso'))
+            
+            senha_hash = generate_password_hash(senha)
+
+            if funcao == "sm":
+                equipe = request.form['equipe']
+                
+                usuarios[cpf] = {
+                    'nome': nome,
+                    'email': email,
+                    'senha' : senha_hash,
+                    'funcao' : funcao,
+                    'equipe' : equipe
+                }
+
+                if equipe in equipes:
+                    nome_com_funcao = f"{nome} (Scrum Master)"
+                    if nome_com_funcao not in equipes[equipe]['Membros']:
+                        equipes[equipe]['Membros'].append(nome_com_funcao)
+
+                    save_membro(equipes)
+
+                save_user(usuarios)
+                return redirect(url_for('administracao'))
+            
+            usuarios[cpf] = {
+                'nome': nome,
+                'email': email,
+                'senha' : senha_hash,
+                'funcao' : funcao
+            }
+            save_user(usuarios)
+            return redirect(url_for('administracao'))    
+
+    return render_template('criar_acesso.html', equipes=equipes)
+
+@app.route('/adm/equipes')
+@login_required(['adm'], rota_login='login_adm')
+def gerenciar_equipes():
+    with open(caminho_equipes, 'r', encoding='utf-8') as f:
+        equipes = json.load(f)
+    return render_template('gerenciar_equipes.html', equipes=equipes)
+
+@app.route('/adm/equipes/adicionar', methods=['GET', 'POST'])
+@login_required(['adm'], rota_login='login_adm')
+def adicionar_equipe():
+    if request.method == 'POST':
+        nome_equipe = request.form['name']
+        membros = []
+
+        try:
+            with open(caminho_equipes,'r') as u:
+                equipes = json.load(u)
+        except FileNotFoundError:
+            equipes = {}
+        if nome_equipe in equipes:
+            flash('Equipe já cadastrado!','error') 
+            return redirect(url_for('adicionar_equipe'))
+
+        equipes[nome_equipe] = {
+            'Membros' : membros,
+        }
+        save_equipe(equipes)
+        return redirect(url_for('gerenciar_equipes')) 
+    
+    return render_template('add_equipes.html')

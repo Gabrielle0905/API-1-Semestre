@@ -11,14 +11,24 @@ from views import *
 UPLOAD_FOLDER = os.path.join(dir_base, 'uploads_atestados')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
+USER_FOLDER = os.path.join(dir_base, 'usuarios')
+app.config['USER_FOLDER'] = USER_FOLDER
+os.makedirs(app.config['USER_FOLDER'], exist_ok=True)
+
 caminho_atestados = os.path.join(UPLOAD_FOLDER, 'dados_atestados.json')
 if not os.path.exists(caminho_atestados):
     with open(caminho_atestados, 'w') as u:
         json.dump({}, u)
 
-caminho_usuarios = os.path.join(dir_base, 'usuarios.json')
+caminho_usuarios = os.path.join(USER_FOLDER, 'usuarios.json')
 if not os.path.exists(caminho_usuarios):
     with open(caminho_usuarios, 'w') as u:
+        json.dump({}, u)
+
+caminho_equipes = os.path.join(USER_FOLDER, 'equipes.json')
+if not os.path.exists(caminho_equipes):
+    with open(caminho_equipes, 'w') as u:
         json.dump({}, u)
 
 if __name__ == '__main__' :
