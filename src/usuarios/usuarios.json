@@ -1,0 +1,7 @@
+{
+    "ADM": {
+        "nome": "Administrador",
+        "senha": "scrypt:32768:8:1$66hwndoXc4I9Qp03$cafce9b22a96efc4793239e66be3a14cf8960603f35e3ca6740081476848b1f06be95e7055bfc2219026b28de5013d781ce459c5d2fc0c90f7ddce699f46ec95",
+        "funcao": "adm"
+    }
+}
