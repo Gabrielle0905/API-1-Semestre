@@ -83,13 +83,13 @@ body {
   padding: 0.531rem;
   width: 93.25%;
   border-radius: 1.25rem;
-  height: 1.563rem
+  height: 1.563rem;
 }
 .filtro {
   cursor: pointer;
   font-weight: bold;
 }
-.botão_filtrar{
+.botão_filtrar {
   color: #ffffff;
   background-color: #6eb8e6;
   border-radius: 0.938rem;
@@ -98,24 +98,9 @@ body {
 h2 {
   font-size: 2.5rem;
 }
-
-#botao_excluir {
-  color: white;
-  background-color: #6eb8e6;
-  border-radius: 0.938rem;
-  font-family: "Inder";
-}
-
 td {
   text-align: center;
 }
-
-#abrirarquivo {
-  text-decoration: none;
-  color: white;
-  text-decoration: underline;
-}
-
 .btn-send {
   font-family: "Inder";
 }
@@ -132,46 +117,46 @@ td {
 }
 
 @media (max-width: 768px) {
-  .prompt{
+  .prompt {
     font-size: 1.25rem;
     margin-top: 2rem;
-}
+  }
   .navbar {
-  padding: 0.8rem;
-  justify-content: center;
-}
+    padding: 0.8rem;
+    justify-content: center;
+  }
   .navbar h1 {
-  font-size: 0.7rem;
-}
+    font-size: 0.7rem;
+  }
 
-.seta {
-  display: none;
-}
+  .seta {
+    display: none;
+  }
 
-.total-registros {
-  margin-top: 3.5rem;
-  font-size: 0.8rem;
-  margin-left: 1rem;
-  justify-self: center;
-}
+  .total-registros {
+    margin-top: 3.5rem;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    justify-self: center;
+  }
 
-#barra {
-  padding: 0.531rem;
-  width: 85%;
-  border-radius: 1rem;
-  height: 1rem
-}
+  #barra {
+    padding: 0.531rem;
+    width: 85%;
+    border-radius: 1rem;
+    height: 1rem;
+  }
 
-.tabela_de_pesquisa{
-  max-width: 95%;
-  padding: 0.8rem;
-  margin-top: 1rem;
-  border-spacing: 0.5rem;
-  scrollbar-color: #ffffff #585858;
-}
+  .tabela_de_pesquisa {
+    max-width: 95%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    border-spacing: 0.5rem;
+    scrollbar-color: #ffffff #585858;
+  }
 }
 .btn-link {
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: center;
   background-color: #1d5176;
@@ -189,7 +174,33 @@ td {
 }
 
 .btn-link:hover {
-  background-color: #3274a0; 
+  background-color: #3274a0;
   text-decoration: none;
   color: white;
+}
+body main section table a {
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+body main section table a:hover {
+  background-color: #5892b7;
+  color: #585858;
+}
+body main section table button {
+  color: #ffffff;
+  background-color: #1d5175;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+body main section table button:hover {
+  background-color: #5892b7;
+  color: #585858;
 }

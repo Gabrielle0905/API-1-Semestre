@@ -89,7 +89,7 @@
               <td>
                 <a
                   href="{{ url_for('download_arquivo', atestado_id=atestado['ID']) }}"
-                  >Baixar</a
+                  onclick="alert('Seu download está sendo iniciado')">Baixar</a
                 >
               </td>
               {% if atestado["Status"] == "Pendente" %}

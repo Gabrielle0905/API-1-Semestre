@@ -61,81 +61,63 @@
       <!-- Tabela de pesquisa -->
       <section>
         <div>
-          <form
-            action="/home/docente/gerenciar_atestados/"
-            method="get"
-            class="filtro_radial"
-          >
-            <table class="tabela_de_pesquisa" style="width: 90%">
-              <thead>
-                <tr class="elementos">
-                  <th>
-                    <span>Nome</span>
-                    <label class="filtro">
-                      <input type="radio" name="filtro" value="nome" {% if
-                      request.args.get('filtro') == 'nome' %} checked {% endif
-                      %}>
-                    </label>
-                  </th>
-                  <th>Turma</th>
-                  <th>RA</th>
-                  <th>Tipo de atestado</th>
-                  <th>
-                    <span>Inicio</span>
-                    <label class="filtro">
-                      <input type="radio" name="filtro" value="data" {% if
-                      request.args.get('filtro') == 'data' %} checked {% endif
-                      %}>
-                    </label>
-                  </th>
-                  <th>Fim</th>
-                  <th>Horas</th>
-                  <th>
-                    <span>Status</span>
-                    <label class="filtro">
-                      <input type="radio" name="filtro" value="status"{% if
-                      request.args.get('filtro') == 'status' %} checked {% endif
-                      %}>
-                    </label>
-                  </th>
-                  <th>Motivo da recusa</th>
-                  <th>Excluir</th>
-                  <th>Arquivo</th>
-                  <th>
-                    <button type="submit" class="botão_filtrar">Filtrar</button>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for atestado in atestados %}
-                <tr>
-                  <td>{{ atestado["Nome"] }}</td>
-                  <td>{{ atestado["Turma"] }}</td>
-                  <td>{{ atestado["RA"] }}</td>
-                  <td>{{ atestado["Tipo"] }}</td>
-                  <td>{{ atestado["Inicio"] }}</td>
-                  <td>{{ atestado["Fim"] }}</td>
-                  <td>{{ atestado["Horas"] }}</td>
-                  <td>
-                    {% if atestado["Status"] == 'Pendente' %} Pendente {% elif
-                    atestado["Status"] == True %} Aprovado {% elif
-                    atestado["Status"] == False %} Reprovado {% endif %}
-                  </td>
-                  <td>{{ atestado["Motivo"] }}</td>
-                  <td>
-                    <form
-                      action="{{ url_for('excluir_atestado_docente', atestado_id=atestado['ID']) }}"
-                      method="POST"
-                    >
-                      <button id="botao_excluir" type="submit">Excluir</button>
-                    </form>
-                  </td>
-                  <td><a href="#" id="abrirarquivo">Abrir Arquivo</a></td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </form>
+            <table class="tabela_de_pesquisa">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>RA</th>
+              <th>Turma</th>
+              <th>Tipo de Atestado</th>
+              <th>Data de Inicio</th>
+              <th>Data do fim</th>
+              <th>CRM do Medico</th>
+              <th>Arquivo PDF</th>
+              <th>Status</th>
+              <th>Motivo da Recusa</th>
+              <th>Excluir</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for atestado in atestados%}
+            <tr>
+              <td>{{ atestado["Nome"] }}</td>
+              <td>{{ atestado["RA"] }}</td>
+              <td>{{ atestado["Turma"] }}</td>
+              <td>{{ atestado["Tipo"] }}</td>
+              <td>{{ atestado["Data"] }}</td>
+              <td>{{ atestado["Periodo"] }}</td>
+              <td>{{ atestado["CRM"] }}</td>
+              <td>
+                <a
+                  href="{{ url_for('download_arquivo_docente', atestado_id=atestado['ID']) }}"
+                  onclick="alert('Seu download está sendo iniciado')">Baixar</a
+                >
+              </td>
+              {% if atestado["Status"] == "Pendente" %}
+              <td>Pendente</td>
+              {% elif atestado["Status"] == True %}
+              <td>Aprovado</td>
+              {% else %}
+              <td>Recusado</td>
+              {% endif %} {% if atestado["Status"] == False %}
+              <td>{{ atestado["Motivo"] }}</td>
+              {% else %}
+              <td>-</td>
+              {% endif %}
+              <td>
+                <form
+                  method="POST"
+                  action="{{ url_for('excluir_atestado_aluno') }}"
+                  onsubmit="return confirm('Tem certeza que deseja excluir este atestado?');"
+                >
+                  <input type="hidden" name="id" value="{{ atestado['ID'] }}" />
+                  <button id="botao_excluir" type="submit">Excluir</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
         </div>
       </section>
       <section class="section-btn-center">

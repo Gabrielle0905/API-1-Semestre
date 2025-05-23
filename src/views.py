@@ -316,6 +316,50 @@ def homedocente():
     primeiro_nome = get_primeiro_nome()
     return render_template('home_docente.html', nome=primeiro_nome)
 
+@app.route('/home/docente/gerenciar_atestados/')
+@login_required(['docente'], rota_login='login_docente')
+def listar_atestados_docente():
+    pesquisa = request.args.get("pesquisa", "")
+    atestados = get_atestados()
+    resultados = filtrar_atestados(atestados, pesquisa)
+    return render_template('gerenciamento_de_atestados_docente.html', atestados = resultados)
+
+@app.route("/home/docente/gerenciar_atestados/download/<int:atestado_id>")
+def download_arquivo_docente(atestado_id):
+    # Busca o atestado pelo ID
+    atestados = get_atestados()
+    atestado = next((a for a in atestados if a["ID"] == atestado_id), None)
+
+    if atestado:
+        nome_arquivo = atestado["Nome do arquivo"]
+        diretorio = app.config['uploads_atestados']
+        caminho_arquivo = os.path.join(diretorio, nome_arquivo)
+
+        if os.path.exists(caminho_arquivo):
+            return send_from_directory(directory=diretorio, path=nome_arquivo, as_attachment=True)
+        else:
+            return abort(404, description="Arquivo não encontrado.")
+    else:
+        return abort(404, description="Atestado não encontrado.")
+
+@app.route('/home/docente/gerienciar_atestados/excluir')
+@login_required(['docente'], rota_login='login_docente')
+def excluir_atestado_docente():
+    id_validado = validar_id_do_formulario(request)
+
+    if id_validado is None:
+        flash("ID inválido para exclusão.")
+        return redirect(url_for('listar_atestados_alunos'))
+
+    sucesso = excluir_atestados_porid(id_validado)
+
+    if sucesso:
+        flash("Atestado excluído com sucesso!")
+    else:
+        flash("Atestado não encontrado.")
+
+    return redirect(url_for('listar_atestados_docente'))
+
 @app.route('/home/docente/gerenciar_atestados/relatorios/gerarpdf')
 @login_required(['docente'], rota_login='login_docente')
 def gerar_pdf():

@@ -125,39 +125,44 @@
     </header>
     <main>
       <table class="tabela_de_pesquisa">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Turma</th>
-            <th>RA</th>
-            <th>Tipo de atestado</th>
-            <th>Início</th>
-            <th>Fim</th>
-            <th>Horas</th>
-            <th>Status</th>
-            <th>Motivo da recusa</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for atestado in atestados %}
-          <tr>
-            <td>{{ atestado["Nome"] }}</td>
-            <td>{{ atestado["Turma"] }}</td>
-            <td>{{ atestado["RA"] }}</td>
-            <td>{{ atestado["Tipo"] }}</td>
-            <td>{{ atestado["Inicio"] }}</td>
-            <td>{{ atestado["Fim"] }}</td>
-            <td>{{ atestado["Horas"] }}</td>
-            <td>
-              {% if atestado["Status"] == 'Pendente' %} Pendente {% elif
-              atestado["Status"] == True %} Aprovado {% elif atestado["Status"]
-              == False %} Reprovado {% endif %}
-            </td>
-            <td>{{ atestado["Motivo"] }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>RA</th>
+              <th>Turma</th>
+              <th>Tipo de Atestado</th>
+              <th>Data de Inicio</th>
+              <th>Data do fim</th>
+              <th>CRM do Medico</th>
+              <th>Status</th>
+              <th>Motivo da Recusa</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for atestado in atestados%}
+            <tr>
+              <td>{{ atestado["Nome"] }}</td>
+              <td>{{ atestado["RA"] }}</td>
+              <td>{{ atestado["Turma"] }}</td>
+              <td>{{ atestado["Tipo"] }}</td>
+              <td>{{ atestado["Data"] }}</td>
+              <td>{{ atestado["Periodo"] }}</td>
+              <td>{{ atestado["CRM"] }}</td>
+              {% if atestado["Status"] == "Pendente" %}
+              <td>Pendente</td>
+              {% elif atestado["Status"] == True %}
+              <td>Aprovado</td>
+              {% else %}
+              <td>Recusado</td>
+              {% endif %} {% if atestado["Status"] == False %}
+              <td>{{ atestado["Motivo"] }}</td>
+              {% else %}
+              <td>-</td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
     </main>
     <footer>
       <a href="{{url_for('gerar_pdf')}}" target="_blank">Exportar para PDF</a>
