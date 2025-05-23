@@ -24,7 +24,7 @@ os.makedirs(app.config['USER_FOLDER'], exist_ok=True)
 caminho_atestados = os.path.join(UPLOAD_FOLDER, 'dados_atestados.json')
 if not os.path.exists(caminho_atestados):
     with open(caminho_atestados, 'w') as u:
-        json.dump({}, u)
+        json.dump([], u)
 
 caminho_usuarios = os.path.join(USER_FOLDER, 'usuarios.json')
 if not os.path.exists(caminho_usuarios):

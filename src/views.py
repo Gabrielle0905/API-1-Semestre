@@ -1,5 +1,5 @@
-from flask import Flask,render_template,url_for,request,flash,redirect, session, jsonify, make_response
-from main import app, UPLOAD_FOLDER, os, caminho_usuarios, caminho_atestados, caminho_equipes
+from flask import Flask,render_template,url_for,request,flash,redirect, session, jsonify, make_response, send_from_directory, abort
+from main import app, caminho_usuarios, caminho_equipes
 from datetime import datetime
 from xhtml2pdf import pisa
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -22,6 +22,63 @@ def get_atestados():
 def save_atestados(dados):
     with open(CAMINHO_ARQUIVO, 'w', encoding='utf-8') as f:
         json.dump(dados, f, indent=4, ensure_ascii=False)
+ 
+# Função de filtros com a barra de pesquisa de atestados.        
+def filtrar_atestados(atestados, pesquisa):
+    pesquisa = pesquisa.lower() 
+    resultados = []
+
+    for atestado in atestados:
+        if (
+            pesquisa in str(atestado.get("ID", "")).lower() or
+            pesquisa in atestado.get("Nome", "").lower() or
+            pesquisa in atestado.get("RA", "").lower() or
+            pesquisa in atestado.get("Turma", "").lower() or
+            pesquisa in atestado.get("Tipo", "").lower() or
+            pesquisa in atestado.get("Data", "").lower() or
+            pesquisa in atestado.get("Periodo", "").lower() or
+            pesquisa in atestado.get("CRM", "").lower() or
+            pesquisa in atestado.get("Nome do arquivo", "").lower() or
+            pesquisa in str(atestado.get("Status", "")).lower() or
+            pesquisa in atestado.get("Motivo", "").lower()
+        ):
+            resultados.append(atestado)
+
+    return resultados
+
+def atestados_usuario():
+    todos_atestados = get_atestados()
+    resultados = []
+    
+    for atestado in todos_atestados:
+        if atestado['CPF'] == session['cpf']:
+            resultados.append(atestado)
+            
+    return resultados
+            
+    
+
+# Função que excluir um atestado do Json.
+def excluir_atestados_porid(id_para_excluir):
+    atestados = get_atestados()
+    original_len = len(atestados)
+    
+    atestados = [a for a in atestados if a.get('ID') != id_para_excluir]
+    
+    if len(atestados) == original_len:
+        return False
+    
+    save_atestados(atestados)
+    return True
+
+# Função para validar o ID de exclusão do Formulario
+def validar_id_do_formulario(request):
+    id_str = request.form.get('id')
+    
+    if not id_str or not id_str.isdigit():
+        return None
+    
+    return int(id_str)
 
 @app.route('/')
 def homepage():
@@ -149,7 +206,7 @@ def homestudent():
 def upload_form():
     return render_template('upload_certificates.html')
 
-@app.route('/upload', methods=['POST'])
+@app.route('/home/aluno/upload', methods=['POST'])
 @login_required(['aluno'], rota_login='login_aluno')
 def upload_file():
     if 'file' not in request.files:
@@ -196,7 +253,10 @@ def upload_file():
         'Data': data,
         'Periodo': periodo,
         'CRM': crm,
-        'Nome do arquivo': filename
+        'Nome do arquivo': filename,
+        'Status': "Pendente",
+        'Motivo': "",
+        'CPF': session['cpf']
     }
     
     # Adicionar novo atestado à lista
@@ -210,13 +270,46 @@ def upload_file():
 @app.route("/home/aluno/gerenciar_atestados/", methods=["GET"])
 @login_required(['aluno'], rota_login='login_aluno')
 def listar_atestados_alunos():
+    pesquisa = request.args.get("pesquisa", "") 
+    atestados = atestados_usuario()
+    resultados = filtrar_atestados(atestados, pesquisa)
+    return render_template('gerenciamento_de_atestados_aluno.html', atestados = resultados)
+
+@app.route("/home/aluno/gerenciar_atestados/download/<int:atestado_id>")
+def download_arquivo(atestado_id):
+    # Busca o atestado pelo ID
     atestados = get_atestados()
-    return render_template('gerenciamento_de_atestados_aluno.html', atestados = atestados)
+    atestado = next((a for a in atestados if a["ID"] == atestado_id), None)
 
-@app.route("/home/aluno/gerenciar_atestados/download")
-@login_required(['aluno'], rota_login='login_aluno')
+    if atestado:
+        nome_arquivo = atestado["Nome do arquivo"]
+        diretorio = app.config['uploads_atestados']
+        caminho_arquivo = os.path.join(diretorio, nome_arquivo)
 
-        
+        if os.path.exists(caminho_arquivo):
+            return send_from_directory(directory=diretorio, path=nome_arquivo, as_attachment=True)
+        else:
+            return abort(404, description="Arquivo não encontrado.")
+    else:
+        return abort(404, description="Atestado não encontrado.")
+    
+@app.route("/home/aluno/gerenciar_atestados/excluir", methods=['POST'])
+def excluir_atestado_aluno():
+    id_validado = validar_id_do_formulario(request)
+
+    if id_validado is None:
+        flash("ID inválido para exclusão.")
+        return redirect(url_for('listar_atestados_alunos'))
+
+    sucesso = excluir_atestados_porid(id_validado)
+
+    if sucesso:
+        flash("Atestado excluído com sucesso!")
+    else:
+        flash("Atestado não encontrado.")
+
+    return redirect(url_for('listar_atestados_alunos'))
+
 @app.route('/home/docente')
 @login_required(['docente'], rota_login='login_docente')
 def homedocente():
@@ -226,8 +319,9 @@ def homedocente():
 @app.route('/home/docente/gerenciar_atestados/relatorios/gerarpdf')
 @login_required(['docente'], rota_login='login_docente')
 def gerar_pdf():
+    atestados = get_atestados()
     data_hoje = datetime.today().strftime('%d/%m/%Y')
-    atestados_filtrados = sorted(atestados, key=lambda x: x['Inicio'], reverse=True)
+    atestados_filtrados = sorted(atestados, key=lambda x: x['Data'], reverse=True)
     html = render_template('relatorios.html', atestados = atestados_filtrados, data_hoje = data_hoje)
     result = io.BytesIO()
     pdf = pisa.CreatePDF(io.StringIO(html), dest = result)
@@ -457,6 +551,3 @@ def adicionar_equipe():
         return redirect(url_for('gerenciar_equipes')) 
     
     return render_template('add_equipes.html')
-
-atestados = get_atestados()
-print(atestados) 

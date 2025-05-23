@@ -86,7 +86,33 @@
               <td>{{ atestado["Data"] }}</td>
               <td>{{ atestado["Periodo"] }}</td>
               <td>{{ atestado["CRM"] }}</td>
-              <td><a href="">Link</a></td>
+              <td>
+                <a
+                  href="{{ url_for('download_arquivo', atestado_id=atestado['ID']) }}"
+                  >Baixar</a
+                >
+              </td>
+              {% if atestado["Status"] == "Pendente" %}
+              <td>Pendente</td>
+              {% elif atestado["Status"] == True %}
+              <td>Aprovado</td>
+              {% else %}
+              <td>Recusado</td>
+              {% endif %} {% if atestado["Status"] == False %}
+              <td>{{ atestado["Motivo"] }}</td>
+              {% else %}
+              <td>-</td>
+              {% endif %}
+              <td>
+                <form
+                  method="POST"
+                  action="{{ url_for('excluir_atestado_aluno') }}"
+                  onsubmit="return confirm('Tem certeza que deseja excluir este atestado?');"
+                >
+                  <input type="hidden" name="id" value="{{ atestado['ID'] }}" />
+                  <button id="botao_excluir" type="submit">Excluir</button>
+                </form>
+              </td>
             </tr>
             {% endfor %}
           </tbody>
