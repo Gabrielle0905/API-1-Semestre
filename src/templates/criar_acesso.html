@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar membro</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/criar_acesso.css')}}">
+</head>
+<body>
+    <a href="/adm">←</a>
+    <h1 id="titulo">Criar Acesso Master/Docentes</h1>
+
+    <form method="POST" action="/adm/acessos" id="cadastro">
+        <div class="formbox">
+                <div class="cadastrar">
+                    <div class="inputs">
+                        <label for="name">Nome completo:</label>
+                        <input type="text" id="name" name="name" required placeholder="Digite o nome completo">
+
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" required placeholder="Digite o CPF">
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="Digite o E-mail">
+
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required placeholder="Digite a senha">
+
+                        <label for="funcao">Função:</label>
+                        <select name="funcao" id="funcao">
+                            <option value="docente">Docente</option>
+                            <option value="sm">Scrum Master</option>
+                        </select>
+                        <div id="equipe-box" style="display: none; margin-top: 1rem;">
+                            <label for="equipe">Escolha uma equipe:</label>
+                            <select name="equipe" id="equipe">
+                                <option value="" disabled selected>Selecione uma equipe</option>
+                                {% for nome_equipe in equipes.keys() %}
+                                    <option value="{{ nome_equipe }}">{{ nome_equipe }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <img src="{{url_for('static', filename='media/membros_equipe.png')}}" alt="membros" id="membrosimg">
+                </div>
+            
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div id='alerta' class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+        <div style="display: flex; justify-content: center;">
+            <button type="submit" class="btn-enviar">Enviar</button>
+        </div>
+    </form>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const funcaoSelect = document.getElementById('funcao');
+        const equipeBox = document.getElementById('equipe-box');
+
+        function verificarFuncao() {
+            if (funcaoSelect.value === 'sm') {
+                equipeBox.style.display = 'block';
+            } else {
+                equipeBox.style.display = 'none';
+            }
+        }
+
+        // Verifica quando a página carrega
+        verificarFuncao();
+
+        // Verifica sempre que o select mudar
+        funcaoSelect.addEventListener('change', verificarFuncao);
+    });
+    </script>
+</body>
+</html>

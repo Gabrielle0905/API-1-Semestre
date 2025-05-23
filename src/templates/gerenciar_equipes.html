@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipes SIRAAS</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/gerenciar_equipes.css')}}">
+</head>
+<body>
+    <header>
+        <a href="/adm">←</a>
+        <span>SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
+    </header>
+    <main>
+        <h1>Gerenciar as Equipes</h1>
+        <div id="exibicao-equipes">
+            {% for nome_equipe, dados in equipes.items() %}
+                <div class="equipe">
+                    <h3>{{ nome_equipe }}</h3>
+                    {% if dados["Membros"] %}
+                        <p><strong>Membros:</strong></p>
+                        <ul>
+                            {% for membro in dados["Membros"] %}
+                                <li>{{ membro }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p><em>Sem membros cadastrados.</em></p>
+                    {% endif %}
+                </div>
+             {% endfor %}
+        </div>
+
+        <button onclick="window.location.href='/adm/equipes/adicionar'" id="addequipe">Adicionar nova equipe </button>
+    </main>
+</body>
+</html>

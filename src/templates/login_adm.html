@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRAAS</title>
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='style/login.css')}}"> -->
+    <link rel="stylesheet" href="../static/style/login.css">
+</head>
+<body>
+    <header>
+        <a href="/">←</a>
+        <h1>Entrar</h1>
+    </header>
+
+    <span>Área do Desenvolvedor</span>
+
+
+    <form class="container" method="post">
+        <div class="form-box">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite a senha" required>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div id='alerta' class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+        <button type="submit" class="btn-enviar" value="entrar">Entrar</button>
+    </form>
+
+
+</body>
+</html>

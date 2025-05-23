@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+body{
+    margin: 0;
+    font-family: 'Inder';
+}
+
+header {
+    background-color: #5892B7;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.25rem;  
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.56rem;
+    margin-left: 0.625rem;
+}
+
+h1{
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 2.5rem;
+}
+
+#nparticipantes{
+    width: 42.5%;
+}
+
+#exibicao-equipes{
+    display: grid;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.equipe{
+    display: block;
+    justify-content: center;
+}
+
+.equipe h3,p,ul{
+    justify-self: center;
+    align-self: center;
+}
+
+h3{
+    color: #1d5176;
+}
+
+main{
+    display: grid;
+    justify-content: center;
+}
+
+button{
+    background-color: #1d5176;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.31rem;
+    transition: 0.3s;
+    font-family: 'Inder';
+    align-self: center;
+    justify-self: center;
+}

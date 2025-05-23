@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/add_equipes.css')}}">
+    <title>Adicionar equipes</title>
+</head>
+<body>
+    <a href="/adm/equipes">←</a>
+    <h1 id="titulo">Adicionar nova equipe</h1>
+
+    <img src="{{url_for('static', filename='media/add_equipes.png')}}" alt="membros" id="membrosimg">
+
+
+    <form method="POST" action="/adm/equipes/adicionar" id="cadastro">
+        <div class="formbox">
+                <div class="cadastrar">
+                    <div class="inputs">
+                        <label for="name">Nome da equipe: </label>
+                        <input type="text" id="name" name="name" required placeholder="Digite o nome da nova equipe">
+                    </div>
+                </div>
+            
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div id='alerta' class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+        <div style="display: flex; justify-content: center;">
+            <button type="submit" class="btn-enviar">Enviar</button>
+        </div>
+    </form>
+    </script>
+</body>
+</html>
