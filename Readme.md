@@ -48,8 +48,8 @@
       <img src="./documents/img/MVP.jpg" alt="MVP do Projeto">
 <br>
 
-1. Site inicial: [Protótipo navegável](https://www.figma.com/proto/iYEZg1Tc6XGkPoGTsXqgic/api?node-id=549-626&p=f&t=dLv0M0OF4t2WS4ya-0&scaling=scale-down-width&content-scaling=fixed&page-id=548%3A2&starting-point-node-id=549%3A626)
-2. Coleta de dados
+1. Site inicial: [Vídeo do Protótipo navegável](https://github.com/user-attachments/assets/3ed5b9aa-6a17-41e7-a4af-1945947f781b)
+2. Site funcional: [Vídeo do Site funcional](https://github.com/user-attachments/assets/a8fff5f6-404b-4638-b21d-fb03f4e2b3140)
 3. Sistema completo
 
 
