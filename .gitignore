@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 src/uploads_atestados/dados_atestados.json
 src/usuarios.json
+/src/usuarios
