@@ -1,75 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIRAAS</title>
-</head>
-<body>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
-    body {
-        font-family: 'Inder';
-        margin: 0;
-        padding: 0;
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inder', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    }
-    header {
-        background-color: #5892B7;
-        padding: 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: white;
-        font: 20px; 
-    }
-    .seta {
-        background-color: transparent;
-        border: none;
-        color: white;
-        cursor: pointer;
-        font-size: 25px;
-    }
-    section {
-        display: flex;
-        justify-content: center;
-        background-color: #1D5175;
-        border-radius: 15px;
-        margin: auto;
-        width: 80%;
-        padding: 2rem;
-    }
-    .exportar {
-        background-color: #1D5175;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 18px;
-        padding: 12px 20px;
-        font-family: 'Inder' ;
-    }
-    div {
-        justify-content: center;
-        display: flex;
-    }
-    #grafico{
-        margin-right: 3rem;
-    }
-</style>
+        header {
+            background-color: #5892B7;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            font-size: 20px;
+        }
+
+        .seta {
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 25px;
+        }
+
+        .exportar {
+            background-color: #1D5175;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 2%;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 12px 20px;
+            font-family: 'Inder';
+        }
+
+        div {
+            justify-content: center;
+            display: flex;
+        }
+
+        #imgdiv {
+            background-color: #1D5175;
+            margin: auto;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            width: 60%;
+            border-radius: 8px;
+            margin-top: 2%;
+        }
+
+        #grafico {
+            scale: 1.2;
+            height: 5%;
+        }
+    </style>
+</head>
+
+<body>
+
     <header>
         <a href="/home/docente">
             <button class="seta">&larr;</button>
         </a>
         <span>SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum</span>
     </header>
-    <br>
-    <section>
-        <img src="{{url_for('static', filename='media/grafico_pizza_api.jpg')}}" alt="Gráfico" id="grafico">
-    </section>
-    <br>
+
+    <div id="imgdiv">
+        <div id="grafico">
+            <canvas id="graficoPizza"></canvas>
+            <script>
+                const ctx = document.getElementById('graficoPizza').getContext('2d');
+                const graficoPizza = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Consulta Médica', 'Cirurgia', 'Afastamento', 'Incapacidade Temporária', 'Outros'],
+                        datasets: [{
+                            label: '',
+                            data: [3, 1, 5, 3, 8],
+                            backgroundColor: [
+                                'rgba(255, 255, 255, 0.6)',
+                                'rgba(72, 114, 170, 1)',
+                                'rgba(129, 176, 205, 1)',
+                                'rgba(255, 187, 22, 1)',
+                                'rgba(233, 139, 78, 1)'
+                            ],
+                            borderColor: [
+                                'rgba(29, 74, 114, 0.7)',
+                                'rgba(72, 114, 170, 0.7)',
+                                'rgba(129, 176, 205, 0.7)',
+                                'rgba(255, 187, 22, 0.7)',
+                                'rgba(233, 139, 78, 0.7)'
+                            ],
+                            borderWidth: 1,
+                            hoverOffset: 10,
+                            hoverBackgroundColor: [
+                                'rgba(255, 255, 255, 0.6)',
+                                'rgba(72, 114, 170, 1)',
+                                'rgba(129, 176, 205, 1)',
+                                'rgba(255, 187, 22, 1)',
+                                'rgba(233, 139, 78, 1)'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    color: 'white',
+                                    font: {
+                                        family: 'Inder',
+                                        size: 14
+                                    }
+                                }
+                            },
+                            
+                        },
+
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
     <div>
         <button class="exportar">Exportar relatório</button>
     </div>
+
 </body>
+
 </html>
