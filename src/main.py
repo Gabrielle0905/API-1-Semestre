@@ -7,6 +7,11 @@ app = Flask(__name__)
 app.secret_key = '4657'
 dir_base = os.path.dirname(os.path.abspath(__file__))
 
+# App.Config para Upload de Atestados
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+app.config['uploads_atestados'] = os.path.join(BASE_DIR, 'uploads_atestados')
+
+
 from views import *
 UPLOAD_FOLDER = os.path.join(dir_base, 'uploads_atestados')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

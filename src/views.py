@@ -2,13 +2,26 @@ from flask import Flask,render_template,url_for,request,flash,redirect, session,
 from main import app, UPLOAD_FOLDER, os, caminho_usuarios, caminho_atestados, caminho_equipes
 from datetime import datetime
 from xhtml2pdf import pisa
-from gerenciador_de_atestados import atestados
 from werkzeug.security import generate_password_hash, check_password_hash
 from utils import *
 import io
 import time
 import json
 import os
+
+# Funções para o funcionamento do Upload de Atestados e do Gerenciamento dos Json.
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CAMINHO_ARQUIVO = os.path.join(BASE_DIR, 'uploads_atestados/dados_atestados.json')
+
+def get_atestados():
+    if not os.path.exists(CAMINHO_ARQUIVO):
+        return[]
+    with open(CAMINHO_ARQUIVO, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def save_atestados(dados):
+    with open(CAMINHO_ARQUIVO, 'w', encoding='utf-8') as f:
+        json.dump(dados, f, indent=4, ensure_ascii=False)
 
 @app.route('/')
 def homepage():
@@ -136,138 +149,79 @@ def homestudent():
 def upload_form():
     return render_template('upload_certificates.html')
 
-@app.route("/home/aluno/gerenciar_atestados/", methods=["GET"])
-@login_required(['aluno'], rota_login='login_aluno')
-def listar_atestados_alunos():
-    filtro = request.args.get('filtro')
-    if filtro == 'nome':
-        atestados.sort(key=lambda x: x['Nome'].lower())
-    elif filtro == 'data':
-        atestados.sort(key=lambda x: x['Inicio']) 
-    elif filtro == 'status':
-        atestados.sort(key=lambda x: 0 if x['Status'] == "Pendente" else 1 if x['Status'] == True else 2)
-    pesquisa = request.args.get('pesquisa', '').lower()
-    atestados_filtrados = []
-    for atestado in atestados:
-        if (pesquisa in str(atestado["Nome"]).lower() or
-            pesquisa in str(atestado["Turma"]).lower() or
-            pesquisa in str(atestado["RA"]).lower() or
-            pesquisa in str(atestado["Tipo"]).lower() or
-            pesquisa in str(atestado["Inicio"]).lower()):
-            atestados_filtrados.append(atestado) 
-    return render_template('gerenciamento_de_atestados_aluno.html', atestados = atestados_filtrados)
-
-@app.route('/home/aluno/gerenciar_atestados/<int:atestado_id>', methods=["POST"])
-@login_required(['aluno'], rota_login='login_aluno')
-def excluir_atestado_aluno(atestado_id):
-    atestado_para_remover = None
-    for atestado in atestados:
-        if atestado["ID"] == atestado_id:
-            atestado_para_remover = atestado
-            break
-    if atestado_para_remover:
-        atestados.remove(atestado_para_remover)
-    return render_template('gerenciamento_de_atestados_aluno.html', atestados=atestados)
-
-
 @app.route('/upload', methods=['POST'])
 @login_required(['aluno'], rota_login='login_aluno')
 def upload_file():
-    if request.method == 'POST':
-        if "file" not in request.files:
-            return"Nenhum arquivo selecionado",400
-        
-        file = request.files["file"]
-        
-        if file.filename == "":
-            return "Nenhum arquivo selecionado", 400
-
-        nome = request.form['nome']
-        ra = request.form['ra']
-        turma = request.form['turma']
-        tipo = request.form['tipo']
-        data = request.form['data']
-        periodo = request.form['periodo']
-        crm = request.form['crm']
-        filename = file.filename
-        
-        if file and file.filename.lower().endswith(".pdf"):
-            diaupload = time.strftime("%d%m%Y_%H%M%S")
-            filename = (f'{ra}_{diaupload}.pdf')
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            
-
-            try:
-                with open(caminho_atestados,'r') as u:
-                    atestados = json.load(u)
-            except FileNotFoundError:
-                atestados = {}
-
-            if nome in atestados:
-                atestados[nome].append({
-                'RA': ra,
-                'Turma': turma,
-                'Tipo de Atestado': tipo,
-                'Data': data,
-                'Periodo': periodo,
-                'CRM': crm,
-                'Nome do arquivo': filename
-                })
-            else:
-                atestados[nome] = [{
-                'RA': ra,
-                'Turma': turma,
-                'Tipo de Atestado': tipo,
-                'Data': data,
-                'Periodo': periodo,
-                'CRM': crm,
-                'Nome do arquivo': filename
-                }]
-            
-            save_atestados(atestados)
-
-            return render_template("confirm_upload.html")     
-
-        return "Formato de arquivo inválido.Apenas PDFs são permitidos",400
+    if 'file' not in request.files:
+        return "Nenhum arquivo selecionado", 400
+    file = request.files['file']
     
+    if file.filename == '':
+        return "Nenhum arquivo selecionado", 400
+    
+    if not file.filename.lower().endswith('.pdf'):
+        return "Formato invalido. Apenas PDF permitido", 400
+    
+    # Dados do Formulario
+    nome = request.form.get("nome")
+    ra = request.form.get("ra")
+    turma = request.form.get("turma")
+    tipo = request.form.get("tipo")
+    data = request.form.get("data")
+    periodo = request.form.get("periodo")
+    crm = request.form.get("crm")
+    
+    # Gerar nome único para salvar o arquivo
+    diaupload = time.strftime("%d%m%Y_%H%M%S")
+    filename = f"{ra}_{diaupload}.pdf"
+    
+    file.save(os.path.join(app.config['uploads_atestados'], filename))
+    
+    # Carregar atestados existentes
+    atestados = get_atestados()
+    # Gerar novo ID — aqui, usa o maior ID atual + 1 ou começa no 1
+    if atestados:
+        novo_id = max(a['ID'] for a in atestados) + 1
+    else:
+        novo_id = 1
+        
+    # Novo Registro
+      # Novo registro
+    novo_atestado = {
+        'ID': novo_id,
+        'Nome': nome,
+        'RA': ra,
+        'Turma': turma,
+        'Tipo': tipo,
+        'Data': data,
+        'Periodo': periodo,
+        'CRM': crm,
+        'Nome do arquivo': filename
+    }
+    
+    # Adicionar novo atestado à lista
+    atestados.append(novo_atestado)
+    
+    # Salvar JSON atualizado
+    save_atestados(atestados)
+    
+    return render_template("confirm_upload.html")    
+
+@app.route("/home/aluno/gerenciar_atestados/", methods=["GET"])
+@login_required(['aluno'], rota_login='login_aluno')
+def listar_atestados_alunos():
+    atestados = get_atestados()
+    return render_template('gerenciamento_de_atestados_aluno.html', atestados = atestados)
+
+@app.route("/home/aluno/gerenciar_atestados/download")
+@login_required(['aluno'], rota_login='login_aluno')
+
+        
 @app.route('/home/docente')
 @login_required(['docente'], rota_login='login_docente')
 def homedocente():
     primeiro_nome = get_primeiro_nome()
     return render_template('home_docente.html', nome=primeiro_nome)
-
-@app.route('/home/docente/gerenciar_atestados/', methods=["GET"])
-@login_required(['docente'], rota_login='login_docente')
-def listar_atestados_docente():
-    filtro = request.args.get('filtro')
-    if filtro == 'nome':
-        atestados.sort(key=lambda x: x['Nome'].lower())
-    elif filtro == 'data':
-        atestados.sort(key=lambda x: x['Inicio']) 
-    elif filtro == 'status':
-        atestados.sort(key=lambda x: 0 if x['Status'] == "Pendente" else 1 if x['Status'] == True else 2)
-    pesquisa = request.args.get('pesquisa', '').lower()
-    atestados_filtrados = []
-    for atestado in atestados:
-        if (pesquisa in str(atestado["Nome"]).lower() or
-            pesquisa in str(atestado["Turma"]).lower() or
-            pesquisa in str(atestado["RA"]).lower() or
-            pesquisa in str(atestado["Tipo"]).lower() or
-            pesquisa in str(atestado["Inicio"]).lower()):
-            atestados_filtrados.append(atestado) 
-    return render_template('gerenciamento_de_atestados_docente.html', atestados = atestados_filtrados)
-
-@app.route('/home/docente/gerenciar_atestados/<int:atestado_id>', methods=["POST"])
-@login_required(['docente'], rota_login='login_docente')
-def excluir_atestado_docente(atestado_id):
-    atestado_para_remover = None
-    for atestado in atestados:
-        if atestado["ID"] == atestado_id:
-            atestado_para_remover = atestado
-            break
-    if atestado_para_remover:
-        atestados.remove(atestado_para_remover)
-    return render_template('gerenciamento_de_atestados_docente.html', atestados=atestados)
 
 @app.route('/home/docente/gerenciar_atestados/relatorios/gerarpdf')
 @login_required(['docente'], rota_login='login_docente')
@@ -503,3 +457,6 @@ def adicionar_equipe():
         return redirect(url_for('gerenciar_equipes')) 
     
     return render_template('add_equipes.html')
+
+atestados = get_atestados()
+print(atestados) 
