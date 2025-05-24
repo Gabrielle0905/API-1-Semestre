@@ -3,5 +3,68 @@
         "nome": "Administrador",
         "senha": "scrypt:32768:8:1$66hwndoXc4I9Qp03$cafce9b22a96efc4793239e66be3a14cf8960603f35e3ca6740081476848b1f06be95e7055bfc2219026b28de5013d781ce459c5d2fc0c90f7ddce699f46ec95",
         "funcao": "adm"
+    },
+    "88888888888": {
+        "nome": "Wendy Mininel",
+        "email": "wendy@gmail.com",
+        "senha": "scrypt:32768:8:1$DO49d03S1NFFaJ5X$4a1ffdd3d68f170a4a3de52acbe353977b9e516a373a93ad265efcdfad8d52a0b3327bf0c409bcaeaff5e6cf949be30cf79c5c85f29c2a374b0809207168d6dd",
+        "funcao": "sm",
+        "equipe": "404 Not Found"
+    },
+    "11111111111": {
+        "nome": "Gustavo Garcia",
+        "email": "gustavo@gmail.com",
+        "senha": "scrypt:32768:8:1$dB7er5WEWyCrNYiu$7a5c0311b4bcfc5df85db4a59487552110e2d12d04c5af0bf68b844c4c81d7458d459e74049f5be2cef14223160148bfd2b56396f1fd0ca4dc1fd6c41d619ea9",
+        "funcao": "dt",
+        "equipe": "404 Not Found"
+    },
+    "22222222222": {
+        "nome": "Isaura de Lourdes",
+        "email": "isaura@gmail.com",
+        "senha": "scrypt:32768:8:1$umrSFqRKprFOmyR6$dcc2955e3a793cef6bcca478be38dd8b63bb177f5398526c99331eec36136dfb41f63e6a608e668ac6a05f47c43389320e5828c36f5d80b304599ce8069167de",
+        "funcao": "dt",
+        "equipe": "404 Not Found"
+    },
+    "33333333333": {
+        "nome": "Gabrielle Novaes",
+        "email": "gabrielle@gmail.com",
+        "senha": "scrypt:32768:8:1$81Vd0fDWrsxDJ6kJ$d008cbaac2b962fa979b91438dfaceb88980ad6f4bbc256e9ac33ce8bd3e2b309bede597dae88dc7812494c188f01f7014b92c5871fed24a20283c90d062b0c3",
+        "funcao": "po",
+        "equipe": "404 Not Found"
+    },
+    "44444444444": {
+        "nome": "Fernanda Cassiano",
+        "email": "fernanda@gmail.com",
+        "senha": "scrypt:32768:8:1$okW1CTZJ1Vj3fHoD$ac49792eee9fec561bdc2ab49866fdaf1c939b669f35860f84a994a47e658fb8630c1ab2d5a9c74fc38c8332ae426bf761080a544f783f5c8d336803e262df05",
+        "funcao": "dt",
+        "equipe": "404 Not Found"
+    },
+    "55555555555": {
+        "nome": "Let\u00edcia Furtado",
+        "email": "leticia@gmail.com",
+        "senha": "scrypt:32768:8:1$KkGHfAQDmUFIT6h5$37d1a7e087b8bbfa82195d81daf09683105c67a4417b5458c0304fd6ad1717aa80788e967fe4490004083d3ae7b8419cca47f14e1d67428ccee0cd90bfab6e15",
+        "funcao": "dt",
+        "equipe": "404 Not Found"
+    },
+    "66666666666": {
+        "nome": "Guilherme Rosa",
+        "email": "guilherme@gmail.com",
+        "senha": "scrypt:32768:8:1$AOjCYTzkVqeYQ89Z$c22b5d546bf30f89538ba095eff1c120981f1a619d332becc0b25dbac8385fdf94cc0365a979e18e6a616fa643fc7a770a84f91dae5025b38b80b9a17af290a3",
+        "funcao": "dt",
+        "equipe": "404 Not Found"
+    },
+    "77777777777": {
+        "nome": "Raphael Robim",
+        "email": "raphael@gmail.com",
+        "senha": "scrypt:32768:8:1$wlcHgsTJP7H9jZMW$73ecec47aa82118f80ec1f90c1f8cb1b2e8d61bf627abde75f159495d30d5c506e9579728fd644681d85ce8863a7ce37216cb3cc1ab1d4e72de74020b717e703",
+        "funcao": "dt",
+        "equipe": "404 Not Found"
+    },
+    "99999999999": {
+        "nome": "Clara Resende",
+        "email": "clara@gmail.com",
+        "senha": "scrypt:32768:8:1$EIC3J9KMoAXxqBzX$1759284b2ab00c20922f905fafea9d12a268899aa55c5525b4e603ed08c5b3d16be057acbcc0044544cb33d4b786e8d71fb25ccc72ba60d360b690bf1c46a001",
+        "funcao": "dt",
+        "equipe": "404 Not Found"
     }
 }
