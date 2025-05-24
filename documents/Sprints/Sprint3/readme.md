@@ -15,3 +15,11 @@
 
 ## User Story's detalhadas 📝
 <hr>
+
+| Rank | Prioridade | User Story | Estimativa | Sprint |
+|:----:|:----------:|:----------:|:----------:|:------:|
+| 1  | Alta | "Como docente, quero criar um relatório com as informações dos atestados médicos dos alunos." | 13| 3 | 
+| 2  | Alta | "Como docente, quero gerar documentos em PDF e/ou Excel sobre os relatórios, para facilitar a análise externa." | 20 | 3 | 
+| 3  | Média | "Como avaliador, quero um sistema de comparação com resultado das avaliações entre as sprints, para uma noção de evolução no processo agil." | 20 | 3 | 
+| 4  | Média | "Como usuário, quero que o sistema web seja responsivel (fácil acesso em dispositivos mobile), para melhor utilização em celulares." | 8 | 3 | 
+| 5  | Alta | "Como desenvolvedor, quero criar dentro da página de gerenciamento de atestados um botão que gere relatórios exportaveis em PDF e/ou Excel que contenham informações sobre os atestados dos alunos, para que assim os docentes tenham maior facilidade para uma análise externa." | 13 | 3 | 

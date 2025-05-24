@@ -408,7 +408,12 @@ def registroscrum():
         senha_hash = generate_password_hash(senha)
 
         if equipe in equipes:
-            nome_com_funcao = f"{nome} (Scrum Master)"
+            if funcao == "po":
+                addfuncao = "Product Owner"
+            else:
+                addfuncao = "Dev Team"
+            
+            nome_com_funcao = f"{nome} ({addfuncao})"
             if nome_com_funcao not in equipes[equipe]['Membros']:
                 equipes[equipe]['Membros'].append(nome_com_funcao)
         save_membro(equipes)
