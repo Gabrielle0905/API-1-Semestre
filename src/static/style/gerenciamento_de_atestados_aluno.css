@@ -155,6 +155,14 @@ td {
     scrollbar-color: #ffffff #585858;
   }
 }
+body main section table a {
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 body main section table a:hover {
   background-color: #5892b7;
   color: #585858;

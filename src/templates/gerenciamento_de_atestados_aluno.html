@@ -92,7 +92,7 @@
                   onclick="alert('Seu download está sendo iniciado')">Baixar</a
                 >
               </td>
-              {% if atestado["Status"] == "Pendente" %}
+              {% if atestado["Status"] == None %}
               <td>Pendente</td>
               {% elif atestado["Status"] == True %}
               <td>Aprovado</td>

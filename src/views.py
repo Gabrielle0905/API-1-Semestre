@@ -9,77 +9,6 @@ import time
 import json
 import os
 
-# Funções para o funcionamento do Upload de Atestados e do Gerenciamento dos Json.
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CAMINHO_ARQUIVO = os.path.join(BASE_DIR, 'uploads_atestados/dados_atestados.json')
-
-def get_atestados():
-    if not os.path.exists(CAMINHO_ARQUIVO):
-        return[]
-    with open(CAMINHO_ARQUIVO, 'r', encoding='utf-8') as f:
-        return json.load(f)
-
-def save_atestados(dados):
-    with open(CAMINHO_ARQUIVO, 'w', encoding='utf-8') as f:
-        json.dump(dados, f, indent=4, ensure_ascii=False)
- 
-# Função de filtros com a barra de pesquisa de atestados.        
-def filtrar_atestados(atestados, pesquisa):
-    pesquisa = pesquisa.lower() 
-    resultados = []
-
-    for atestado in atestados:
-        if (
-            pesquisa in str(atestado.get("ID", "")).lower() or
-            pesquisa in atestado.get("Nome", "").lower() or
-            pesquisa in atestado.get("RA", "").lower() or
-            pesquisa in atestado.get("Turma", "").lower() or
-            pesquisa in atestado.get("Tipo", "").lower() or
-            pesquisa in atestado.get("Data", "").lower() or
-            pesquisa in atestado.get("Periodo", "").lower() or
-            pesquisa in atestado.get("CRM", "").lower() or
-            pesquisa in atestado.get("Nome do arquivo", "").lower() or
-            pesquisa in str(atestado.get("Status", "")).lower() or
-            pesquisa in atestado.get("Motivo", "").lower()
-        ):
-            resultados.append(atestado)
-
-    return resultados
-
-def atestados_usuario():
-    todos_atestados = get_atestados()
-    resultados = []
-    
-    for atestado in todos_atestados:
-        if atestado['CPF'] == session['cpf']:
-            resultados.append(atestado)
-            
-    return resultados
-            
-    
-
-# Função que excluir um atestado do Json.
-def excluir_atestados_porid(id_para_excluir):
-    atestados = get_atestados()
-    original_len = len(atestados)
-    
-    atestados = [a for a in atestados if a.get('ID') != id_para_excluir]
-    
-    if len(atestados) == original_len:
-        return False
-    
-    save_atestados(atestados)
-    return True
-
-# Função para validar o ID de exclusão do Formulario
-def validar_id_do_formulario(request):
-    id_str = request.form.get('id')
-    
-    if not id_str or not id_str.isdigit():
-        return None
-    
-    return int(id_str)
-
 @app.route('/')
 def homepage():
     return render_template('first_page.html')
@@ -254,7 +183,7 @@ def upload_file():
         'Periodo': periodo,
         'CRM': crm,
         'Nome do arquivo': filename,
-        'Status': "Pendente",
+        'Status': None,
         'Motivo': "",
         'CPF': session['cpf']
     }
@@ -360,6 +289,30 @@ def excluir_atestado_docente():
 
     return redirect(url_for('listar_atestados_docente'))
 
+@app.route('/home/docente/gerenciar_atestados/recusar', methods=['POST'])
+@login_required(['docente'], rota_login='login_docente')
+def recusar_atestado():
+    return none
+
+    # Salva a alteração no JSON
+    save_atestados(atestados)
+    flash('Atestado recusado com sucesso.', 'success')
+    return redirect(url_for('listar_atestados_docente'))
+
+@app.route('/home/docente/gerenciar_atestados/aprovar', methods=['POST'])
+@login_required(['docente'], rota_login='login_docente')
+def aprovar_atestado():
+    atestados = get_atestados()
+    id_recebido = int(request.form['id'])
+    
+    for atestado in atestados:
+        if atestado['ID'] == id_recebido:
+            atestado['Status'] = True
+            break
+        
+    save_atestados(atestados)
+    return redirect(url_for('listar_atestados_docente'))
+    
 @app.route('/home/docente/gerenciar_atestados/relatorios/gerarpdf')
 @login_required(['docente'], rota_login='login_docente')
 def gerar_pdf():

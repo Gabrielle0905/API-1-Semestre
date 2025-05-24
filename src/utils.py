@@ -2,6 +2,7 @@ from functools import wraps
 from flask import session, redirect, url_for, flash
 from main import caminho_usuarios, caminho_atestados, caminho_equipes
 import json
+import os
 
 def load_user():
     with open(caminho_usuarios, 'r') as u:
@@ -60,3 +61,74 @@ def login_required(funcoes_permitidas, rota_login='login'):
             return f(*args, **kwargs)
         return wrapper
     return decorator
+
+# Funções para o funcionamento do Upload de Atestados e do Gerenciamento dos Json.
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CAMINHO_ARQUIVO = os.path.join(BASE_DIR, 'uploads_atestados/dados_atestados.json')
+
+def get_atestados():
+    if not os.path.exists(CAMINHO_ARQUIVO):
+        return[]
+    with open(CAMINHO_ARQUIVO, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def save_atestados(dados):
+    with open(CAMINHO_ARQUIVO, 'w', encoding='utf-8') as f:
+        json.dump(dados, f, indent=4, ensure_ascii=False)
+ 
+# Função de filtros com a barra de pesquisa de atestados.        
+def filtrar_atestados(atestados, pesquisa):
+    pesquisa = pesquisa.lower() 
+    resultados = []
+
+    for atestado in atestados:
+        if (
+            pesquisa in str(atestado.get("ID", "")).lower() or
+            pesquisa in atestado.get("Nome", "").lower() or
+            pesquisa in atestado.get("RA", "").lower() or
+            pesquisa in atestado.get("Turma", "").lower() or
+            pesquisa in atestado.get("Tipo", "").lower() or
+            pesquisa in atestado.get("Data", "").lower() or
+            pesquisa in atestado.get("Periodo", "").lower() or
+            pesquisa in atestado.get("CRM", "").lower() or
+            pesquisa in atestado.get("Nome do arquivo", "").lower() or
+            pesquisa in str(atestado.get("Status", "")).lower() or
+            pesquisa in atestado.get("Motivo", "").lower()
+        ):
+            resultados.append(atestado)
+
+    return resultados
+
+def atestados_usuario():
+    todos_atestados = get_atestados()
+    resultados = []
+    
+    for atestado in todos_atestados:
+        if atestado['CPF'] == session['cpf']:
+            resultados.append(atestado)
+            
+    return resultados
+            
+    
+
+# Função que excluir um atestado do Json.
+def excluir_atestados_porid(id_para_excluir):
+    atestados = get_atestados()
+    original_len = len(atestados)
+    
+    atestados = [a for a in atestados if a.get('ID') != id_para_excluir]
+    
+    if len(atestados) == original_len:
+        return False
+    
+    save_atestados(atestados)
+    return True
+
+# Função para validar o ID de exclusão do Formulario
+def validar_id_do_formulario(request):
+    id_str = request.form.get('id')
+    
+    if not id_str or not id_str.isdigit():
+        return None
+    
+    return int(id_str)
