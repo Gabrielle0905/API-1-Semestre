@@ -177,24 +177,6 @@ input[type="radio"] {
     margin-right: 0.9rem;
 }
 
-.signup {
-    text-align: center;
-    font-size: 1.1rem;
-    margin-top: -7.1rem;
-    letter-spacing: 0.5px;
-
-}
-
-.signup a {
-    color: #1d5176;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.signup a:hover {
-    text-decoration: underline;
-}
-
 @media(max-width: 990px) {
     .signup {
         margin: 2rem auto;
@@ -220,7 +202,6 @@ input[type="radio"] {
 footer {
     font-size: 1.1rem;
     text-align: center;
-    margin-top: 8.1rem;
     letter-spacing: 0.5px;
 
 }

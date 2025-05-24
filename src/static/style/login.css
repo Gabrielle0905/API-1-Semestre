@@ -102,6 +102,25 @@ form{
     flex-direction: column;
 }
 
+.signup {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    letter-spacing: 0.5px;
+
+}
+
+.signup a {
+    color: #1d5176;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
+
 #alerta{
     font-family: 'Inder';
     padding: 1.25rem;
