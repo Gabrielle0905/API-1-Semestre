@@ -17,7 +17,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <script src="/src/static/scripts/script.js"></script>
     <title>SIRAAS</title>
   </head>
   <body>
@@ -76,8 +75,10 @@
                 <th>Status</th>
                 <th>Motivo da Recusa</th>
                 <th>Excluir</th>
-                <th>Aprovar</th>
-                <th>Recusar</th>
+                {% if algum_pendente %}
+                  <th>Aprovar</th>
+                  <th>Recusar</th>
+                {% endif %}
               </tr>
             </thead>
             <tbody>
@@ -111,7 +112,7 @@
                 <td>
                   <form
                     method="POST"
-                    action="{{ url_for('excluir_atestado_aluno') }}"
+                    action="{{ url_for('excluir_atestado_docente') }}"
                     onsubmit="return confirm('Tem certeza que deseja excluir este atestado?');"
                   >
                     <input
@@ -122,7 +123,7 @@
                     <button id="botao_excluir" type="submit">Excluir</button>
                   </form>
                 </td>
-                {% if atestado["Status"] == None %}
+                {% if atestado["Status"] == None and algum_pendente %}
                 <td>
                   <form action="{{ url_for('aprovar_atestado')}}" method="POST">
                     <input
@@ -133,6 +134,13 @@
                     <button type="submit">✔</button>
                   </form>
                 </td>
+                <td>
+                  <form action="{{ url_for('recusar_atestado') }}" method="POST" onsubmit="return pedirMotivo(this);">
+                    <input type="hidden" name="id" value="{{ atestado['ID'] }}">
+                    <input type="hidden" name="motivo" value="">
+                    <button type="submit">✖</button>
+                  </form>
+                </td>
                 {% endif %}
               </tr>
               {% endfor %}
@@ -140,6 +148,11 @@
           </table>
         </div>
       </section>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+            <div id='alerta' class="alert alert-{{ category }}">{{ message }}</div>
+          {% endfor %}
+      {% endwith %}
       <section class="section-btn-center">
         <!-- Redirecionamento para geração de relatórios -->
         <a href="{{url_for('gerar_pdf')}}" target="_blank" class="btn-link"
@@ -147,5 +160,16 @@
         >
       </section>
     </main>
+    <script>
+      function pedirMotivo(form) {
+        const motivo = prompt("Digite o motivo da recusa:");
+        if (motivo === null || motivo.trim() === "") {
+          alert("A recusa foi cancelada ou motivo não preenchido.");
+          return false;
+        }
+        form.motivo.value = motivo;
+        return true;
+      }
+    </script>
   </body>
 </html>

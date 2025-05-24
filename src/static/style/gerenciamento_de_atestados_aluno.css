@@ -116,6 +116,18 @@ td {
   padding: 0.313rem;
 }
 
+#alerta{
+    font-family: 'Inder';
+    padding: 1.25rem;
+    background-color: #def1ff;
+    border-radius: 2.81rem;
+    margin-top: 0.93rem;
+    width: 20%;
+    justify-self: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 @media (max-width: 768px) {
   .prompt {
     font-size: 1.25rem;

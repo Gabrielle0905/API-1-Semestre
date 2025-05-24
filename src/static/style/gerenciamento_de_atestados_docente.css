@@ -116,6 +116,17 @@ td {
   margin-top: 1.5rem;
 }
 
+#alerta{
+    font-family: 'Inder';
+    padding: 1.25rem;
+    background-color: #def1ff;
+    border-radius: 2.81rem;
+    margin-top: 0.93rem;
+    width: 20%;
+    justify-self: center;
+    text-align: center;
+}
+
 @media (max-width: 768px) {
   .prompt {
     font-size: 1.25rem;

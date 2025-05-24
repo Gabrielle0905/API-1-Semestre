@@ -251,7 +251,10 @@ def listar_atestados_docente():
     pesquisa = request.args.get("pesquisa", "")
     atestados = get_atestados()
     resultados = filtrar_atestados(atestados, pesquisa)
-    return render_template('gerenciamento_de_atestados_docente.html', atestados = resultados)
+
+    algum_pendente = any(a.get("Status") is None for a in resultados)
+
+    return render_template('gerenciamento_de_atestados_docente.html', atestados = resultados, algum_pendente=algum_pendente)
 
 @app.route("/home/docente/gerenciar_atestados/download/<int:atestado_id>")
 def download_arquivo_docente(atestado_id):
@@ -271,14 +274,13 @@ def download_arquivo_docente(atestado_id):
     else:
         return abort(404, description="Atestado não encontrado.")
 
-@app.route('/home/docente/gerienciar_atestados/excluir')
+@app.route('/home/docente/gerienciar_atestados/excluir', methods=['POST'])
 @login_required(['docente'], rota_login='login_docente')
 def excluir_atestado_docente():
     id_validado = validar_id_do_formulario(request)
 
     if id_validado is None:
-        flash("ID inválido para exclusão.")
-        return redirect(url_for('listar_atestados_alunos'))
+        return redirect(url_for('listar_atestados_docente'))
 
     sucesso = excluir_atestados_porid(id_validado)
 
@@ -292,9 +294,17 @@ def excluir_atestado_docente():
 @app.route('/home/docente/gerenciar_atestados/recusar', methods=['POST'])
 @login_required(['docente'], rota_login='login_docente')
 def recusar_atestado():
-    return none
+    atestados = get_atestados()
+    id_recebido = int(request.form['id'])
+    motivo = request.form['motivo']
 
-    # Salva a alteração no JSON
+    for atestado in atestados:
+        if atestado['ID'] == id_recebido:
+            atestado['Status'] = False
+            atestado['Motivo'] = motivo
+            break
+
+    
     save_atestados(atestados)
     flash('Atestado recusado com sucesso.', 'success')
     return redirect(url_for('listar_atestados_docente'))
