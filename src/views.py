@@ -343,7 +343,15 @@ def gerar_pdf():
 @app.route('/home/docente/estatisticas')
 @login_required(['docente'], rota_login='login_docente')
 def estatisticas_afastamento():
-    return render_template('estatisticas_afastamento.html')
+    with open(caminho_atestados, 'r', encoding='utf-8') as f:
+        atestados = json.load(f)
+    
+    contagem_tipos = {}
+    for a in atestados:
+        tipo = a.get('Tipo', 'Outros')
+        contagem_tipos[tipo] = contagem_tipos.get(tipo, 0) + 1
+        
+    return render_template('estatisticas_afastamento.html', contagem_tipos=contagem_tipos)
 
 @app.route('/home/membro')
 @login_required(['sm', 'po', 'dt'], rota_login='login_membro')
