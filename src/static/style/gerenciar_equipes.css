@@ -14,6 +14,10 @@ header {
     font-size: 1.25rem;  
 }
 
+header span::before{
+        content: "SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum";
+    }
+
 header a {
     text-decoration: none;
     color: white;
@@ -68,4 +72,17 @@ button{
     font-family: 'Inder';
     align-self: center;
     justify-self: center;
+    margin-bottom: 2rem;
+}
+
+@media (max-width:768px){
+    header span::before{
+        content: "SIRAAS";
+    }
+    h1{
+        font-size: 2rem;
+    }
+    header a{
+        display: none;
+    }
 }

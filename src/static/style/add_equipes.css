@@ -97,3 +97,28 @@ a{
     margin: 0.6rem auto 0 auto;
     width: fit-content;
 }
+
+@media (max-width:768px){
+    a{
+        display: none;
+}
+    h1{
+        font-size: 2rem;
+}
+    #membrosimg {
+    width: 75%;
+    justify-self: center;
+}
+    .formbox {
+    border-radius: 2rem;
+    padding: 1rem;
+    width: 80%;
+    margin-bottom: 1.5rem;
+}
+    .btn-enviar {
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    width: 25%;
+    margin-bottom: 0;
+}
+}

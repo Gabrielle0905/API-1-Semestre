@@ -81,7 +81,6 @@ a{
     border-radius: 0.6rem;
     font-size: 1.5rem;
     cursor: pointer;
-    width: 10%;
     margin-top: 1.8rem;
     margin-bottom: 1.25rem;
     color: white;
@@ -96,4 +95,30 @@ a{
     border-radius: 2.8rem;
     margin: 0.6rem auto 0 auto;
     width: fit-content;
+}
+
+@media (max-width:768px){
+    a{
+        display: none;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    img{
+        display: none;
+    }
+    .formbox {
+        border-radius: 2rem;
+        padding: 2rem;
+        width: 80%;
+        margin: auto;
+        margin-bottom: 2rem;
+    }
+
+    .btn-enviar {
+        padding: 0.5rem;
+        border-radius: 1rem;
+        font-size: 1.3rem;
+        width: 30%;
+    }
 }

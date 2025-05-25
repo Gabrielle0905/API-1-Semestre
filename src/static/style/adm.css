@@ -21,6 +21,10 @@ header a {
     margin-left: 0.625rem;
 }
 
+header span::before {
+    content: "SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum";
+}
+
 main{
     display: flex;
     flex-direction: column;
@@ -29,6 +33,10 @@ main{
 h1{
     font-size: 2.5rem;
 }
+
+h1::before{
+        content: "Área de Administração SIRAAS";
+    }
 
 h1,h2{
     text-align: center;
@@ -57,3 +65,24 @@ button {
 section{
     align-self: center;
 }
+
+@media (max-width:768px){
+    header span::before {
+    content: "SIRAAS";
+}
+    header a{
+        font-size: 1.3rem;
+        margin: 0
+}
+    h1{
+        font-size: 2rem;
+}
+    
+    h1::before{
+        content: "Área de Administração";
+}
+    img{
+    width: 80%;
+}
+}
+

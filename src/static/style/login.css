@@ -160,7 +160,14 @@ form{
     .btn-enviar{
     margin-top: 2rem;
     width: 30%;
-    font-size: large;
 }
+    #alerta{
+    padding: 1rem;
+    border-radius: 3rem;
+    margin-top: 1rem;
+    max-width: 60%;
+    text-align: center;
+}
+
 
 }
