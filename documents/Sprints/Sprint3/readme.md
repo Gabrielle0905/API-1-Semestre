@@ -1,7 +1,8 @@
 ## Sprint - 3️⃣🎯
 
-## Vídeo do Site Funcionando (Versão atualizada):
+## Vídeo do Site Completo:
 
+https://github.com/user-attachments/assets/60da744f-809a-46ff-aca8-73a80b7fbd55
 
 ## Backlog da Sprint
 
