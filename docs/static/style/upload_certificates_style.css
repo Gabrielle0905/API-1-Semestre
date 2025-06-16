@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+body {
+    font-family: 'Inder';
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    letter-spacing: 0.03rem;
+    line-height: 1.5;
+    
+}
+
+header {
+    background-color: #5892B7;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.25rem;  
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.56rem;
+    margin-left: 0.625rem;
+}
+
+header span::before{
+    content: 'SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum';
+}
+
+h2 {
+    text-align: center;
+    letter-spacing: 0.03rem;
+}
+
+.topic{
+    letter-spacing: 0.03rem;
+    margin-left: 2.188rem;
+}
+
+#sub{
+    text-align: center; 
+    margin: 1.87rem;
+}
+
+.form-box{
+    background-color: #1d4b72;
+    border-radius: 0.93rem;
+    color: white;
+    text-align: left;
+    margin-left: 2.18rem;
+    margin-right: 3.31rem;
+    padding: 0.62rem;
+}
+
+.form-box label {
+    display: block;
+    margin-top: 0.93rem;
+    margin-bottom: 0.31rem;
+    margin-left: 0.62rem;
+}
+
+.form-box input,
+.form-box select {
+    padding: 0.5rem;
+    margin-top: 0.31rem;
+    border-radius: 0.31rem;
+    border: none;
+    margin-bottom: 0.93rem;
+    display: flex;
+    width: 62%;
+    margin-left: 0.62rem;
+}
+
+.form-box select{
+    width: 63.3%; 
+    padding: 0.56rem;
+}
+
+.btn-enviar {
+    background-color: #1d4b72;
+    font-family: "Inder";
+    padding: 0.62rem;
+    border: none;
+    border-radius: 0.62rem;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 10%;
+    margin-top: 1.87rem;
+    margin-bottom: 1.25rem;
+    color: white;
+}
+
+.btn-enviar:hover {
+    background-color: #3274A0;
+}
+
+.image-box {
+    display: flex;
+    justify-content: center;
+    margin-top: -39.37rem;
+    margin-left: 53.12rem;
+}
+
+.image-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+::placeholder{
+    color:rgb(207, 203, 203);
+    font-family: "Inder";
+}
+
+#tipo,#turma,#data,#file,#arquivo{
+    font-family: "Inder";
+}
+
+input[type="file"] {
+    display:none;
+}
+
+
+.botao-arquivo {
+    background-color:#d6e9fa;
+    color: #4b5563;
+    padding: 0.62rem 1.25rem;
+    border-radius: 0.62rem;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    width: 12%;
+}
+
+.botao-arquivo:hover {
+    background-color: #9badbb;
+}
+
+@media (max-width:768px){
+    img{
+        display: none;
+    }
+    header{
+    height: 10%;
+    justify-content: end;
+    }
+    header a{
+    display: none;
+    }
+    header span::before{
+    content: 'SIRAAS';
+}
+    #sub{
+    width: 85%;
+    font-size: 0.9rem;
+}
+    .topic{
+    justify-self: center;
+    margin: 0.8rem 0;
+        
+    }
+    .form-box{
+    border-radius: 1rem;
+    padding: 0.6rem;
+    justify-self: center;
+    width: 100%;
+    margin: 0;
+}
+    .form-container{
+    width: 80%;
+    justify-content: center;
+    justify-self: center;
+}
+
+    .form-box input,.form-box select {
+    margin-top: 0rem;
+    border-radius: 0.5rem;
+    width: 80%;
+    margin-left: 0.6rem;
+}
+
+    .form-box select{
+    width: 85%; 
+    padding: 0.56rem;
+    font-size: 0.8rem;
+}
+    .botao-arquivo {
+    padding: 0.6rem 1.25rem;
+    border-radius: 2rem;
+    width: 50%;
+}
+    .btn-enviar {
+    border-radius: 0.8rem;
+    font-size: 1rem;
+    width: 30%;
+}
+}

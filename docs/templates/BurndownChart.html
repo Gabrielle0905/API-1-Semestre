@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burndown chart</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/burndown.css')}}">
+</head>
+<body>
+    <header>
+        <button id="seta" style="background-color: #5892B7; padding: 5px; margin: 5px;" onclick="window.location.href='/home/membro'">&larr;</button>
+        <span style="color: #FFFFFF;"></span>
+    </header>
+    <br>
+    <h1>Burndown chart</h1>
+    <br>
+    <h2>O que é?</h2>
+    <br>
+    <p>O Burndown Chart (Gráfico de Queima) é uma ferramenta visual usada em metodologias ágeis, como o Scrum, para acompanhar o progresso de um projeto ao longo do tempo. Ele ajuda as equipes a visualizar quanto trabalho resta para ser feito, comparado com o tempo disponível. A principal função do gráfico é fornecer uma visão clara e rápida do andamento de um projeto ou sprint, ajudando a identificar possíveis problemas de forma antecipada. </p>
+    <br>
+    <section>
+        <figure>
+            <h3>Sprint 1</h3>
+            <img src="{{url_for('static', filename='media/brundown1sprint.png')}}" alt="Burndown chart 1">
+            <br>
+            <h3>Sprint 2</h3>
+            <img src="{{url_for('static', filename='media/burndown2sprint.png')}}" alt="Burndown chart 2">
+            <br>
+            <h3>Sprint 3</h3>
+            <img src="{{url_for('static', filename='media/burndown3sprint.png')}}" alt="Burndown chart 3">
+        </figure>
+    </section>
+    <br>
+</body>
+</html>

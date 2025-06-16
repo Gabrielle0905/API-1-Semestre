@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRAAS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inder&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inder', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #5892B7;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            font-size: 20px;
+        }
+
+        header span::before{
+            content: "SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum";
+        }
+
+        .seta {
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 25px;
+        }
+
+        .exportar {
+            background-color: #1D5175;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 2%;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 12px 20px;
+            font-family: 'Inder';
+            margin-bottom: 2rem;
+        }
+
+        div {
+            justify-content: center;
+            display: flex;
+        }
+
+        #imgdiv {
+            background-color: #1D5175;
+            margin: auto;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            width: 60%;
+            border-radius: 8px;
+            margin-top: 2%;
+        }
+
+        #grafico {
+            scale: 1.2;
+            height: 5%;
+        }
+        @media (max-width: 768px) {
+            header span::before{
+            content: "SIRAAS";
+        }
+            #grafico {
+            scale: 1;
+            height: 2%;
+        }
+            #imgdiv {
+            margin: auto;
+            padding: 2rem;
+            width: 75%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+            .seta {
+            display: none;
+        }
+
+
+        }    
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="/home/docente">
+            <button class="seta">&larr;</button>
+        </a>
+        <span></span>
+    </header>
+
+    <div id="imgdiv">
+        <div id="grafico">
+            <canvas id="graficoPizza"></canvas>
+        </div>
+    </div>    
+    <div>
+        <button class="exportar">Exportar relatório</button>
+    </div>
+    <script>
+        const dados = {{ contagem_tipos|tojson|safe }};
+        const ctx = document.getElementById('graficoPizza').getContext('2d');
+        const labels = Object.keys(dados);
+        const valores = Object.values(dados);
+        const graficoPizza = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '',
+                    data: valores,
+                    backgroundColor: [
+                        'rgba(255, 255, 255, 0.6)',
+                        'rgba(72, 114, 170, 1)',
+                        'rgba(129, 176, 205, 1)',
+                        'rgba(255, 187, 22, 1)',
+                        'rgba(233, 139, 78, 1)',
+                        'rgba(102, 204, 153, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderColor: [
+                        'rgba(29, 74, 114, 0.7)',
+                        'rgba(72, 114, 170, 0.7)',
+                        'rgba(129, 176, 205, 0.7)',
+                        'rgba(255, 187, 22, 0.7)',
+                        'rgba(233, 139, 78, 0.7)',
+                        'rgba(102, 204, 153, 0.7)',
+                        'rgba(255, 99, 132, 0.7)'
+                    ],
+                    borderWidth: 1,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: 'white',
+                            font: {
+                                family: 'Inder',
+                                size: 14
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        document.querySelector('.exportar').addEventListener('click', function () {
+            // Inclui BOM para compatibilidade com Excel + separador ;
+            let csvContent = "\uFEFFTipo;Quantidade\n";
+
+            for (let tipo in dados) {
+                csvContent += `${tipo};${dados[tipo]}\n`;
+            }
+
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", "relatorio_atestados.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Scrum Master</title>
+    <link rel="stylesheet" href="../templates/login_membro.html">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/home_master.css')}}">
+</head>
+<body>
+    <header>
+        <button style="background-color: rgb(88, 146, 183); padding: 0.31rem; margin: 0.31rem; font-size: 1.12rem;"
+            onclick="window.location.href='/'">Sair</button>
+        <span id="titulo"></span>
+    </header>
+    <h1>Olá {{ nome }}!</h1>
+    <div class="content">
+        <img src="{{url_for('static', filename='media/areamembro.png')}}" alt="Friends Talking">
+        <div class="text-container">
+            <h2 class="subtitle">Você sabe como funciona a metodologia Scrum?</h2>
+            <p id="p1">A metodologia Scrum é uma abordagem ágil para o gerenciamento de projetos, especialmente em
+                ambientes
+                de
+                desenvolvimento de software. Ela busca entregar resultados de forma incremental e interativa, com foco
+                em
+                flexibilidade, colaboração e comunicação constante entre todos os membros da equipe.</p>
+            <p id="p2">Scrum é baseado em ciclos curtos de trabalho chamados sprints, que geralmente duram de uma a
+                quatro
+                semanas. Cada sprint tem o objetivo de entregar uma parte funcional do produto final. Durante o
+                processo, a
+                equipe trabalha de forma autônoma, mas sempre com a supervisão de um Scrum Master, que é responsável por
+                garantir que o processo seja seguido corretamente e remover obstáculos que possam surgir. O Product
+                Owner
+                (dono
+                do produto) é o responsável por priorizar as tarefas e garantir que o que está sendo desenvolvido atenda
+                às
+                necessidades do cliente ou usuário final.</p>
+            <p id="p3">Scrum é uma metodologia ágil usada para gerenciar projetos, especialmente no desenvolvimento de
+                software.
+                Ela se baseia em ciclos curtos de trabalho chamados sprints (1 a 4 semanas), nos quais a equipe entrega
+                partes
+                funcionais do produto. O Scrum Master garante que o processo seja seguido e remove obstáculos. O Product
+                Owner
+                define as prioridades e assegura que o produto atenda às necessidades do cliente. A equipe trabalha de
+                forma
+                colaborativa, com foco em entregas rápidas, comunicação constante e adaptação contínua.</p>
+        </div>
+    </div>
+    <h2 class="area_of_buttons">O que você deseja fazer?</h2>
+    <br>
+    <section class="flex-container botoes">
+        <div class="btn-container">
+            <button onclick="window.location.href='/home/membro/avaliar'" id="btn_av"></button>
+            <button onclick="window.location.href='/home/membro/gerenciar'">Gerenciar Avaliações</button>
+            <button onclick="window.location.href='/home/membro/burndown'">Burndown Chart</button>
+            <button onclick="window.location.href='/home/master/registroscrum'" id="btn_cad"></button>
+        </div>
+    </section>
+
+    <script>
+        const user_type = "{{ user_type }}";
+        const btn = document.getElementById('btn_cad');
+
+        if (user_type === 'dt' || user_type === 'po') {
+            btn.disabled = true;
+            btn.style.opacity = 0.5;
+            btn.innerText = "Acesso bloqueado";
+            btn.style.cursor = "not-allowed";
+        }
+
+        function ajustarTexto() {
+            const titulo = document.getElementById('titulo');
+            const largura = window.innerWidth;
+            const btn_cad = document.getElementById('btn_cad')
+            const btn_av = document.getElementById('btn_av')
+
+            if (largura <= 768) {
+                titulo.textContent = "SIRAAS";
+                btn_cad.textContent = 'Cadastrar Membros';
+                btn_av.textContent = 'Avaliar Membros';
+            } else {
+                titulo.textContent = "SIRAAS - Sistema de Registro de Atestados e Avaliação Scrum";
+                btn_cad.textContent = 'Cadastrar Membros da Equipe';
+                btn_av.textContent = 'Avaliar Membros da Equipe';
+            }
+        }
+        ajustarTexto();
+        window.addEventListener('resize', ajustarTexto);
+    </script>
+</body>
+</html>
