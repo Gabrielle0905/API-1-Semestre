@@ -38,5 +38,6 @@ if not os.path.exists(caminho_equipes):
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
+    print("Porta que o app vai usar:", port)
     app.run(host='0.0.0.0', port=port, debug=True)
 
