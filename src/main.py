@@ -36,5 +36,7 @@ if not os.path.exists(caminho_equipes):
     with open(caminho_equipes, 'w') as u:
         json.dump({}, u)
 
-if __name__ == '__main__' :
-    app.run(debug=True)
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
+
