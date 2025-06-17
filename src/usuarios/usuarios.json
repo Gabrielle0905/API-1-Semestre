@@ -66,5 +66,17 @@
         "senha": "scrypt:32768:8:1$EIC3J9KMoAXxqBzX$1759284b2ab00c20922f905fafea9d12a268899aa55c5525b4e603ed08c5b3d16be057acbcc0044544cb33d4b786e8d71fb25ccc72ba60d360b690bf1c46a001",
         "funcao": "dt",
         "equipe": "404 Not Found"
+    },
+    "204": {
+        "nome": "Jos\u00e9 Silva",
+        "email": "josesilva@gmail.com",
+        "senha": "scrypt:32768:8:1$i4l28EWhosXNxc4o$12a250a7dff172fc601e479c4e3a2c54975b7daf10b1d34311654de3b8359f3239d6e1c0a26d39d6acf342586cf287cc2a672709545445f49187ce1b7a989056",
+        "funcao": "aluno"
+    },
+    "402": {
+        "nome": "Egydio Gra\u00e7a ",
+        "email": "egydio@gmail.com",
+        "senha": "scrypt:32768:8:1$u9MgTDJFDPPHWlmL$bc42e0011399a258a43e636725a69447d880ecd797b93897926a604495cc66f874243fda0b71c815a62180b0f4905a3120f48d8c71d0c8f022ee65a9de4a692b",
+        "funcao": "docente"
     }
 }
